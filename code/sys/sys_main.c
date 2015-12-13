@@ -47,6 +47,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "../game/q_shared.h"
 #include "../qcommon/qcommon.h"
 
+#ifdef MACOS_X
+#include <CoreFoundation/CoreFoundation.h>
+#endif
+
 static char     binaryPath[MAX_OSPATH] = { 0 };
 static char     installPath[MAX_OSPATH] = { 0 };
 
@@ -100,7 +104,15 @@ Sys_DefaultAppPath
 */
 char           *Sys_DefaultAppPath(void)
 {
+#ifndef MACOS_X
 	return Sys_BinaryPath();
+#else
+    char resourcesPath[MAX_OSPATH];
+    
+    CFURLGetFileSystemRepresentation(CFBundleCopyResourcesDirectoryURL(CFBundleGetMainBundle()), 1, (UInt8 *)resourcesPath, MAX_OSPATH);
+    
+    return resourcesPath;
+#endif
 }
 
 /*

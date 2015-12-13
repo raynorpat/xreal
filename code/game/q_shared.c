@@ -177,26 +177,17 @@ const char     *Com_GetExtension(const char *name)
 Com_StripExtension
 ============
 */
-void Com_StripExtension(const char *src, char *dest, int destsize)
+void Com_StripExtension(const char *in, char *out, int destsize)
 {
-	int             length;
+    const char *dot = strrchr(in, '.'), *slash;
 
-	Q_strncpyz(dest, src, destsize);
+    if (dot && (!(slash = strrchr(in, '/')) || slash < dot))
+        destsize = (destsize < dot-in+1 ? destsize : dot-in+1);
 
-	length = strlen(dest) - 1;
-
-	while(length > 0 && dest[length] != '.')
-	{
-		length--;
-
-		if(dest[length] == '/')
-			return;				// no extension
-	}
-
-	if(length)
-	{
-		dest[length] = 0;
-	}
+    if ( in == out && destsize > 1 )
+        out[destsize-1] = '\0';
+    else
+        Q_strncpyz(out, in, destsize);
 }
 
 
@@ -1496,7 +1487,7 @@ void Info_RemoveKey(char *s, const char *key)
 
 		if(!strcmp(key, pkey))
 		{
-			strcpy(start, s);	// remove this part
+            memmove(start, s, strlen(s) + 1); // remove this part
 			return;
 		}
 
@@ -1554,7 +1545,7 @@ void Info_RemoveKey_Big(char *s, const char *key)
 
 		if(!strcmp(key, pkey))
 		{
-			strcpy(start, s);	// remove this part
+			memmove(start, s, strlen(s) + 1); // remove this part
 			return;
 		}
 

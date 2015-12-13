@@ -92,16 +92,13 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     set_target_properties(${XREAL_CLIENT_NAME} PROPERTIES XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/../Frameworks @executable_path/../Resources/base @executable_path/../Resources/libs")
     set_source_files_properties(../sys/mac/xreal_icon.icns PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
 
-    set_source_files_properties(../mac/Frameworks                 PROPERTIES MACOSX_PACKAGE_LOCATION .)
+    set_source_files_properties(../sys/mac/Frameworks             PROPERTIES MACOSX_PACKAGE_LOCATION .)
     set_source_files_properties(../../../${GAME_DATA_DIR}/base 	  PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
     set_source_files_properties(../../../${GAME_DATA_DIR}/docs    PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
 
     set(BUNDLE_PATH ${CMAKE_HOME_DIRECTORY}/build/$(CONFIGURATION)/${XREAL_CLIENT_NAME}.app/Contents)
     set(COPY_DYLIBS
-        cp -r ${CMAKE_HOME_DIRECTORY}/build/$(CONFIGURATION)/base/ ${BUNDLE_PATH}/Resources/base/ &&
-        cp -r ${CMAKE_HOME_DIRECTORY}/build/$(CONFIGURATION)/libs/ ${BUNDLE_PATH}/Resources/libs/ &&
-        cd ${BUNDLE_PATH}/Resources/ &&
-        ln -sfh ./base/ ${BUNDLE_PATH}/Resources/base
+        cp -r ${CMAKE_HOME_DIRECTORY}/build/$(CONFIGURATION)/base/ ${BUNDLE_PATH}/Resources/base/
     )
 
     add_custom_command(TARGET ${XREAL_CLIENT_NAME} POST_BUILD COMMAND ${COPY_DYLIBS})
