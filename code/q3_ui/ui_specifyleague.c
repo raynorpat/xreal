@@ -23,6 +23,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 #include "ui_local.h"
 
+#if 0
+
 /*********************************************************************************
 	SPECIFY SERVER
 *********************************************************************************/
@@ -330,3 +332,5 @@ void UI_SpecifyLeagueMenu(void)
 	SpecifyLeague_MenuInit();
 	UI_PushMenu(&s_specifyleague.menu);
 }
+
+#endif

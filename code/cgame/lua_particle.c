@@ -21,11 +21,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 // lua_particle.c -- particle library for Lua
 
+#include "cg_local.h"
 
+#ifdef LUA
 #include <lua.h>
 #include <lauxlib.h>
 #include <lualib.h>
-#include "cg_local.h"
 
 static int particle_Spawn(lua_State * L)
 {
@@ -356,3 +357,5 @@ lua_Particle   *lua_getparticle(lua_State * L, int argNum)
 	luaL_argcheck(L, ud != NULL, argNum, "`particle' expected");
 	return (lua_Particle *) ud;
 }
+
+#endif

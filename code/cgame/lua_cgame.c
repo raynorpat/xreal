@@ -21,11 +21,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 // lua_cgame.c -- cgame library for Lua
 
+#include "cg_local.h"
 
+#ifdef LUA
 #include <lua.h>
 #include <lauxlib.h>
 #include <lualib.h>
-#include "cg_local.h"
 
 static int cgame_Print(lua_State * L)
 {
@@ -87,3 +88,5 @@ int luaopen_cgame(lua_State * L)
 
 	return 1;
 }
+
+#endif

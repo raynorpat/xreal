@@ -22,6 +22,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // sv_rankings.c -- global rankings interface
 
 #include "server.h"
+
+#if 0
 #include "..\rankings\1.0\gr\grapi.h"
 #include "..\rankings\1.0\gr\grlog.h"
 
@@ -1387,3 +1389,5 @@ static void SV_RankError(const char *fmt, ...)
 	Cvar_Set("sv_rankingsActive", "0");
 	// FIXME - attempt clean shutdown?
 }
+
+#endif

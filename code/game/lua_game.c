@@ -21,11 +21,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 // lua_game.c -- qagame library for Lua
 
+#include "g_local.h"
 
+#ifdef LUA
 #include <lua.h>
 #include <lauxlib.h>
 #include <lualib.h>
-#include "g_local.h"
 
 static int game_Print(lua_State * L)
 {
@@ -102,3 +103,5 @@ int luaopen_game(lua_State * L)
 
 	return 1;
 }
+
+#endif

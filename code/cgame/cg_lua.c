@@ -20,16 +20,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ===========================================================================
 */
 //
-// g_lua.c
+// cg_lua.c
 
+#include "cg_local.h"
+
+#ifdef LUA
 #include <lua.h>
 #include <lauxlib.h>
 #include <lualib.h>
-#include "cg_local.h"
-
-#define MAX_LUAFILE 32768
 
 static lua_State *cg_luaState = NULL;
+#endif
+
+#define MAX_LUAFILE 32768
 
 /*
 ============
@@ -49,6 +52,7 @@ void CG_InitLua()
 
 	CG_Printf("------- CGame Lua Initialization -------\n");
 
+#ifdef LUA
 	cg_luaState = lua_open();
 
 	// Lua standard lib
@@ -83,7 +87,8 @@ void CG_InitLua()
 	CG_Printf("result of testVectors() is %f\n", out);
 	//CG_Printf("result of testVectors() is %i %i %i\n", (int)out[0], (int)out[1], (int)out[2]);
 #endif
-
+#endif
+    
 	CG_Printf("-----------------------------------\n");
 }
 
@@ -98,12 +103,14 @@ void CG_ShutdownLua()
 {
 	CG_Printf("------- Game Lua Finalization -------\n");
 
+#ifdef LUA
 	if(cg_luaState)
 	{
 		lua_close(cg_luaState);
 		cg_luaState = NULL;
 	}
-
+#endif
+    
 	CG_Printf("-----------------------------------\n");
 }
 
@@ -138,12 +145,14 @@ void CG_LoadLuaScript(const char *filename)
 	trap_FS_Read(buf, len, f);
 	buf[len] = 0;
 	trap_FS_FCloseFile(f);
-
+    
+#ifdef LUA
 	if(luaL_loadbuffer(cg_luaState, buf, strlen(buf), filename))
 		CG_Printf("G_RunLuaScript: cannot load lua file: %s\n", lua_tostring(cg_luaState, -1));
 
 	if(lua_pcall(cg_luaState, 0, 0, 0))
 		CG_Printf("G_RunLuaScript: cannot pcall: %s\n", lua_tostring(cg_luaState, -1));
+#endif
 }
 
 /*
@@ -153,6 +162,7 @@ CG_RunLuaFunction
 */
 void CG_RunLuaFunction(const char *func, const char *sig, ...)
 {
+#ifdef LUA
 	va_list         vl;
 	int             narg, nres;	// number of arguments and results
 	lua_State      *L = cg_luaState;
@@ -264,6 +274,7 @@ void CG_RunLuaFunction(const char *func, const char *sig, ...)
 		nres++;
 	}
 	va_end(vl);
+#endif
 }
 
 
@@ -274,6 +285,7 @@ CG_DumpLuaStack
 */
 void CG_DumpLuaStack()
 {
+#ifdef LUA
 	int             i;
 	lua_State      *L = cg_luaState;
 	int             top = lua_gettop(L);
@@ -309,6 +321,7 @@ void CG_DumpLuaStack()
 		CG_Printf("  ");		// put a separator
 	}
 	CG_Printf("\n");			// end the listing
+#endif
 }
 
 

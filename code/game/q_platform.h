@@ -109,7 +109,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 //============================================================== MAC OS X ===
 
-#if defined(MACOS_X) || defined(__APPLE_CC__)
+#if defined ( __APPLE__ ) && defined ( __MACH__ )
 
 // make sure this is defined, just for sanity's sake...
 #ifndef MACOS_X
@@ -125,6 +125,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define Q3_BIG_ENDIAN
 #elif defined __i386__
 #define ARCH_STRING "i386"
+#define Q3_LITTLE_ENDIAN
+#elif defined __x86_64__
+#define ARCH_STRING "x86_64"
 #define Q3_LITTLE_ENDIAN
 #endif
 

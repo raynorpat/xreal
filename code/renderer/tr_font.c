@@ -69,7 +69,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "tr_local.h"
 #include "../qcommon/qcommon.h"
 
-#include "../png/png.h"
+#include <png/png.h>
 
 #ifdef BUILD_FREETYPE
 //#include <freetype/fterrors.h>

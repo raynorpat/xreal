@@ -21,6 +21,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ===========================================================================
 */
 
+#if 0
+
 #ifndef MISSIONPACK				// bk001204
 #error This file not be used for classic Q3A.
 #endif
@@ -2299,3 +2301,5 @@ void CG_GetTeamColor(vec4_t * color)
 		(*color)[3] = 0.25f;
 	}
 }
+
+#endif

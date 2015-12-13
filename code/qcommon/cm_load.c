@@ -466,7 +466,7 @@ void CMod_LoadEntityString(lump_t * l)
 
 		if(!*token)
 		{
-			Com_Printf(S_COLOR_YELLOW "WARNING: unexpected end of entities string while parsing worldspawn\n", token);
+			Com_Printf(S_COLOR_YELLOW "WARNING: unexpected end of entities string while parsing worldspawn\n");
 			break;
 		}
 

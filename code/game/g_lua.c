@@ -22,15 +22,56 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 //
 // g_lua.c
 
+#include "g_local.h"
+
+#ifdef LUA
 #include <lua.h>
 #include <lauxlib.h>
 #include <lualib.h>
-#include "g_local.h"
+static lua_State *g_luaState = NULL;
+#endif
 
 #define MAX_LUAFILE 32768
 
-static lua_State *g_luaState = NULL;
-
+/*
+=================
+G_LoadLuaScript
+=================
+*/
+void G_LoadLuaScript(gentity_t * ent, const char *filename)
+{
+    int             len;
+    fileHandle_t    f;
+    char            buf[MAX_LUAFILE];
+    
+    G_Printf("...loading '%s'\n", filename);
+    
+    len = trap_FS_FOpenFile(filename, &f, FS_READ);
+    if(!f)
+    {
+        trap_Printf(va(S_COLOR_RED "file not found: %s\n", filename));
+        return;
+    }
+    
+    if(len >= MAX_LUAFILE)
+    {
+        trap_Printf(va(S_COLOR_RED "file too large: %s is %i, max allowed is %i\n", filename, len, MAX_LUAFILE));
+        trap_FS_FCloseFile(f);
+        return;
+    }
+    
+    trap_FS_Read(buf, len, f);
+    buf[len] = 0;
+    trap_FS_FCloseFile(f);
+    
+#ifdef LUA
+    if(luaL_loadbuffer(g_luaState, buf, strlen(buf), filename))
+        G_Printf("G_RunLuaScript: cannot load lua file: %s\n", lua_tostring(g_luaState, -1));
+    
+    if(lua_pcall(g_luaState, 0, 0, 0))
+        G_Printf("G_RunLuaScript: cannot pcall: %s\n", lua_tostring(g_luaState, -1));
+#endif
+}
 
 /*
 ============
@@ -39,10 +80,8 @@ G_InitLua_Global
 load multiple global precreated lua scripts
 ============
 */
-
 void G_InitLua_Global()
 {
-
 	int             numdirs;
 	int             numFiles;
 	char            filename[128];
@@ -64,11 +103,9 @@ void G_InitLua_Global()
 
 		// load the file
 		G_LoadLuaScript(NULL, filename);
-
 	}
 
 	Com_Printf("%i global files parsed\n", numFiles);
-
 }
 
 /*
@@ -78,10 +115,8 @@ G_InitLua_Local
 load multiple lua scripts from the maps directory
 ============
 */
-
 void G_InitLua_Local(char mapname[MAX_STRING_CHARS])
 {
-
 	int             numdirs;
 	int             numFiles;
 	char            filename[128];
@@ -107,9 +142,7 @@ void G_InitLua_Local(char mapname[MAX_STRING_CHARS])
 	}
 
 	Com_Printf("%i local files parsed\n", numFiles);
-
 }
-
 
 /*
 ============
@@ -122,6 +155,7 @@ void G_InitLua()
 
 	G_Printf("------- Game Lua Initialization -------\n");
 
+#ifdef LUA
 	g_luaState = lua_open();
 
 	// Lua standard lib
@@ -133,6 +167,7 @@ void G_InitLua()
 	luaopen_game(g_luaState);
 	luaopen_qmath(g_luaState);
 	luaopen_vector(g_luaState);
+#endif
 
 	// load global scripts
 	G_Printf("global lua scripts:\n");
@@ -159,53 +194,17 @@ void G_ShutdownLua()
 {
 	G_Printf("------- Game Lua Finalization -------\n");
 
+#ifdef LUA
 	if(g_luaState)
 	{
 		lua_close(g_luaState);
 		g_luaState = NULL;
 	}
+#endif
 
 	G_Printf("-----------------------------------\n");
 }
 
-
-/*
-=================
-G_LoadLuaScript
-=================
-*/
-void G_LoadLuaScript(gentity_t * ent, const char *filename)
-{
-	int             len;
-	fileHandle_t    f;
-	char            buf[MAX_LUAFILE];
-
-	G_Printf("...loading '%s'\n", filename);
-
-	len = trap_FS_FOpenFile(filename, &f, FS_READ);
-	if(!f)
-	{
-		trap_Printf(va(S_COLOR_RED "file not found: %s\n", filename));
-		return;
-	}
-
-	if(len >= MAX_LUAFILE)
-	{
-		trap_Printf(va(S_COLOR_RED "file too large: %s is %i, max allowed is %i\n", filename, len, MAX_LUAFILE));
-		trap_FS_FCloseFile(f);
-		return;
-	}
-
-	trap_FS_Read(buf, len, f);
-	buf[len] = 0;
-	trap_FS_FCloseFile(f);
-
-	if(luaL_loadbuffer(g_luaState, buf, strlen(buf), filename))
-		G_Printf("G_RunLuaScript: cannot load lua file: %s\n", lua_tostring(g_luaState, -1));
-
-	if(lua_pcall(g_luaState, 0, 0, 0))
-		G_Printf("G_RunLuaScript: cannot pcall: %s\n", lua_tostring(g_luaState, -1));
-}
 
 /*
 =================
@@ -214,6 +213,7 @@ G_RunLuaFunction
 */
 void G_RunLuaFunction(const char *func, const char *sig, ...)
 {
+#ifdef LUA
 	va_list         vl;
 	int             narg, nres;	// number of arguments and results
 	lua_State      *L = g_luaState;
@@ -311,6 +311,7 @@ void G_RunLuaFunction(const char *func, const char *sig, ...)
 		nres++;
 	}
 	va_end(vl);
+#endif
 }
 
 
@@ -321,6 +322,7 @@ G_DumpLuaStack
 */
 void G_DumpLuaStack()
 {
+#ifdef LUA
 	int             i;
 	lua_State      *L = g_luaState;
 	int             top = lua_gettop(L);
@@ -356,4 +358,5 @@ void G_DumpLuaStack()
 		G_Printf("  ");			// put a separator
 	}
 	G_Printf("\n");				// end the listing
+#endif
 }

@@ -31,8 +31,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ** QGL_Shutdown() - unloads libraries, NULLs function pointers
 */
 
-#include "SDL.h"
-#include "SDL_loadso.h"
+#include "SDL/SDL.h"
+#include "SDL/SDL_loadso.h"
 
 #include "qgl.h"
 #include "tr_local.h"

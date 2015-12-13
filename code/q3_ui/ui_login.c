@@ -27,6 +27,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include "ui_local.h"
 
+#if 0
 
 #define LOGIN_FRAME		"menu/art/cut_frame"
 
@@ -209,3 +210,5 @@ void UI_LoginMenu(void)
 	Login_MenuInit();
 	UI_PushMenu(&s_login.menu);
 }
+
+#endif

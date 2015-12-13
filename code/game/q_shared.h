@@ -30,6 +30,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define PRODUCT_NAME            "XreaL"
 #define PRODUCT_VERSION         "0.8.1"
 
+#define STANDALONE
+
 #ifdef SVN_VERSION
 # define Q3_VERSION PRODUCT_NAME " " SVN_VERSION
 #else
@@ -92,6 +94,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #endif
 #endif
 // *INDENT-ON*
+
+#if (defined _MSC_VER)
+#define Q_EXPORT __declspec(dllexport)
+#elif (defined __SUNPRO_C)
+#define Q_EXPORT __global
+#elif ((__GNUC__ >= 3) && (!__EMX__) && (!sun))
+#define Q_EXPORT __attribute__((visibility("default")))
+#else
+#define Q_EXPORT
+#endif
 
 /**********************************************************************
   VM Considerations

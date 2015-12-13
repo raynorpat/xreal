@@ -23,6 +23,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // g_rankings.c -- reports for global rankings system
 
 #include "g_local.h"
+
+#if 0
 #include "g_rankings.h"
 
 /*
@@ -1121,3 +1123,5 @@ void G_RankGameOver(void)
 	trap_Cvar_VariableStringBuffer("version", str, sizeof(str));
 	trap_RankReportStr(-1, -1, QGR_KEY_VERSION, str);
 }
+
+#endif

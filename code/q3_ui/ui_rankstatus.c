@@ -27,6 +27,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include "ui_local.h"
 
+#if 0
 
 #define RANKSTATUS_FRAME		"menu/art/cut_frame"
 
@@ -213,3 +214,5 @@ void UI_RankStatusMenu(void)
 	trap_CL_UI_RankUserReset();
 	UI_PushMenu(&s_rankstatus.menu);
 }
+
+#endif

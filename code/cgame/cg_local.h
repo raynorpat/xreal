@@ -32,10 +32,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // If you absolutely need something stored, it can either be kept
 // by the server in the server stored userinfos, or stashed in a cvar.
 
-#ifndef LUA
-#define LUA
-#endif
-
 #define CG_FONT_THRESHOLD	0.1
 
 #define	POWERUP_BLINKS		5

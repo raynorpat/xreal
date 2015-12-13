@@ -35,10 +35,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #define	GAMEVERSION	"XreaL"
 
-#ifndef LUA
-#define LUA
-#endif
-
 // Tr3B: added this to compile with different bot versions
 //#define GLADIATOR
 //#define BRAINWORKS

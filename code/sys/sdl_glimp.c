@@ -23,7 +23,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #ifdef USE_LOCAL_HEADERS
 #	include "SDL.h"
 #else
-#	include <SDL.h>
+#	include <SDL/SDL.h>
 #endif
 
 #if !SDL_VERSION_ATLEAST(1, 2, 10)
@@ -37,7 +37,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #	ifdef USE_LOCAL_HEADERS
 #		include "SDL_thread.h"
 #	else
-#		include <SDL_thread.h>
+#		include <SDL/SDL_thread.h>
 #	endif
 #endif
 
@@ -50,7 +50,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "../client/client.h"
 #include "../sys/sys_local.h"
 #include "sdl_icon.h"
-#include "SDL_syswm.h"
+//#include <SDL/SDL_syswm.h>
 
 /* Just hack it for now. */
 #ifdef MACOS_X

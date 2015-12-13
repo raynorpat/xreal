@@ -36,8 +36,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #	include "SDL.h"
 #	include "SDL_cpuinfo.h"
 #else
-#	include <SDL.h>
-#	include <SDL_cpuinfo.h>
+#	include <SDL/SDL.h>
+#	include <SDL/SDL_cpuinfo.h>
 #endif
 #endif
 
@@ -406,8 +406,12 @@ void           *Sys_LoadDll(const char *name, char *fqpath,
 
 	assert(name);
 
+#ifndef MACOS_X
 	Q_snprintf(fname, sizeof(fname), "%s" ARCH_STRING DLL_EXT, name);
-
+#else
+    Q_snprintf(fname, sizeof(fname), "%s_mac" DLL_EXT, name);
+#endif
+    
 	// TODO: use fs_searchpaths from files.c
 	pwdpath = Sys_Cwd();
 	basepath = Cvar_VariableString("fs_basepath");
