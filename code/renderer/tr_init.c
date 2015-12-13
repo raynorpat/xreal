@@ -632,7 +632,7 @@ static void RB_TakeScreenshotJPEG(int x, int y, int width, int height, char *fil
 	}
 
 	ri.FS_WriteFile(fileName, buffer, 1);	// create path
-	SaveJPG(fileName, 90, glConfig.vidWidth, glConfig.vidHeight, buffer);
+	RE_SaveJPG(fileName, 90, glConfig.vidWidth, glConfig.vidHeight, buffer, 0);
 
 	ri.Hunk_FreeTempMemory(buffer);
 }
@@ -944,7 +944,7 @@ const void     *RB_TakeVideoFrameCmd(const void *data)
 
 	if(cmd->motionJpeg)
 	{
-		frameSize = SaveJPGToBuffer(cmd->encodeBuffer, 90, cmd->width, cmd->height, cmd->captureBuffer);
+		frameSize = RE_SaveJPGToBuffer(cmd->encodeBuffer, cmd->height * cmd->width * 3, 90, cmd->width, cmd->height, cmd->captureBuffer, 0);
 		ri.CL_WriteAVIVideoFrame(cmd->encodeBuffer, frameSize);
 	}
 	else

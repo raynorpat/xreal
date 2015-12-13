@@ -2970,8 +2970,8 @@ void            RE_StretchPic(float x, float y, float w, float h, float s1, floa
 void            RE_BeginFrame(stereoFrame_t stereoFrame);
 void            RE_EndFrame(int *frontEndMsec, int *backEndMsec);
 
-void            SaveJPG(char *filename, int quality, int image_width, int image_height, unsigned char *image_buffer);
-int             SaveJPGToBuffer(byte * buffer, int quality, int image_width, int image_height, byte * image_buffer);
+void            RE_SaveJPG(char * filename, int quality, int image_width, int image_height, byte *image_buffer, int padding);
+size_t          RE_SaveJPGToBuffer(byte *buffer, size_t bufSize, int quality, int image_width, int image_height, byte *image_buffer, int padding);
 
 void            SavePNG(const char *name, const byte * pic, int width, int height);
 
