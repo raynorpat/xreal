@@ -1,0 +1,22 @@
+
+models/projectiles/grenade/grenade
+{
+	{
+		stage diffuseMap
+		map	models/projectiles/grenade/grenade.tga
+	}
+	normalMap models/projectiles/grenade/grenade_bump.png
+	specularMap models/projectiles/grenade/grenade_spec.tga
+	{
+		map models/projectiles/grenade/grenade_glow.tga
+		blend add
+	}
+}
+
+models/weapons2/grenadel/gl_d
+{
+	diffuseMap models/weapons/grenadel/gl_d.tga
+	bumpMap models/weapons/grenadel/gl_n3.tga
+	specularMap models/weapons/grenadel/gl_s.tga
+
+}

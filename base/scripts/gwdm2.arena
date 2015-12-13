@@ -1,0 +1,7 @@
+{
+	map  "gwdm2"
+	longname "gwdm2"
+	bots  "Visor"
+	fraglimit 10
+	type  "ffa tourney team"
+}

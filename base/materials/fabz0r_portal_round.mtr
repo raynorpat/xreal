@@ -1,0 +1,57 @@
+
+/*
+textures/fabz0r/portal/round
+{
+	twoSided
+	
+	{
+		stage normalMap
+		map		textures/fabz0r/portal/round_normal.png
+		rotate time * 50
+	}
+
+	{
+		stage reflectionMap
+	    blend gl_dst_alpha, gl_one
+	    maskalpha
+       	cubeMap		env/fabz0r/gen2
+		color		0.0, 0.0, 1.0, 1.0
+		//red		Parm0
+	    //green   Parm1
+	    //blue	Parm2
+		//blend GL_ONE_MINUS_DST_COLOR, GL_ZERO
+		//blend GL_DST_COLOR, GL_ZERO
+		//cubeMap cubemaps/ss512
+	}
+}
+*/
+
+textures/fabz0r/portal/round
+{
+	qer_editorimage textures/otty_sfx/portal_base.tga
+	
+	noimpact
+	nomarks
+	trans
+	
+	cull disable
+	sort postProcess
+ 
+	{
+		blend blend
+		map textures/otty_sfx/portal_base.tga
+		clamp
+   		rotate -40 * time
+	}
+
+	sort postProcess
+	{
+		stage	heathazemap
+		map		textures/fabz0r/portal/round_normal.png
+		clamp
+		deformMagnitude 10.0
+  		rotate 40 * time
+		//centerScale 0.9, 0.9
+    	blend blend
+   	}
+}

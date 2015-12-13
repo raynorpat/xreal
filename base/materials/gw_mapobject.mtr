@@ -1,0 +1,53 @@
+
+models/mapobjects/gw/fan
+{ 
+      qer_editorimage	models/mapobjects/gw/fan_local.tga
+      
+      diffusemap	models/mapobjects/gw/fan_d.tga
+      bumpmap		models/mapobjects/gw/fan_local.tga
+      specularmap	models/mapobjects/gw/fan_s.tga
+}
+
+models/mapobjects/gw/piller
+{ 
+      qer_editorimage	models/mapobjects/gw/piller_local.tga
+      
+      diffusemap	models/mapobjects/gw/piller_d.tga
+      bumpmap		models/mapobjects/gw/piller_local.tga
+      specularmap	models/mapobjects/gw/piller_s.tga
+}
+
+models/mapobjects/gw/teleporter_01
+{ 
+      qer_editorimage	models/mapobjects/gw/teleporter_01_local.tga
+      
+      diffusemap	models/mapobjects/gw/teleporter_01_d.tga
+      bumpmap		models/mapobjects/gw/teleporter_01_local.tga
+      specularmap	models/mapobjects/gw/teleporter_01_s.tga
+}
+
+models/mapobjects/gw/chainlink_fence
+{
+	qer_editorimage models/mapobjects/gw/chainlink_fence_d.tga
+	nonsolid
+    twosided
+	alphashadow
+	 
+    bumpmap models/mapobjects/gw/chainlink_fence_local.tga
+    specularmap models/mapobjects/gw/chainlink_fence_s.tga
+
+	{
+		blend diffusemap
+		alphatest .5
+		map		models/mapobjects/gw/chainlink_fence_d.tga
+    }
+}
+
+models/mapobjects/gw/fencepost
+{
+	qer_editorimage models/mapobjects/gw/fencepost_d.tga
+    
+	diffusemap models/mapobjects/gw/fencepost_d.tga
+    bumpmap    models/mapobjects/gw/fencepost_local.tga
+    specularmap models/mapobjects/gw/fencepost_s.tga
+}

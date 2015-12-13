@@ -1,0 +1,384 @@
+
+Version 2
+// entity 0
+{
+"classname" "worldspawn"
+"_keeplights" "1"
+// brush 0
+{
+brushDef3
+{
+( 0 0 -1 256 ) ( ( 0.0104166651 0 1.3333334923 ) ( 0 0.010416667 1.9999996424 ) ) "textures/reflex_layout/ceiling" 0 0 0
+( 0 0 1 -272 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1 0.0000001344 0 -192.0000152588 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -0.0000001344 -1 0 -128.0000152588 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0.0000001343 0 -1087.9999389648 ) ( ( 0.03125 0 63.9999961853 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0.0000001343 1 0 -256 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+}
+}
+// brush 1
+{
+brushDef3
+{
+( 0 0 -1 -16 ) ( ( 0.0104166651 0 1.3333334923 ) ( 0 0.010416667 1.9999996424 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 0 ) ( ( 0.0104166651 0 1.3333334923 ) ( 0 0.010416667 2.0000002384 ) ) "textures/reflex_layout/floor" 0 0 0
+( -1 0.0000001344 0 -192.0000152588 ) ( ( 0.010416666 0 2.6666665077 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+( -0.0000001344 -1 0 -128.0000152588 ) ( ( 0.0104166679 0 2.0000004768 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0.0000001343 0 -1087.9999389648 ) ( ( 0.010416666 0 1.333332181 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+( 0.0000001343 1 0 -256 ) ( ( 0.0104166679 0 1.9999995232 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+}
+}
+// brush 2
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.2499990463 0 0.00025177 ) ( 0 0.0104166679 1.9999997616 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.2499990463 0 0.00025177 ) ( 0 0.0104166679 2.0000002384 ) ) "textures/common/caulk" 0 0 0
+( -1 0.0000001344 0 -192.0000305176 ) ( ( 0.25 0 4 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -0.0000001344 -1 0 256.0001204224 ) ( ( 0.0104166679 0 248.6666717529 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+( 1 -0.0000001343 0 -1087.9999237061 ) ( ( 0.25 0 63.9999694824 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 0.0000001343 1 0 -272 ) ( ( 0.0104166679 0 1.999999404 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+}
+}
+// brush 3
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.2499991655 0 35.9998855591 ) ( 0 0.0104166679 1.9999998808 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.2499991655 0 35.9998855591 ) ( 0 0.0104166679 2.0000002384 ) ) "textures/common/caulk" 0 0 0
+( -1 0.0000001344 0 -191.9999694824 ) ( ( 0.2500001192 0 31.9999847412 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -0.0000001344 -1 0 -144 ) ( ( 0.0104166679 0 1.9999998808 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1 -0.0000001343 0 -1087.9999847412 ) ( ( 0.25 0 35.9999694824 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 0.0000001344 1 0 127.9998795776 ) ( ( 0.0104166679 0 11.3333339691 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+// brush 4
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 20 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 48 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -128 ) ( ( 0.25 0 48 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1 0 0 -1104 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 0 1 0 -256 ) ( ( 0.25 0 20 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 1088 ) ( ( 0.010416667 0 2.6666667461 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+// brush 5
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 16 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 52 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -128 ) ( ( 0.25 0 52 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1 0 0 192 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+( 0 1 0 -256 ) ( ( 0.25 0 16 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 -208 ) ( ( 0.010416667 0 2.6666667461 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+}
+}
+}
+// entity 1
+{
+"classname" "info_player_start"
+"name" "info_player_start_1"
+"origin" "-128 64 32"
+"angle" "0"
+}
+// entity 2
+{
+"classname" "light"
+"name" "light_2"
+"origin" "-128 192 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0.000000"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 3
+{
+"classname" "light"
+"name" "light_3"
+"origin" "384 192 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 4
+{
+"classname" "light"
+"name" "light_4"
+"origin" "-128 -64 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 5
+{
+"classname" "light"
+"name" "light_5"
+"origin" "128 -64 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 6
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_2"
+"origin" "0 192 32"
+"angle" "270"
+}
+// entity 7
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_3"
+"origin" "0 -64 32"
+"angle" "90"
+}
+// entity 8
+{
+"classname" "weapon_machinegun"
+"name" "weapon_machinegun_1"
+"origin" "0 64 32"
+}
+// entity 9
+{
+"classname" "light"
+"name" "light_1"
+"origin" "640 -64 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 10
+{
+"classname" "light"
+"name" "light_6"
+"origin" "128 192 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 11
+{
+"classname" "light"
+"name" "light_7"
+"origin" "640 192 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 12
+{
+"classname" "light"
+"name" "light_8"
+"origin" "896 192 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 13
+{
+"classname" "light"
+"name" "light_9"
+"origin" "384 -64 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 14
+{
+"classname" "light"
+"name" "light_10"
+"origin" "896 -64 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 15
+{
+"classname" "item_health"
+"name" "item_health_1"
+"origin" "64 0 32"
+}
+// entity 16
+{
+"classname" "item_health_large"
+"name" "item_health_large_1"
+"origin" "128 0 32"
+}
+// entity 17
+{
+"classname" "item_health_mega"
+"name" "item_health_mega_1"
+"origin" "192 0 32"
+}
+// entity 18
+{
+"classname" "item_health_small"
+"name" "item_health_small_1"
+"origin" "0 0 32"
+}
+// entity 19
+{
+"classname" "ammo_bullets"
+"name" "ammo_bullets_1"
+"origin" "0 128 32"
+}
+// entity 20
+{
+"classname" "ammo_cells"
+"name" "ammo_cells_1"
+"origin" "64 128 32"
+}
+// entity 21
+{
+"classname" "ammo_grenades"
+"name" "ammo_grenades_1"
+"origin" "128 128 32"
+}
+// entity 22
+{
+"classname" "ammo_lightning"
+"name" "ammo_lightning_1"
+"origin" "192 128 32"
+}
+// entity 23
+{
+"classname" "ammo_rockets"
+"name" "ammo_rockets_1"
+"origin" "256 128 32"
+}
+// entity 24
+{
+"classname" "ammo_shells"
+"name" "ammo_shells_1"
+"origin" "320 128 32"
+}
+// entity 25
+{
+"classname" "ammo_slugs"
+"name" "ammo_slugs_1"
+"origin" "384 128 32"
+}
+// entity 26
+{
+"classname" "ammo_bfg"
+"name" "ammo_bfg_1"
+"origin" "448 128 32"
+}
+// entity 27
+{
+"classname" "item_armor_combat"
+"name" "item_armor_combat_1"
+"origin" "320 0 24"
+"wait" "1"
+}
+// entity 28
+{
+"classname" "item_armor_shard"
+"name" "item_armor_shard_2"
+"origin" "256 0 24"
+}
+// entity 29
+{
+"classname" "item_armor_body"
+"name" "item_armor_body_1"
+"origin" "384 0 24"
+"wait" "1"
+}
+// entity 30
+{
+"classname" "item_enviro"
+"name" "item_enviro_1"
+"origin" "448 0 24"
+"wait" "1"
+}
+// entity 31
+{
+"classname" "item_flight"
+"name" "item_flight_1"
+"origin" "512 0 24"
+"wait" "1"
+}
+// entity 32
+{
+"classname" "item_haste"
+"name" "item_haste_1"
+"origin" "576 0 24"
+"wait" "1"
+}
+// entity 33
+{
+"classname" "item_invis"
+"name" "item_invis_1"
+"origin" "640 0 24"
+"wait" "1"
+}
+// entity 34
+{
+"classname" "item_quad"
+"name" "item_quad_1"
+"origin" "704 0 24"
+"wait" "1"
+}
+// entity 35
+{
+"classname" "item_regen"
+"name" "item_regen_1"
+"origin" "784 0 24"
+"wait" "1"
+}
+// entity 36
+{
+"classname" "holdable_medkit"
+"name" "holdable_medkit_1"
+"origin" "512 128 24"
+}
+// entity 37
+{
+"classname" "holdable_teleporter"
+"name" "holdable_teleporter_1"
+"origin" "576 128 24"
+}
+// entity 38
+{
+"classname" "holdable_invulnerability"
+"name" "holdable_invulnerability_1"
+"origin" "704 128 24"
+}
+// entity 39
+{
+"classname" "holdable_kamikaze"
+"name" "holdable_kamikaze_1"
+"origin" "640 128 24"
+}

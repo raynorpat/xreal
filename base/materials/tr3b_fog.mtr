@@ -1,0 +1,31 @@
+
+textures/tr3b_fog/deathfog
+{
+	qer_editorimage textures/sfx/fog_red.tga
+	
+	translucent
+	nonsolid
+	fog
+	nodrop
+	nolightmap
+	
+	xmap_globaltexture
+	xmap_surfacelight 50
+	
+	fogparms ( .66 0 0 ) 392
+
+	{
+		map textures/tr3b_fog/deathfog.tga
+		blend filter
+		scale -0.5, -0.5
+		scroll time * 0.03, time * -0.03
+		rgbGen identity
+	}
+	{
+		map textures/tr3b_fog/deathfog.tga
+		blend filter
+		scale 0.5, 0.5
+		scroll time * 0.03, time * -0.03
+		rgbGen identity
+	}
+}

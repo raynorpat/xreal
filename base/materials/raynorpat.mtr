@@ -1,0 +1,163 @@
+//
+// Misc. (skies, dlights, etc...)
+//
+
+textures/raynorpat/black_sky
+{
+	qer_editorimage textures/raynorpat/black.png
+
+	xmap_sun 1 1 1 32	90 90
+	
+	noimpact
+	nodamage
+	sky
+
+	skyparms - 512 -
+
+	{
+		map textures/raynorpat/black.png
+	}
+}
+
+//
+// Effects
+//
+table firewallTable{ { .9,.7,1,1,1,1,1,1,.6,1,1,.7,.8,.9,1,.8,1,.8,1,.8,.9,1,1,1,.8,.7,.6,.5,1,.6,.7,.8,.9,1  } }
+
+textures/raynorpat/effects/firewall
+{
+	qer_editorimage textures/raynorpat/effects/firewalla.png
+
+	noimpact
+	translucent
+	nonsolid
+	twosided
+
+	{
+		map textures/raynorpat/effects/firewalla.png
+		scale	1 , 1
+		translate time * 0.005, time * -0.01
+		rgb firewallTable[ time * .05 ]
+	}
+	{
+		blend add
+		map textures/raynorpat/effects/firewallb.png
+		scale	1.4, 1.5
+		translate time * 0, time * -0.03
+		rgb firewallTable[ time * .04 ]
+	}
+	{
+		blend add
+		map textures/raynorpat/effects/firewallc.png
+		scale	.8, 1.1
+		translate time * -0.001, time * -0.02
+		rgb firewallTable[ time * .1 ]
+	}
+}
+
+//
+// Blocks
+//
+
+textures/raynorpat/blocks/blocks_1
+{
+	qer_editorimage textures/raynorpat/blocks/block1_d.png
+
+	bumpMap displacemap( textures/raynorpat/blocks/block1_local, invertColor(textures/raynorpat/blocks/block1_b) )
+	diffuseMap textures/raynorpat/blocks/block1_d.png
+	specularMap textures/raynorpat/blocks/block1_s.png
+}
+
+textures/raynorpat/blocks/blocks_2
+{
+	qer_editorimage textures/raynorpat/blocks/block2_d.png
+
+	bumpMap displacemap( textures/raynorpat/blocks/block2_local, invertColor(textures/raynorpat/blocks/block2_b) )
+	diffuseMap textures/raynorpat/blocks/block2_d.png
+	specularMap textures/raynorpat/blocks/block2_s.png
+}
+
+//
+// Lights
+//
+raynorpat/lights/xreal_logo
+{
+	{
+		forceHighQuality
+		map textures/raynorpat/lights/xreal_chrome.tga
+		colored
+		clamp
+		rotate time * 0.15
+	}
+	{
+		blend blend
+		map textures/raynorpat/lights/xreal_highlight.tga
+		scroll (sinTable[ time * 0.1] * 0.01), (cosTable[ time * 0.1] * -0.01)
+		rotate time * 0.15
+	}
+}
+
+raynorpat/lights/xreal_logo_2
+{
+	{
+		forceHighQuality
+		map textures/raynorpat/lights/xreal_chrome.tga
+		colored
+		clamp
+		rotate sinTable[ time * 0.2 ]
+	}
+	{
+		blend blend
+		map textures/raynorpat/lights/xreal_highlight.tga
+		scroll (sinTable[ time * 0.1] * 0.01), (cosTable[ time * 0.1] * -0.01)
+		rotate sinTable[ time * 0.2 ]
+	}
+	{
+		blend blend
+		map textures/raynorpat/lights/xreal_chrome2.tga
+		//alpha 0.5 + (sinTable[ time * 0.2] * -0.5)
+		rotate sinTable[ time * 0.2 ]
+	}
+	{
+		blend blend
+		map textures/raynorpat/lights/xreal_chrome.tga
+		alpha 0.5 + (sinTable[ time * 0.2] * 0.5)
+		rotate sinTable[ time * 0.2 ]
+	}
+}
+
+//
+// Floors
+//
+textures/raynorpat/floors/steel_floor
+{
+	qer_editorimage textures/raynorpat/floors/diamondplate_d.png
+
+	metalsteps
+
+	bumpMap displacemap( textures/raynorpat/floors/diamondplate_local, invertColor(textures/raynorpat/floors/diamondplate_b) )
+	diffuseMap textures/raynorpat/floors/diamondplate_d.png
+	specularMap textures/raynorpat/floors/diamondplate_s.png
+}
+
+textures/raynorpat/floors/skin1
+{
+	qer_editorimage textures/raynorpat/floors/skin1.png
+
+	flesh
+
+	bumpMap textures/raynorpat/floors/skin1_norm.png
+	diffuseMap textures/raynorpat/floors/skin1.png
+	specularMap textures/raynorpat/floors/skin1_spec.png
+}
+
+textures/raynorpat/floors/skin2
+{
+	qer_editorimage textures/raynorpat/floors/skin2.png
+
+	flesh
+
+	bumpMap textures/raynorpat/floors/skin2_norm.png
+	diffuseMap textures/raynorpat/floors/skin2.png
+	specularMap textures/raynorpat/floors/skin2_spec.png
+}

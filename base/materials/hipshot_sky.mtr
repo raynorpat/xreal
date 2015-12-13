@@ -1,0 +1,22 @@
+
+// ----------------------- Sky by hipshot
+
+textures/hipshot_sky/grimmnight
+{
+	qer_editorimage	cubemaps/hipshot/grimmnight_px.tga
+	
+	noFragment
+	noshadows
+	forceOpaque				
+	noimpact
+	sky
+	nolightmap
+	
+	xmap_sun 1 1 1 150 90 30
+	
+	{
+		stage skyboxMap
+		noPicMip
+		cubeMap	cubemaps/hipshot/grimmnight
+	}
+}

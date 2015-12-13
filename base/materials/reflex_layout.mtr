@@ -1,0 +1,49 @@
+
+textures/reflex_layout/bridge
+{
+    qer_editorimage textures/reflex_layout/bridge.tga
+	diffusemap textures/reflex_layout/bridge.tga
+}
+
+textures/reflex_layout/ceiling
+{
+	qer_editorimage textures/reflex_layout/ceiling.tga
+	diffusemap textures/reflex_layout/ceiling.tga
+}
+
+textures/reflex_layout/floor
+{
+	qer_editorimage textures/reflex_layout/floor.tga
+	diffusemap textures/reflex_layout/floor.tga
+}
+
+textures/reflex_layout/lift
+{
+    qer_editorimage textures/reflex_layout/lift.tga
+    diffusemap textures/reflex_layout/lift.tga
+}
+
+textures/reflex_layout/pad
+{
+	qer_editorimage textures/reflex_layout/pad.tga
+	diffusemap textures/reflex_layout/pad.tga
+}
+
+textures/reflex_layout/pad2
+{
+	qer_editorimage textures/reflex_layout/pad2.tga
+	diffusemap textures/reflex_layout/pad2.tga
+}
+
+textures/reflex_layout/stairs
+{
+	qer_editorimage textures/reflex_layout/stairs.tga
+	diffusemap textures/reflex_layout/stairs.tga
+}
+
+textures/reflex_layout/wall
+{
+    qer_editorimage textures/reflex_layout/wall.tga
+	diffusemap textures/reflex_layout/wall.tga
+}
+

@@ -1,0 +1,138 @@
+/* powerup_holdable.mtr
+
+material for holdable powerups. by otty
+
+*/
+
+models/powerups/holdable/teleporter
+{
+	
+	twosided
+	{
+		map models/powerups/holdable/teleporter.png
+       		
+		blend GL_ONE, GL_ZERO
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+     		
+  		red	0.014 + sinTable[time * 0.2] * 0.4
+     		green 0.066 + sinTable[time * 0.2] * 0.4
+     		blue	0.075 + sinTable[time * 0.2] * 0.4
+          	rotate time * -0.8
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+        		
+        		rotate time * 0.6
+		blend add
+		red	0.14  + sinTable[time * 0.3] * 0.5
+     		green 0.66 + sinTable[time * 0.3] * 0.5
+		blue	0.75 + sinTable[time * 0.3] * 0.5
+
+	}
+	
+	
+
+}
+
+models/powerups/holdable/teleporter_flare
+{
+	deformVertexes autosprite
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * 0.3
+		blend add
+		blue	0.9 + sinTable[time * 0.29] * 0.5
+		red	0.2 + sinTable[time * 0.29] * 0.5
+		green 0.2 + sinTable[time * 0.29] * 0.5
+
+	}
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * -0.5
+		blend add
+		
+		blue	0.7 + sinTable[time * 0.31] * 0.5
+		red	0.1 + sinTable[time * 0.31] * 0.5
+		green 0.1 + sinTable[time * 0.31] * 0.5
+
+	}
+}
+
+
+models/powerups/holdable/medkit
+{
+	
+	twosided
+	{
+		map models/powerups/holdable/medkit.png
+       		
+		blend GL_ONE, GL_ZERO
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+     		
+		red	0.094  + sinTable[time * 0.3] * 0.5
+     		green 0.066 + sinTable[time * 0.3] * 0.5
+		blue	0.015 + sinTable[time * 0.3] * 0.5
+    		rotate time * -0.8
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+        		
+        		rotate time * 0.6
+		blend add
+		red	0.94  + sinTable[time * 0.3] * 0.5
+     		green 0.66 + sinTable[time * 0.3] * 0.5
+		blue	0.15 + sinTable[time * 0.3] * 0.5
+
+	}
+	
+	
+
+}
+
+models/powerups/holdable/medkit_flare
+{
+	deformVertexes autosprite
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * 0.3
+		blend add
+		blue	0.2 + sinTable[time * 0.29] * 0.5
+		red	0.9 + sinTable[time * 0.29] * 0.5
+		green 0.2 + sinTable[time * 0.29] * 0.5
+
+	}
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * -0.5
+		blend add
+		
+		blue	0.1 + sinTable[time * 0.31] * 0.5
+		red	0.7 + sinTable[time * 0.31] * 0.5
+		green 0.1 + sinTable[time * 0.31] * 0.5
+
+	}
+}
+
+

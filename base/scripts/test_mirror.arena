@@ -1,0 +1,7 @@
+{
+	map  "test_mirror"
+	longname "test_mirror"
+	bots  "Visor"
+	fraglimit 25
+	type  "ffa tourney team"
+}

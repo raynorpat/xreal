@@ -1,0 +1,59 @@
+
+/*
+{
+	map  "redm08"
+	longname "Dead Simple Redux by Reflex"
+	bots  "Harley"
+	fraglimit 10
+	type  "single ffa tourney team"
+}
+*/
+
+{
+	map  "yan_test"
+	longname "YAN'S TEST by Yan 'Method' Ostretsov"
+	bots  "Harley"
+	fraglimit 10
+	type  "single ffa tourney team"
+}
+
+{
+	map  "gwdm2"
+	longname "gwdm2"
+	bots  "Harley"
+	fraglimit 10
+	type  "single ffa tourney team"
+}
+
+{
+	map  "kat_q4dm3"
+	longname "Kat's Klorr! by Ken 'kat' Beyer"
+	bots  "Harley"
+	fraglimit 10
+	type  "single ffa tourney team"
+}
+
+{
+	map  "uglyrga"
+	longname "UGLY Rail Gun Arena by Reflex"
+	bots  "Harley"
+	fraglimit 10
+	type  "single ffa tourney team"
+}
+
+{
+	map  "thunderstruck"
+	longname "Thunderstruck by tyrelhill"
+	bots  "Harley"
+	fraglimit 10
+	type  "single ffa tourney team"
+}
+
+{
+	map  "longest"
+	longname "The Longest Yard-ish by Pat Raynor"
+	bots  "Harley"
+	fraglimit 10
+	type  "single ffa tourney team"
+}
+

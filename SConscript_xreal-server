@@ -1,0 +1,85 @@
+import os, string, sys
+
+Import('env')
+
+xreal_server_env = env.Copy()
+
+xreal_server_src = [
+'code/null/null_client.c',
+'code/null/null_input.c',
+'code/null/null_snddma.c',
+'code/qcommon/cm_load.c',
+'code/qcommon/cm_patch.c',
+'code/qcommon/cm_polylib.c',
+'code/qcommon/cm_test.c',
+'code/qcommon/cm_trace.c',
+'code/qcommon/cm_trisoup.c',
+'code/qcommon/cmd.c',
+'code/qcommon/common.c',
+'code/qcommon/cvar.c',
+'code/qcommon/files.c',
+'code/qcommon/huffman.c',
+'code/qcommon/md4.c',
+'code/qcommon/md5.c',
+'code/qcommon/msg.c',
+'code/qcommon/net_chan.c',
+'code/qcommon/net_ip.c',
+'code/qcommon/vm.c',
+'code/server/sv_bot.c',
+'code/server/sv_ccmds.c',
+'code/server/sv_client.c',
+'code/server/sv_game.c',
+'code/server/sv_init.c',
+'code/server/sv_main.c',
+'code/server/sv_net_chan.c',
+'code/server/sv_snapshot.c',
+'code/server/sv_world.c',
+'code/game/q_math.c',
+'code/game/q_shared.c',
+'code/qcommon/unzip.c',
+'code/zlib/adler32.c',
+'code/zlib/compress.c',
+'code/zlib/crc32.c',
+'code/zlib/gzio.c',
+'code/zlib/uncompr.c',
+'code/zlib/deflate.c',
+'code/zlib/trees.c',
+'code/zlib/zutil.c',
+'code/zlib/inflate.c',
+'code/zlib/infback.c',
+'code/zlib/inftrees.c',
+'code/zlib/inffast.c',
+'code/zlib/ioapi.c'
+]
+
+unix_src = [
+'code/sys/sys_main.c',
+'code/sys/sys_unix.c',
+'code/sys/con_log.c',
+'code/sys/con_tty.c'
+]
+
+xreal_server_env.Append(CCFLAGS='-DDEDICATED')
+xreal_server_env.Append(CCFLAGS='-Icode/zlib')
+xreal_server_env.Append(CCFLAGS='-DSTANDALONE')
+xreal_server_env.Append(CCFLAGS='-DUSE_VOIP')
+xreal_server_env.Append(CCFLAGS='-Icode/speex/include')
+
+if env['curl'] == 1:
+	xreal_server_env.Append(CCFLAGS='-DUSE_CURL')
+
+if env['arch'] == 'linux-i386':
+	xreal_server_env.Append(LIBS=['dl', 'm'])
+	xreal_server_env.Program('xreal-server', [xreal_server_src, unix_src])
+	xreal_server_env.InstallAs('#xreal-server.x86', 'xreal-server')
+	
+elif env['arch'] == 'linux-x86_64':
+	xreal_server_env.Append(CCFLAGS='-DC_ONLY')
+	xreal_server_env.Append(LIBS=['dl', 'm'])
+	xreal_server_env.Program('xreal-server', [xreal_server_src, unix_src])
+	xreal_server_env.InstallAs('#xreal-server.x86_64', 'xreal-server')
+
+elif env['arch'] == 'netbsd-i386':
+	xreal_server_env.Append(LIBS=['m'])
+	xreal_server_env.Program('xreal-server', [xreal_server_src, unix_src])
+	xreal_server_env.InstallAs('#xreal-server.x86', 'xreal-server')

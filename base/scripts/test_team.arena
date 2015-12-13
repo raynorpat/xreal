@@ -1,0 +1,7 @@
+{
+	map  "test_team"
+	longname "test_team"
+	bots  "Visor"
+	fraglimit 25
+	type  "ctf oneflag harvester overload"
+}

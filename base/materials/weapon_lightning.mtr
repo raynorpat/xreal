@@ -1,0 +1,21 @@
+
+models/weapons/lightning/w_lightning
+{
+	{
+		blend diffuseMap
+		map models/weapons/lightning/lightning.tga
+	}
+	normalMap models/weapons/lightning/lightning_local.tga
+	specularMap models/weapons/lightning/lightning_s.tga
+}
+
+models/weapons/lightning/f_lightning
+{
+	sort additive
+	twoSided
+	
+	{
+		map models/weapons/lightning/f_lightning.tga
+		blend add
+	}
+}

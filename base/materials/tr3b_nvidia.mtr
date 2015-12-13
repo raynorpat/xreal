@@ -1,0 +1,13 @@
+
+textures/tr3b_nvidia/testEMBM
+{
+	qer_editorImage textures/tr3b_nvidia/nvlogo.dds
+
+	{
+		stage reflectionMap
+		//blend GL_ONE_MINUS_DST_COLOR, GL_ZERO
+		//blend GL_DST_COLOR, GL_ZERO
+		cubeMap env/carbon-creek512
+	}
+	normalMap heightMap(textures/tr3b_nvidia/bump_map.png, 1)
+}

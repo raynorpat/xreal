@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xmap", "xmap.vcproj", "{F1162C55-66E7-4486-B1F3-071CFAA78332}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1162C55-66E7-4486-B1F3-071CFAA78332}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F1162C55-66E7-4486-B1F3-071CFAA78332}.Debug|Win32.Build.0 = Debug|Win32
+		{F1162C55-66E7-4486-B1F3-071CFAA78332}.Release|Win32.ActiveCfg = Release|Win32
+		{F1162C55-66E7-4486-B1F3-071CFAA78332}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

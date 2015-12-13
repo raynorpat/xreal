@@ -1,0 +1,408 @@
+//____________________________________________________________
+
+//------------------ aztech Texture Set ----------------------
+
+
+//--------- ©2006 - 2007 Tom Perryman (phantazm11) -----------
+
+
+//----------- See .txt file for permissions, etc -------------
+//____________________________________________________________
+
+table aztechlavatable { { .7,.8,1,1,1,1,1,1,.8,1,1,1,.8,.8,1,.7,1,.7,1,.7,.8,1,1,1,.7,.7  } }
+
+
+//----------------------- Walls
+
+textures/phant_aztech/aztech_mettile_001
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_mettile_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_mettile_001_d.tga
+	specularmap      textures/phant_aztech/aztech_mettile_001_s.tga
+	bumpmap          addnormals(textures/phant_aztech/aztech_mettile_001_local.tga, heightmap(textures/phant_aztech/aztech_mettile_001_h.tga, 2))
+}
+
+textures/phant_aztech/aztech_mettile_002
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_mettile_002_d.tga
+	diffusemap       textures/phant_aztech/aztech_mettile_002_d.tga
+	specularmap      textures/phant_aztech/aztech_mettile_002_s.tga
+	bumpmap          textures/phant_aztech/aztech_mettile_002_local.tga
+}
+
+textures/phant_aztech/aztech_mettile_light_001
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_mettile_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_mettile_001_d.tga
+	{
+		blend add
+		map textures/phant_aztech/aztech_mettile_light_001_g.tga
+
+	}
+	specularmap      textures/phant_aztech/aztech_mettile_001_s.tga
+	bumpmap          textures/phant_aztech/aztech_mettile_001_local.tga
+}
+
+textures/phant_aztech/aztech_snakes_001
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_snakes_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_snakes_001_d.tga
+	specularmap      textures/phant_aztech/aztech_snakes_001_s.tga
+	bumpmap          addnormals(textures/phant_aztech/aztech_snakes_001_local.tga, heightmap(textures/phant_aztech/aztech_snakes_001_h.tga, 2))
+}
+
+textures/phant_aztech/aztech_block_001
+{
+
+	
+	qer_editorimage  textures/phant_aztech/aztech_block_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_block_001_d.tga
+	specularmap      textures/phant_aztech/aztech_block_001_s.tga
+	bumpmap          textures/phant_aztech/aztech_block_001_local.tga
+}
+
+textures/phant_aztech/aztech_block_001_light
+{
+
+	
+	qer_editorimage  textures/phant_aztech/aztech_block_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_block_001_d.tga
+	{
+		blend add
+		map textures/phant_aztech/aztech_block_001_g.tga
+
+	}
+	specularmap      textures/phant_aztech/aztech_block_001_s.tga
+	bumpmap          textures/phant_aztech/aztech_block_001_local.tga
+}
+
+textures/phant_aztech/aztech_block_002
+{
+
+	
+	qer_editorimage  textures/phant_aztech/aztech_block_002_d.tga
+	diffusemap       textures/phant_aztech/aztech_block_002_d.tga
+	specularmap      textures/phant_aztech/aztech_block_002_s.tga
+	bumpmap          textures/phant_aztech/aztech_block_002_local.tga
+}
+
+textures/phant_aztech/aztech_block_002_light
+{
+
+	
+	qer_editorimage  textures/phant_aztech/aztech_block_002_d.tga
+	diffusemap       textures/phant_aztech/aztech_block_002_d.tga
+	{
+		blend add
+		map textures/phant_aztech/aztech_block_002_g.tga
+
+	}
+	specularmap      textures/phant_aztech/aztech_block_002_s.tga
+	bumpmap          textures/phant_aztech/aztech_block_002_local.tga
+}
+
+textures/phant_aztech/aztech_spiral_001
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_spiral_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_spiral_001_d.tga
+	specularmap      textures/phant_aztech/aztech_spiral_001_s.tga
+	bumpmap          textures/phant_aztech/aztech_spiral_001_local.tga
+}
+
+// --------------------------------- Trims
+
+textures/phant_aztech/aztech_singlebrick_001
+{
+
+	
+	qer_editorimage  textures/phant_aztech/aztech_singlebrick_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_singlebrick_001_d.tga
+	specularmap      textures/phant_aztech/aztech_singlebrick_001_s.tga
+	bumpmap          addnormals(textures/phant_aztech/aztech_singlebrick_001_local.tga, heightmap(textures/phant_aztech/aztech_singlebrick_001_h.tga, 2))
+}
+
+
+textures/phant_aztech/aztech_trim_light_001
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_trim_light_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_trim_light_001_d.tga
+	{
+		blend add
+		map textures/phant_aztech/aztech_trim_light_001_g.tga
+
+	}
+	specularmap      textures/phant_aztech/aztech_trim_light_001_s.tga
+	bumpmap          textures/phant_aztech/aztech_trim_light_001_local.tga
+}
+
+textures/phant_aztech/aztech_trim_light_003
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_trim_003_d.tga
+	diffusemap       textures/phant_aztech/aztech_trim_003_d.tga
+	{
+		blend add
+		map textures/phant_aztech/aztech_trim_003_g.tga
+
+	}
+	specularmap      textures/phant_aztech/aztech_trim_003_s.tga
+	bumpmap          textures/phant_aztech/aztech_trim_003_local.tga
+}
+
+textures/phant_aztech/aztech_trim_003
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_trim_003_d.tga
+	diffusemap       textures/phant_aztech/aztech_trim_003_d.tga
+	specularmap      textures/phant_aztech/aztech_trim_003_s.tga
+	bumpmap          textures/phant_aztech/aztech_trim_003_local.tga
+}
+
+textures/phant_aztech/aztech_trim_004
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_trim_004_d.tga
+	diffusemap       textures/phant_aztech/aztech_trim_004_d.tga
+	specularmap      textures/phant_aztech/aztech_trim_004_s.tga
+	bumpmap          textures/phant_aztech/aztech_trim_004_local.tga
+}
+
+textures/phant_aztech/aztech_trim_005
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_trim_005_d.tga
+	diffusemap       textures/phant_aztech/aztech_trim_005_d.tga
+	specularmap      textures/phant_aztech/aztech_trim_005_s.tga
+	bumpmap          textures/phant_aztech/aztech_trim_005_local.tga
+}
+
+textures/phant_aztech/aztech_trim_006
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_trim_006_d.tga
+	diffusemap       textures/phant_aztech/aztech_trim_006_d.tga
+	specularmap      textures/phant_aztech/aztech_trim_006_s.tga
+	bumpmap          textures/phant_aztech/aztech_trim_006_local.tga
+}
+
+textures/phant_aztech/aztech_trim_007
+{
+
+	
+	qer_editorimage  textures/phant_aztech/aztech_trim_007_d.tga
+	diffusemap       textures/phant_aztech/aztech_trim_007_d.tga
+	specularmap      textures/phant_aztech/aztech_trim_007_s.tga
+	bumpmap          addnormals(textures/phant_aztech/aztech_trim_007_local.tga, heightmap(textures/phant_aztech/aztech_trim_007_h.tga, 2))
+}
+
+textures/phant_aztech/aztech_trim_008
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_trim_008_d.tga
+	diffusemap       textures/phant_aztech/aztech_trim_008_d.tga
+	specularmap      textures/phant_aztech/aztech_trim_008_s.tga
+	bumpmap          textures/phant_aztech/aztech_trim_003_local.tga
+}
+
+textures/phant_aztech/aztech_edgetrim_001
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_edgetrim_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_edgetrim_001_d.tga
+	specularmap      textures/phant_aztech/aztech_edgetrim_001_s.tga
+	bumpmap          textures/phant_aztech/aztech_edgetrim_001_local.tga
+}
+
+textures/phant_aztech/aztech_edgetrim_002
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_edgetrim_002_d.tga
+	diffusemap       textures/phant_aztech/aztech_edgetrim_002_d.tga
+	specularmap      textures/phant_aztech/aztech_edgetrim_002_s.tga
+	bumpmap          textures/phant_aztech/aztech_edgetrim_002_local.tga
+}
+
+textures/phant_aztech/aztech_edgetrim_003_light
+{
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_edgetrim_003_light_d.tga
+	diffusemap       textures/phant_aztech/aztech_edgetrim_003_light_d.tga
+	{
+		blend add
+		map textures/phant_aztech/aztech_edgetrim_003_light_add.tga
+
+	}
+	specularmap      textures/phant_aztech/aztech_edgetrim_003_light_s.tga
+	bumpmap          textures/phant_aztech/aztech_edgetrim_003_light_local.tga
+}
+
+textures/phant_aztech/aztech_swatch_rust_02
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_swatch_rust_02_d.tga
+	diffusemap       textures/phant_aztech/aztech_swatch_rust_02_d.tga
+	specularmap      textures/phant_aztech/aztech_swatch_rust_02_s.tga
+}
+
+//-------------------------- Floors
+
+textures/phant_aztech/aztech_tile_001
+{
+
+	
+	qer_editorimage  textures/phant_aztech/aztech_tile_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_tile_001_d.tga
+	specularmap      textures/phant_aztech/aztech_tile_001_s.tga
+	bumpmap          addnormals(textures/phant_aztech/aztech_tile_001_local.tga, heightmap(textures/phant_aztech/aztech_tile_001_h.tga, 2))
+}
+
+textures/phant_aztech/aztech_tile_002
+{
+
+	metal
+	qer_editorimage  textures/phant_aztech/aztech_tile_002_d.tga
+	diffusemap       textures/phant_aztech/aztech_tile_002_d.tga
+	specularmap      textures/phant_aztech/aztech_tile_002_s.tga
+	bumpmap          addnormals(textures/phant_aztech/aztech_tile_001_local.tga, heightmap(textures/phant_aztech/aztech_tile_002_h.tga, 3))
+}
+
+textures/phant_aztech/aztech_tile_003
+{
+
+	
+	qer_editorimage  textures/phant_aztech/aztech_tile_003_d.tga
+	diffusemap       textures/phant_aztech/aztech_tile_003_d.tga
+	specularmap      textures/phant_aztech/aztech_tile_003_s.tga
+	bumpmap          textures/phant_aztech/aztech_tile_003_local.tga
+}
+
+textures/phant_aztech/aztech_mosaicfloor
+{
+
+	
+	qer_editorimage  textures/phant_aztech/aztech_mosaicfloor_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_mosaicfloor_001_d.tga
+	specularmap      textures/phant_aztech/aztech_mosaicfloor_001_s.tga
+	bumpmap          textures/phant_aztech/aztech_mosaicfloor_001_local.tga
+}
+
+
+//---------------------------- Walls
+
+textures/phant_aztech/aztech_darkbricks_001
+{
+	qer_editorimage  textures/phant_aztech/aztech_darkbricks_001_d.tga
+	diffusemap       textures/phant_aztech/aztech_darkbricks_001_d.tga
+	specularmap      textures/phant_aztech/aztech_darkbricks_001_s.tga
+	bumpmap          addnormals( textures/phant_aztech/aztech_darkbricks_001_local.tga, heightmap( textures/phant_aztech/aztech_darkbricks_001_h.tga, 2 ) )
+}
+
+textures/phant_aztech/aztech_darkbricks_003
+{
+	qer_editorimage  textures/phant_aztech/aztech_darkbricks_003_d.tga
+	diffusemap       textures/phant_aztech/aztech_darkbricks_003_d.tga
+	specularmap      textures/phant_aztech/aztech_darkbricks_003_s.tga
+	bumpmap          addnormals( textures/phant_aztech/aztech_darkbricks_003_local.tga, heightmap( textures/phant_aztech/aztech_darkbricks_003_h.tga, 1 ) )
+}
+
+textures/phant_aztech/aztech_darkbricks_004
+{
+	qer_editorimage  textures/phant_aztech/aztech_darkbricks_004_d.tga
+	diffusemap       textures/phant_aztech/aztech_darkbricks_004_d.tga
+	specularmap      textures/phant_aztech/aztech_darkbricks_004_s.tga
+	bumpmap          addnormals( textures/phant_aztech/aztech_darkbricks_004_local.tga, heightmap( textures/phant_aztech/aztech_darkbricks_004_h.tga, 4 ) )
+}
+
+//------------------------ Jump Pad
+
+textures/phant_aztech/aztech_pad_glow
+{
+	translucent
+	nonSolid
+
+//	{ 
+//		maskColor
+//		map makealpha(models/mapobjects/multiplayer/jump_pad/jump_pad_mask.tga)
+//		centerScale .73, .73
+//	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map textures/phant_aztech/aztech_pad_glow.tga
+		centerScale jumppadtable [time * 1], jumppadtable [time * 1]
+		clamp
+	}	
+
+	
+}
+
+// ------------------------ Lava
+
+textures/phant_aztech/aztech_lava_004
+{
+	qer_editorimage		textures/phant_aztech/aztech_lava_004.tga
+	translucent
+	nonsolid
+	twosided
+
+	{
+		map     textures/phant_aztech/aztech_lava_004.tga
+		scale	1 , 1
+		translate	time * 0.005, time * -0.01
+		rgb		aztechlavatable[ time * .05 ]
+	}
+	{
+		blend add
+		map     textures/phant_aztech/aztech_lava_004.tga
+		scale	1.4, 1.5
+		translate	time * 0, time * -0.03
+		rgb		aztechlavatable[ time * .04 ]
+	}
+	{
+		blend add
+		map     textures/phant_aztech/aztech_lava_004.tga
+		scale	.8, 1.1
+		translate	time * -0.001, time * -0.02
+		rgb		aztechlavatable[ time * .1 ]
+	}
+}
+
+// ------------------------ Model
+
+models/mapobjects/phantq4dm4/DR_torchcage
+{
+	noselfShadow
+	unsmoothedtangents
+	diffusemap		models/mapobjects/phantq4dm4/DR_torchcage_d.tga
+	specularmap		models/mapobjects/phantq4dm4/DR_torchcage_s.tga
+
+}
+
+
+
+
+
+
+

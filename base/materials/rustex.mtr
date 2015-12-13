@@ -1,0 +1,145 @@
+
+textures/rustex/rustex1
+{
+	qer_editorimage	textures/rustex/rustex1_ed.tga
+	bumpmap	      textures/rustex/rustex1_local.tga
+	diffusemap	      textures/rustex/rustex1_d.tga
+	specularmap	      textures/rustex/rustex1_s.tga
+}
+
+textures/rustex/rustex2
+{
+	qer_editorimage	textures/rustex/rustex2_ed.tga
+	bumpmap	      textures/rustex/rustex2_local.tga
+	diffusemap	      textures/rustex/rustex2_d.tga
+	specularmap	      textures/rustex/rustex2_s.tga
+}
+
+textures/rustex/rustex3
+{
+	qer_editorimage	textures/rustex/rustex3_ed.tga
+	bumpmap	      textures/rustex/rustex3_local.tga
+	diffusemap	      textures/rustex/rustex3_d.tga
+	specularmap	      textures/rustex/rustex3_s.tga
+}
+
+
+textures/rustex/rustex4
+{
+	qer_editorimage	textures/rustex/rustex4_ed.tga
+	bumpmap	      textures/rustex/rustex4_local.tga
+	diffusemap	      textures/rustex/rustex4_d.tga
+	specularmap	      textures/rustex/rustex4_s.tga
+}
+textures/rustex/rustex5
+{
+	qer_editorimage	textures/rustex/rustex5_ed.tga
+	bumpmap	      textures/rustex/rustex5_local.tga
+	diffusemap	      textures/rustex/rustex5_d.tga
+	specularmap	      textures/rustex/rustex5_s.tga
+}
+
+textures/rustex/rustex6
+{
+	qer_editorimage	textures/rustex/rustex6_ed.tga
+	bumpmap	      textures/rustex/rustex6_local.tga
+	diffusemap	      textures/rustex/rustex6_d.tga
+	specularmap	      textures/rustex/rustex6_s.tga
+}
+
+textures/rustex/rustex7
+{
+	qer_editorimage	textures/rustex/rustex7_ed.tga
+	bumpmap	      textures/rustex/rustex7_local.tga
+	diffusemap	      textures/rustex/rustex7_d.tga
+	specularmap	      textures/rustex/rustex7_s.tga
+}
+
+textures/rustex/rustex8
+{
+	qer_editorimage	textures/rustex/rustex8_ed.tga
+	bumpmap	      textures/rustex/rustex8_local.tga
+	diffusemap	      textures/rustex/rustex8_d.tga
+	specularmap	      textures/rustex/rustex8_s.tga
+}
+
+textures/rustex/rustex9
+{
+	qer_editorimage	textures/rustex/rustex9_ed.tga
+	bumpmap	      textures/rustex/rustex9_local.tga
+	diffusemap	      textures/rustex/rustex9_d.tga
+	specularmap	      textures/rustex/rustex9_s.tga
+}
+
+textures/rustex/rustex10
+{
+	qer_editorimage	textures/rustex/rustex10_ed.tga
+	bumpmap	      textures/rustex/rustex10_local.tga
+	diffusemap	      textures/rustex/rustex10_d.tga
+	specularmap	      textures/rustex/rustex10_s.tga
+}
+
+textures/rustex/rustex11
+{
+	qer_editorimage	textures/rustex/rustex11_ed.tga
+	bumpmap	      textures/rustex/rustex11_local.tga
+	diffusemap	      textures/rustex/rustex11_d.tga
+	specularmap	      textures/rustex/rustex11_s.tga
+}
+
+textures/rustex/rustex12
+{
+	qer_editorimage	textures/rustex/rustex12_ed.tga
+	bumpmap	      textures/rustex/rustex12_local.tga
+	diffusemap	      textures/rustex/rustex12_d.tga
+	specularmap	      textures/rustex/rustex12_s.tga
+}
+
+textures/rustex/rustex13
+{
+	qer_editorimage	textures/rustex/rustex13_ed.tga
+	bumpmap	      textures/rustex/rustex13_local.tga
+	diffusemap	      textures/rustex/rustex13_d.tga
+	specularmap	      textures/rustex/rustex13_s.tga
+}
+
+textures/rustex/rustex14
+{
+	qer_editorimage	textures/rustex/rustex14_ed.tga
+	bumpmap	      textures/rustex/rustex14_local.tga
+	diffusemap	      textures/rustex/rustex14_d.tga
+	specularmap	      textures/rustex/rustex14_s.tga
+}
+
+textures/rustex/rustex15
+{
+	qer_editorimage	textures/rustex/rustex15_ed.tga
+	bumpmap	      textures/rustex/rustex15_local.tga
+	diffusemap	      textures/rustex/rustex15_d.tga
+	specularmap	      textures/rustex/rustex15_s.tga
+}
+
+textures/rustex/rustex16
+{
+	qer_editorimage	textures/rustex/rustex16_ed.tga
+	bumpmap	      textures/rustex/rustex16_local.tga
+	diffusemap	      textures/rustex/rustex16_d.tga
+	specularmap	      textures/rustex/rustex16_s.tga
+}
+
+textures/rustex/rustex17
+{
+	qer_editorimage	textures/rustex/rustex17_ed.tga
+	bumpmap	      textures/rustex/rustex17_local.tga
+	diffusemap	      textures/rustex/rustex17_d.tga
+	specularmap	      textures/rustex/rustex17_s.tga
+}
+
+textures/rustex/rustex18
+{
+	qer_editorimage	textures/rustex/rustex18_ed.tga
+	bumpmap	      textures/rustex/rustex18_local.tga
+	diffusemap	      textures/rustex/rustex18_d.tga
+	specularmap	      textures/rustex/rustex18_s.tga
+}
+

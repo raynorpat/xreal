@@ -1,0 +1,161 @@
+
+Version 2
+// entity 0
+{
+"classname" "worldspawn"
+"_keeplights" "1"
+// brush 0
+{
+brushDef3
+{
+( 0 0 -1 256 ) ( ( 0.0104166651 0 1.3333334923 ) ( 0 0.010416667 1.9999996424 ) ) "textures/reflex_layout/ceiling" 0 0 0
+( 0 0 1 -272 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1 0.0000001344 0 -192.0000152588 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -0.0000001344 -1 0 -128.0000152588 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0.0000001343 0 -191.9999389648 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0.0000001343 1 0 -256 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+}
+}
+// brush 1
+{
+brushDef3
+{
+( 0 0 -1 -16 ) ( ( 0.0104166651 0 1.3333334923 ) ( 0 0.010416667 1.9999996424 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 0 ) ( ( 0.0104166651 0 1.3333334923 ) ( 0 0.010416667 2.0000002384 ) ) "textures/reflex_layout/floor" 0 0 0
+( -1 0.0000001344 0 -192.0000152588 ) ( ( 0.010416666 0 2.6666665077 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+( -0.0000001344 -1 0 -128.0000152588 ) ( ( 0.0104166679 0 2.0000004768 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0.0000001343 0 -191.9999389648 ) ( ( 0.010416666 0 1.3333334923 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+( 0.0000001343 1 0 -256 ) ( ( 0.0104166679 0 1.9999995232 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+}
+}
+// brush 2
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.2499990463 0 0.00025177 ) ( 0 0.0104166679 1.9999997616 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.2499990463 0 0.00025177 ) ( 0 0.0104166679 2.0000002384 ) ) "textures/common/caulk" 0 0 0
+( -1 0.0000001344 0 -192.0000305176 ) ( ( 0.25 0 4 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -0.0000001344 -1 0 256 ) ( ( 0.0104166679 0 2.0000007153 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+( 1 -0.0000001343 0 -191.9999237061 ) ( ( 0.25 0 0 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 0.0000001343 1 0 -272 ) ( ( 0.0104166679 0 1.999999404 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+}
+}
+// brush 3
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.2499991655 0 35.9998855591 ) ( 0 0.0104166679 1.9999998808 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.2499991655 0 35.9998855591 ) ( 0 0.0104166679 2.0000002384 ) ) "textures/common/caulk" 0 0 0
+( -1 0.0000001344 0 -191.9999694824 ) ( ( 0.2500001192 0 31.9999847412 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -0.0000001344 -1 0 -144 ) ( ( 0.0104166679 0 1.9999998808 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1 -0.0000001343 0 -191.9999847412 ) ( ( 0.25 0 36 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 0.0000001344 1 0 128 ) ( ( 0.0104166679 0 2 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+// brush 4
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 52 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 16 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -128 ) ( ( 0.25 0 16 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1 0 0 -208 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 0 1 0 -256 ) ( ( 0.25 0 52 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 192 ) ( ( 0.010416667 0 2.6666667461 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+// brush 5
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 16 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 52 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -128 ) ( ( 0.25 0 52 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1 0 0 192 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+( 0 1 0 -256 ) ( ( 0.25 0 16 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 -208 ) ( ( 0.010416667 0 2.6666667461 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+}
+}
+}
+// entity 1
+{
+"classname" "info_player_start"
+"name" "info_player_start_1"
+"origin" "128 64 32"
+"angle" "180"
+}
+// entity 2
+{
+"classname" "light"
+"name" "light_2"
+"origin" "-128 192 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0.000000"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 3
+{
+"classname" "light"
+"name" "light_3"
+"origin" "128 192 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 4
+{
+"classname" "light"
+"name" "light_4"
+"origin" "-128 -64 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+"texture" "lights/volumetricLight"
+}
+// entity 5
+{
+"classname" "light"
+"name" "light_5"
+"origin" "128 -64 128"
+"noshadows" "0"
+"nospecular" "0"
+"nodiffuse" "0"
+"falloff" "0"
+"_color" "0.78 0.78 0.84"
+"light_radius" "225 225 225"
+}
+// entity 6
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_1"
+"origin" "-128 64 32"
+}
+// entity 7
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_2"
+"origin" "0 192 32"
+"angle" "270"
+}
+// entity 8
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_3"
+"origin" "0 -64 32"
+"angle" "90"
+}
+// entity 9
+{
+"classname" "weapon_rocketlauncher"
+"name" "weapon_rocketlauncher_1"
+"origin" "0 64 32"
+}

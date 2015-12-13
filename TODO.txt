@@ -1,0 +1,226 @@
+=== XreaL 1.0 Features ===
+
+Q3A media replacements that need to be created:
+base/models/mapobjects/otty/tech_jumppad.ase (similar to Quake4)
+base/models/mapobjects/otty/tech_accelerationpad.ase (similar to Quake4)
+base/models/mapobjects/otty/tech_teleporter.ase (similar to Quake4)
+base/models/flag/flagflap3.md3
+base/models/flag/flagpole.md3
+base/models/gibs/abdomen.md3
+base/models/gibs/arm.md3
+base/models/gibs/brain.md3
+base/models/gibs/chest.md3
+base/models/gibs/fist.md3
+base/models/gibs/foot.md3
+base/models/gibs/forearm.md3
+base/models/gibs/intestine.md3
+base/models/gibs/leg.md3
+base/models/gibs/skull.md3
+base/models/players/DEFAULT_MODEL/*
+base/models/players/DEFAULT_MODEL/body.md5mesh
+base/models/players/DEFAULT_MODEL/body_default.skin
+base/models/players/DEFAULT_MODEL/*.md5anim
+base/models/players/DEFAULT_MODEL/character.cfg
+base/models/players/DEFAULT_MODEL/icon_default.tga
+base/models/weapons/grenadel/*
+base/models/weapons/plasma/*
+base/models/weapons/shotun/shotgun.md3 (optional)
+base/sound/feedback/vote_now.ogg
+base/sound/feedback/vote_passed.ogg
+base/sound/feedback/vote_failed.ogg
+base/sound/items/airout.ogg
+base/sound/items/flight.ogg
+base/sound/items/haste.ogg
+base/sound/items/holdable.ogg
+base/sound/items/invisibility.ogg
+base/sound/items/protect3.ogg
+base/sound/items/protect.ogg
+base/sound/items/regeneration.ogg
+base/sound/items/use_medkit.ogg
+base/sound/items/use_nothing.ogg
+base/sound/player/footsteps/energy*.ogg
+base/sound/player/DEFAULT_MODEL/death1.ogg
+base/sound/player/DEFAULT_MODEL/death2.ogg
+base/sound/player/DEFAULT_MODEL/death3.ogg
+base/sound/player/DEFAULT_MODEL/drown.ogg
+base/sound/player/DEFAULT_MODEL/fall1.ogg
+base/sound/player/DEFAULT_MODEL/falling1.ogg
+base/sound/player/DEFAULT_MODEL/gasp.ogg
+base/sound/player/DEFAULT_MODEL/jump1.ogg
+base/sound/player/DEFAULT_MODEL/pain100_1.ogg
+base/sound/player/DEFAULT_MODEL/pain25_1.ogg
+base/sound/player/DEFAULT_MODEL/pain50_1.ogg
+base/sound/player/DEFAULT_MODEL/pain75_1.ogg
+base/sound/player/DEFAULT_MODEL/taunt.ogg
+base/sound/teamplay/flagcapture_opponent.ogg
+base/sound/teamplay/flagcapture_yourteam.ogg
+base/sound/teamplay/flagreturn_opponent.ogg
+base/sound/teamplay/flagreturn_yourteam.ogg
+base/sound/teamplay/flagtaken_opponent.ogg
+base/sound/teamplay/flagtaken_yourteam.ogg
+base/sound/weapons/bfg/bfg_fire.ogg
+base/sound/weapons/bfg/bfg_hum.ogg
+base/sound/weapons/grenade/grenlf1a.ogg
+base/sound/weapons/grenade/hgrenb1a.ogg
+base/sound/weapons/grenade/hgrenb2a.ogg
+base/sound/weapons/lightning/lg_fire.ogg
+base/sound/weapons/lightning/lg_hit2.ogg
+base/sound/weapons/lightning/lg_hit3.ogg
+base/sound/weapons/lightning/lg_hit.ogg
+base/sound/weapons/lightning/lg_hum.ogg
+base/sound/weapons/plasma/hyprbf1a.ogg
+base/sound/weapons/plasma/lasfly.ogg
+base/sound/weapons/plasma/plasmx1a.ogg
+base/sound/weapons/railgun/rg_hum.ogg
+base/base/sound/world/*
+base/sprites/splash.png (optional)
+
+
+code/cgame
+- finish the Lua powered Quake4 style special effects target_fx system
+- improve rocket explosion effect like in Entar's Vengeance
+
+code/game/acebot
+- add support for dropped items as long range goal
+- fix bot spinning around when ai nodes are too high
+- add support for holdable items
+
+code/game
+- change BFG to Quake2 BFG
+- add alternate weapon fire modes
+ - suggestions ?
+- add Prey style wall-walking
+ - add directional gravity
+ - change player boxes to be cylinders and let them rotate
+- add unreal tournament style awards
+ - double kill/frag
+ - multi kill
+ - mega kill
+ - ultra kill
+ - monster kill
+ - rocket scientist ?
+ 
+- add more extensive Lua scripting support ?
+ - improve game class
+ - improve entity class
+ - improve vector class
+ - allow more existing level entities to be script-controlled
+
+code/renderer
+- improve shadow mapping filtering methods
+- add HDR tonemapping
+- use hardware occlusion query samples for a new light LOD system
+- use hardware occlusion query samples for light flares
+- add fog lights
+- ignore shadow pyramids that don't cast into the view
+- use stencil test for heatHaze with forward shading ?
+- improve volumetric lighting ?
+- improve deferred shading ?
+ - fix vertex painting support = depth peeling ?
+- add stained shadow mapping ?
+- add dynamic LOD support for md3 and md5 models ?
+- check for shader model 3 hardware ?
+- fix stencil shadow flickering bug ?
+- support decals on static and dynamic abitrary triangle surfaces ?
+
+code/xmap2
+- add HDR option that saves HDR lightmaps
+
+
+
+
+
+
+=== XreaL 1.1 Features ===
+
+Q3A: Team Arena media replacements that need to be created:
+base/icons/ammo_proxmine.png 
+base/icons/ammo_regen.png 
+base/icons/doubler.png 
+base/icons/guard.png 
+base/icons/iconf_blu1.png 
+base/icons/iconf_blu2.png 
+base/icons/iconf_blu3.png 
+base/icons/iconf_neutral1.png 
+base/icons/iconf_neutral3.png 
+base/icons/iconf_red1.png 
+base/icons/iconf_red2.png 
+base/icons/iconf_red3.png 
+base/icons/iconh_borb.png 
+base/icons/weapon_grapple.png 
+base/icons/invulnerability.png 
+base/icons/kamikaze.png 
+base/icons/proxmine.png 
+base/icons/scout.png 
+base/icons/skull_blue.png 
+base/icons/skull_red.png 
+base/models/powerups/harvester/harvester.md3 
+base/models/powerups/holdable/kamikaze.md3 
+base/models/powerups/obelisk/obelisk.md3 
+base/models/powerups/orb/orb.md3 
+base/models/powerups/shield/shield.md3 
+base/models/powerups/persistant/ammo.md3 
+base/models/powerups/persistant/doubler.md3 
+base/models/powerups/persistant/guard.md3 
+base/models/powerups/persistant/scout.md3 
+base/models/powerups/overload_base.md3 
+base/models/powerups/overload_energy.md3 
+base/models/powerups/overload_lights.md3 
+base/models/powerups/overload_target.md3 
+base/models/weaphits/kam03b.png 
+base/models/weaphits/kam03.png 
+base/models/weaphits/kamboom2.blend 
+base/models/weaphits/kamboom2.md3 
+base/models/weaphits/kamik01.png 
+base/models/weaphits/kamik02b.png 
+base/models/weaphits/kamik02r.png 
+base/models/weaphits/kamik02.png 
+base/models/weaphits/kamiwave01.png 
+base/models/weaphits/kamiwave02.png 
+base/models/weaphits/kamwave.md3 
+base/models/weaphits/nailtrail.png 
+base/models/weaphits/proxmine2.png 
+base/models/weaphits/proxmine2t.png 
+base/models/weaphits/proxmineb.md3 
+base/models/weaphits/proxmineb.png 
+base/models/weaphits/proxminebt.png 
+base/models/weaphits/proxmine.md3 
+base/models/weaphits/proxmine.png 
+base/models/weapons/nailgun/* 
+base/models/weapons/proxmine/* 
+base/models/weapons/vulcan/* 
+base/sound/items/ammoregen.ogg 
+base/sound/items/doubler.ogg 
+base/sound/items/guard.ogg 
+base/sound/items/scout.ogg 
+base/sound/items/doubler.ogg 
+base/sound/items/invul_activate.ogg 
+base/sound/items/invul_impact_01.ogg 
+base/sound/items/invul_impact_02.ogg 
+base/sound/items/invul_impact_03.ogg 
+base/sound/items/invul_juiced.ogg 
+base/sound/items/kam_explode_far.ogg 
+base/sound/items/kam_explode.ogg 
+base/sound/items/kamikaze_full.ogg 
+base/sound/items/kamikazerespawn.ogg 
+base/sound/items/kam_implode.ogg 
+base/sound/items/obelisk_hit_01.ogg 
+base/sound/items/obelisk_hit_02.ogg	
+base/sound/items/obelisk_hit_03.ogg	
+base/sound/items/obelisk_respawn.ogg 
+base/sound/items/regen.ogg 
+base/sound/items/scout.ogg 
+base/sound/weapons/nailgun/wnalimpd.ogg 
+base/sound/weapons/nailgun/wnalimpl.ogg 
+base/sound/weapons/nailgun/wnalimpm.ogg 
+base/sound/weapons/proxmine/wstbactv.ogg 
+base/sound/weapons/proxmine/wstbexpl.ogg 
+base/sound/weapons/proxmine/wstbfire.ogg  
+base/sound/weapons/proxmine/wstbimpd.ogg 
+base/sound/weapons/proxmine/wstbimpl.ogg 
+base/sound/weapons/proxmine/wstbimpm.ogg 
+base/sound/weapons/proxmine/wstbtick.ogg 
+base/sound/weapons/vulcan/wvulimpd.ogg 
+base/sound/weapons/vulcan/wvulimpl.ogg 
+base/sound/weapons/vulcan/wvulimpm.ogg 
+base/sound/weapons/vulcan/wvulwind.ogg 

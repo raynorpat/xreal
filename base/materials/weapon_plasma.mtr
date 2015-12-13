@@ -1,0 +1,87 @@
+
+models/weapons/plasma/plasmagun
+{
+
+	noShadows
+//  noselfShadow
+//	unsmoothedTangents
+
+    diffusemap		models/weapons/plasma/v_plasmagun_d.tga
+	{
+		blend bumpmap
+        map  			addnormals(models/weapons/plasma/v_plasmagun_local.tga, heightmap(models/weapons/plasma/v_plasmagun_h.tga, 5 ) ) 
+	}
+    specularmap	 	models/weapons/plasma/v_plasmagun_s.tga
+	{
+		map			models/weapons/plasma/v_plasmagun_add.tga
+		blend 		add
+		rgb			q2flickertable [ time * 4 ]
+	}
+}
+
+models/weapons/plasma/plasmagun_world
+{
+		ricochet
+        	noselfShadow
+		unsmoothedTangents
+
+        	diffusemap	 	models/q2_weapons/q2_shotgun/q2_w_shotgun_d.tga
+		{
+		blend 		add
+		map			models/q2_items/q2_item_pulse.tga
+		red 			( q2iteminout [Parm4 + (time / 1.5) ]) * Parm0
+		green 		( q2iteminout [Parm4 + (time / 1.5) ]) * Parm1
+		blue 			( q2iteminout [Parm4 + (time / 1.5) ]) * Parm2
+		}
+		bumpmap      	models/q2_weapons/q2_shotgun/q2_w_shotgun_local.tga
+		specularmap	 	models/q2_weapons/q2_shotgun/q2_w_shotgun_s.tga
+		{
+		map			models/q2_weapons/q2_shotgun/q2_w_shotgun_add.tga
+		blend			add
+		rgb			q2flickertable [ time * 4 ]
+		}
+}
+
+models/weapons2/plasma/f_plasma
+{
+	cull disable
+	sort additive
+	{
+		map models/weapons2/plasma/f_plasma.tga
+		blend add
+	}
+}
+
+models/weapons2/plasma/plasma_glass
+{
+	twosided
+	sort additive
+	{
+		stage diffuseMap
+		map textures/effects/tinfxb.tga
+		tcGen environment
+		tcMod scroll .01 .02
+		//blendfunc GL_ONE GL_ONE
+		//rgbGen lightingDiffuse
+		//rgbGen identity
+	}
+}
+
+models/weapons2/plasma/plasma_glo
+{
+	{
+		stage diffuseMap
+		map textures/effects/tinfxb.tga
+		tcGen environment
+		tcMod scroll .01 .02
+		//blendfunc GL_ONE GL_ONE
+		//rgbGen lightingDiffuse
+	}
+	{
+		map models/weapons2/plasma/plasma_glo.tga
+		tcmod rotate 33
+		tcMod scroll .7 1
+		rgbGen identity
+		blend add
+	}
+}

@@ -1,0 +1,155 @@
+import os, string, sys
+
+Import('env')
+
+xmap_src = [
+#'code/xmap/aas.c',
+#'code/xmap/aas_create.c',
+'code/xmap/brush.c',
+'code/xmap/brush_primit.c',
+'code/xmap/bsp.c',
+'code/xmap/convert_ase.c',
+'code/xmap/convert_map.c',
+'code/xmap/convert_t3dtomap.c',
+'code/xmap/facebsp.c',
+'code/xmap/fog.c',
+'code/xmap/glfile.c',
+'code/xmap/leakfile.c',
+'code/xmap/light.c',
+'code/xmap/light_trace.c',
+'code/xmap/lightmaps.c',
+'code/xmap/lightv.c',
+'code/xmap/main.c',
+'code/xmap/map.c',
+'code/xmap/mesh.c',
+'code/xmap/misc_model.c',
+'code/xmap/patch.c',
+'code/xmap/portals.c',
+'code/xmap/prtfile.c',
+'code/xmap/shaders.c',
+'code/xmap/surface.c',
+'code/xmap/terrain.c',
+'code/xmap/tjunction.c',
+'code/xmap/tree.c',
+'code/xmap/vis.c',
+'code/xmap/visflow.c',
+'code/xmap/writebsp.c',
+'code/common/cmdlib.c',
+'code/common/mathlib.c',
+'code/common/polylib.c',
+'code/common/aselib.c',
+'code/common/imagelib.c',
+'code/common/inout.c',
+'code/common/scriplib.c',
+'code/common/threads.c',
+'code/common/bspfile.c',
+'code/common/mutex.c',
+'code/common/unzip.c',
+'code/common/vfs.c',
+'code/common/netlib.c',
+'code/lwobject/clip.c',
+'code/lwobject/envelope.c',
+'code/lwobject/list.c',
+'code/lwobject/lwio.c',
+'code/lwobject/lwo2.c',
+'code/lwobject/lwob.c',
+'code/lwobject/lwsurface.c',
+'code/lwobject/pntspols.c',
+'code/lwobject/vecmath.c',
+'code/lwobject/vmap.c',
+'code/jpeg-6/jcapimin.c',
+'code/jpeg-6/jchuff.c',
+'code/jpeg-6/jcinit.c',
+'code/jpeg-6/jccoefct.c',
+'code/jpeg-6/jccolor.c',
+'code/jpeg-6/jfdctflt.c',
+'code/jpeg-6/jcdctmgr.c',
+'code/jpeg-6/jcphuff.c',
+'code/jpeg-6/jcmainct.c',
+'code/jpeg-6/jcmarker.c',
+'code/jpeg-6/jcmaster.c',
+'code/jpeg-6/jcomapi.c',
+'code/jpeg-6/jcparam.c',
+'code/jpeg-6/jcprepct.c',
+'code/jpeg-6/jcsample.c',
+'code/jpeg-6/jdapimin.c',
+'code/jpeg-6/jdapistd.c',
+'code/jpeg-6/jdatasrc.c',
+'code/jpeg-6/jdcoefct.c',
+'code/jpeg-6/jdcolor.c',
+'code/jpeg-6/jddctmgr.c',
+'code/jpeg-6/jdhuff.c',
+'code/jpeg-6/jdinput.c',
+'code/jpeg-6/jdmainct.c',
+'code/jpeg-6/jdmarker.c',
+'code/jpeg-6/jdmaster.c',
+'code/jpeg-6/jdpostct.c',
+'code/jpeg-6/jdsample.c',
+'code/jpeg-6/jdtrans.c',
+'code/jpeg-6/jerror.c',
+'code/jpeg-6/jidctflt.c',
+'code/jpeg-6/jmemmgr.c',
+'code/jpeg-6/jmemansi.c',
+'code/jpeg-6/jutils.c',
+'code/png/png.c',
+'code/png/pngset.c',
+'code/png/pngget.c',
+'code/png/pngrutil.c',
+'code/png/pngtrans.c',
+'code/png/pngwutil.c',
+'code/png/pngread.c',
+'code/png/pngrio.c',
+'code/png/pngwio.c',
+'code/png/pngwrite.c',
+'code/png/pngrtran.c',
+'code/png/pngwtran.c',
+'code/png/pngmem.c',
+'code/png/pngerror.c',
+'code/png/pngpread.c',
+'code/zlib/adler32.c',
+'code/zlib/compress.c',
+'code/zlib/crc32.c',
+'code/zlib/gzio.c',
+'code/zlib/uncompr.c',
+'code/zlib/deflate.c',
+'code/zlib/trees.c',
+'code/zlib/zutil.c',
+'code/zlib/inflate.c',
+'code/zlib/infback.c',
+'code/zlib/inftrees.c',
+'code/zlib/inffast.c',
+'code/zlib/ioapi.c'
+]
+
+xmap_env = env.Copy()
+xmap_env.Append(CCFLAGS='-DXMAP')
+xmap_env.Append(CCFLAGS='-DPNG_NO_ASSEMBLER_CODE')
+
+if env['arch'] == 'linux-i386':
+	xmap_src += ['code/xmap/gldraw.c']
+
+	xmap_env.ParseConfig('pkg-config libxml-2.0 --cflags --libs')
+	xmap_env.ParseConfig('pkg-config glib-2.0 --cflags --libs')
+	xmap_env.ParseConfig('sdl-config --cflags --libs')
+	xmap_env.Append(LIBS=['m', 'pthread', 'GL', 'GLU'])
+	xmap_env.Program('xmap', xmap_src)
+	xmap_env.InstallAs('#xmap.x86', 'xmap')
+	
+elif env['arch'] == 'linux-x86_64':
+	xmap_src += ['code/xmap/gldraw.c']
+
+	xmap_env.ParseConfig('pkg-config libxml-2.0 --cflags --libs')
+	xmap_env.ParseConfig('pkg-config glib-2.0 --cflags --libs')
+	xmap_env.ParseConfig('sdl-config --cflags --libs')
+	xmap_env.Append(LIBS=['m', 'pthread', 'GL', 'GLU'])
+	xmap_env.Program('xmap', xmap_src)
+	xmap_env.InstallAs('#xmap.x86_64', 'xmap')
+
+elif env['arch'] == 'win32-mingw':
+	xmap_src += ['code/xmap/nodraw.c']
+
+	xmap_env.ParseConfig('pkg-config libxml-2.0 --cflags --libs')
+	xmap_env.ParseConfig('pkg-config glib-2.0 --cflags --libs')
+	xmap_env.Append(LIBS=['m', 'wsock32'])
+	xmap_env.Program('xmap', xmap_src)
+	xmap_env.Install('#', 'xmap.exe')

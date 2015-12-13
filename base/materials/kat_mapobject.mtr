@@ -1,0 +1,335 @@
+
+
+/*
+	map objects by Ken 'kat' Beyer
+*/
+
+//++++++++++++++++++++++++++++++++++++++++
+// LANTERN
+//++++++++++++++++++++++++++++++++++++++++
+models/mapobjects/kat/lantern
+{
+	qer_editorimage			models/mapobjects/kat/lantern_2b.tga
+//	materialType rock
+//	unsmoothedTangents		//don't work to well on terrain models.. poop!
+//	noSelfShadow			//leave this in place for the 'Pro' map :o|
+//	noshadows
+	twoSided
+
+	{
+		blend			diffusemap
+	    map				models/mapobjects/kat/lantern_2b.tga
+		alphaTest 0.5
+	}
+
+		bumpmap			addnormals( models/mapobjects/kat/lantern_2b_n.tga, heightmap( models/mapobjects/kat/lantern_2b_h.tga, 4 ) )
+		specularmap		models/mapobjects/kat/lantern_2b_s.tga
+}
+
+models/mapobjects/kat/lantern_crystal
+{
+	noselfShadow
+	noshadows
+//	translucent
+//	spectrum 7
+//	materialType glass
+
+	qer_editorimage		models/mapobjects/kat/crystal.tga
+
+	diffusemap		models/mapobjects/kat/crystal.tga
+//	{
+//		blend	blend	//diffuse
+//		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+//		map		models/mapobjects/kat/crystal.tga
+//	}
+	
+	specularmap		models/mapobjects/kat/crystal_s.tga
+	
+	{
+		blend		bumpmap
+		map			heightmap (models/mapobjects/kat/crystal_h.tga, 1)
+		scale 2.5, 2.5
+	}
+	
+	{
+		//glow
+		blend blend
+//		blend gl_one, gl_zero	//blend	//add
+//		blend GL_DST_COLOR, GL_SRC_COLOR	//decals draw infront of this one
+//		blend GL_DST_COLOR, GL_ZERO			//take on colours of surroundings?
+///		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA	//works similar to 'blend'
+		map models/mapobjects/kat/crystal.tga
+//		scale 2.5, 2.5
+	}
+
+    {
+		maskcolor
+	    map	makealpha(models/mapobjects/kat/crystal_s.tga)
+	}
+
+	{
+	    blend GL_DST_ALPHA, gl_one
+	    maskalpha
+       	cubeMap		gfx/env/kat_q4dm2
+        texgen		reflect
+		red   Parm0
+		green Parm1
+		blue  Parm2
+	}
+}
+
+models/mapobjects/kat/lantern_chain
+{
+	qer_editorimage	models/mapobjects/kat/chainlink_64_h.tga
+	twoSided
+//	nomips
+//	materialType hollowmetal
+	{
+		blend bumpmap
+		map		addnormals ( models/mapobjects/kat/chainlink_local.tga, heightmap( models/mapobjects/kat/chainlink_64_h.tga, 1 ) )
+	}
+	{
+		blend diffusemap
+	    map		models/mapobjects/kat/chainlink_64.tga
+		alphaTest 0.5
+	}
+	specularmap		models/mapobjects/kat/chainlink_64.tga
+}
+
+models/mapobjects/kat/lantern_top_body
+{
+	qer_editorimage			models/mapobjects/kat/lanterntop_2b.tga
+//	materialType hollowmetal
+	noSelfShadow			//leave this in place for the 'Pro' map :o|
+//	noshadows
+	twoSided
+
+		bumpmap			addnormals( models/mapobjects/kat/lantern_2b_n.tga, heightmap( models/mapobjects/kat/lantern_2b_h.tga, 4 ) )
+		diffusemap		models/mapobjects/kat/lanterntop_2b.tga
+		specularmap		models/mapobjects/kat/lantern_2b_s.tga
+}
+
+models/mapobjects/kat/lantern_top_hat
+{
+	qer_editorimage			models/mapobjects/kat/lantern_top_d2.tga
+//	materialType hollowmetal
+	noSelfShadow			//leave this in place for the 'Pro' map :o|
+//	noshadows
+
+		bumpmap			addnormals( models/mapobjects/kat/lantern_top_2_n.tga, heightmap( models/mapobjects/kat/lantern_top_h.tga, 2 ) )
+		diffusemap		models/mapobjects/kat/lantern_top_d2.tga
+		specularmap		models/mapobjects/kat/lantern_top_s2.tga
+}
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// JUMPPAD
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+models/mapobjects/kat/jumppad_nofx
+{
+      	noselfShadow
+		nonSolid
+
+	diffusemap 	models/mapobjects/kat/jumppad_e2.tga
+	bumpmap addnormals (models/mapobjects/kat/jumppad_n.tga, heightmap (models/mapobjects/kat/jumppad_h.tga, 2 ))
+	specularmap	models/mapobjects/kat/jumppad_s_c.tga
+}
+
+models/mapobjects/kat/accelpad
+{
+      	noselfShadow
+		nonSolid
+
+	diffusemap 	models/mapobjects/kat/accel.tga
+	bumpmap addnormals (models/mapobjects/kat/accel_local.tga, heightmap (models/mapobjects/kat/accel_h.tga, 2 ))
+	specularmap	models/mapobjects/kat/accel_s.tga
+
+	{
+//		blend blend
+		blend add
+		map models/mapobjects/kat/accel_g2.tga
+		rgb 1.25 + sintable [time * 1]
+	}	
+	{
+		blend add
+		map models/mapobjects/kat/accel_g.tga
+	}
+	
+}
+
+
+//q4base/models/mapobjects/kat/jumppad
+models/mapobjects/kat/jumppad
+{
+	qer_editorImage models/mapobjects/kat/jumppad_f2.tga
+    noselfShadow
+	nonSolid
+
+	diffusemap 	models/mapobjects/kat/jumppad_f2.tga
+	bumpmap addnormals (models/mapobjects/kat/jumppad_4_n.tga, heightmap (models/mapobjects/kat/jumppad_h.tga, 2 ))
+	specularmap	models/mapobjects/kat/jumppad_c2_neutral_s.tga
+
+	{
+//		blend blend
+		blend add
+		map models/mapobjects/kat/jumppad_g_neutral.tga
+		rgb 1.25 + sintable [time * 1]
+	}	
+	{
+		blend add
+		map models/mapobjects/kat/jumppad_g2_neutral.tga
+	}
+	
+}
+
+//q4base/models/mapobjects/kat/jumppad_body
+models/mapobjects/kat/jumppad_body
+{
+	qer_editorimage			models/mapobjects/kat/jumppad_drum_v2.tga
+//	materialType hollowmetal
+//	noSelfShadow			//leave this in place for the 'Pro' map :o|
+//	noshadows
+	nonsolid
+
+		bumpmap			addnormals( models/mapobjects/kat/jumppad_drum_n.tga, heightmap( models/mapobjects/kat/jumppad_drum_h.tga, 2 ) )
+		diffusemap		models/mapobjects/kat/jumppad_drum_v2.tga
+		specularmap		models/mapobjects/kat/jumppad_drum_s.tga
+}
+
+
+//q4base/models/mapobjects/kat/accel_glow
+models/mapobjects/kat/accel_glow
+{
+	qer_editorImage models/mapobjects/kat/jumppad_g3_neutral.tga
+
+	translucent
+	nonSolid
+
+	{ 
+		maskColor
+		map makealpha(models/mapobjects/kat/accel_mask_v2b.tga)
+		centerScale 1.0, 1.0
+//		centerScale .5, .5
+//		centerScale .73, .73
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		
+		map models/mapobjects/kat/jumppad_g3_neutral.tga
+//		map models/mapobjects/kat/accel_g3.tga
+		centerScale jumppadtable [time * 1], jumppadtable [time * 1]
+		clamp
+	}	
+}
+
+//q4base/models/mapobjects/kat/jumppad_glow
+models/mapobjects/kat/jumppad_glow
+{
+	qer_editorImage models/mapobjects/kat/jumppad_g3_neutral.tga
+
+	translucent
+	nonSolid
+
+	{ 
+		maskColor
+		map makealpha(models/mapobjects/kat/jumppad_mask.tga)
+		centerScale 1.0, 1.0
+//		centerScale .5, .5
+//		centerScale .73, .73
+	}
+
+	{
+		blend GL_DST_ALPHA, gl_one
+		maskAlpha
+		map models/mapobjects/kat/jumppad_g3_neutral.tga
+		centerScale jumppadtable [time * 1], jumppadtable [time * 1]
+		clamp
+	}	
+}
+
+//
+// WEAPONS MARKER
+//
+models/mapobjects/kat/weapon_marker
+{
+	qer_editorImage models/mapobjects/kat/weapon_marker_local.png
+
+	//noselfShadow
+	nonsolid
+
+	diffusemap 	models/mapobjects/kat/weapon_marker.tga
+	bumpmap addnormals (models/mapobjects/kat/weapon_marker_local.tga, heightmap (models/mapobjects/kat/weapon_marker_h.tga, 2 ))
+	specularmap	models/mapobjects/kat/weapon_marker_s.tga
+	{
+		blend add
+		red			parm0
+		green		parm1
+		blue		parm2
+		map models/mapobjects/kat/weapon_marker_glow.tga
+	}
+}
+
+//
+// LAMPS
+//
+
+//q4base/models/mapobjects/kat/stone_lamps
+models/mapobjects/kat/stone_lamps
+{
+//	noSelfShadow
+//	noshadows
+	stone
+	nonsolid
+	qer_editorimage		models/mapobjects/kat/stone_lamps.tga
+
+	    diffusemap		models/mapobjects/kat/stone_lamps.tga
+		bumpmap			addnormals( models/mapobjects/kat/stone_lamps_local.tga, heightmap( models/mapobjects/kat/stone_lamps_h.tga, 1 ) )
+//	    bumpmap			models/mapobjects/kat/stone_lamps_local.tga
+		specularmap	    models/mapobjects/kat/stone_lamps_s.tga
+}
+
+//q4base/models/mapobjects/kat/stone_flat
+models/mapobjects/kat/stone_flat
+{
+//	noSelfShadow
+//	noshadows
+	stone
+	qer_editorimage		models/mapobjects/kat/stone_flat.tga
+
+	    diffusemap		models/mapobjects/kat/stone_flat.tga
+		bumpmap			addnormals( models/mapobjects/kat/stone_flat_local.tga, heightmap( models/mapobjects/kat/stone_flat_h.tga, 1 ) )
+//	    bumpmap			models/mapobjects/kat/stone_flat_local.tga
+		specularmap	    models/mapobjects/kat/stone_flat_s.tga
+}
+
+
+//q4base/models/mapobjects/kat/stone_steps
+models/mapobjects/kat/stone_steps
+{
+//	noSelfShadow
+//	noshadows
+	nonsolid
+	stone
+	qer_editorimage		models/mapobjects/kat/steps.tga
+
+	    diffusemap		models/mapobjects/kat/steps.tga
+		bumpmap			addnormals( models/mapobjects/kat/steps_local.tga, heightmap( models/mapobjects/kat/steps_h.tga, 1 ) )
+//	    bumpmap			models/mapobjects/kat/steps_local.tga
+		specularmap	    models/mapobjects/kat/steps_s.tga
+}
+
+
+//q4base/models/mapobjects/kat/stone
+models/mapobjects/kat/stone
+{
+//	noSelfShadow
+//	noshadows
+	nonsolid
+	stone
+	qer_editorimage		models/mapobjects/kat/rock_plain.tga
+	
+		diffusemap		models/mapobjects/kat/rock_plain.tga
+		bumpmap			addnormals (models/mapobjects/kat/rock_v2_local.tga, heightmap( models/mapobjects/kat/rock_plain_h.tga, 2 ) )
+		specularmap		models/mapobjects/kat/rock_plain_s.tga
+}

@@ -1,0 +1,241 @@
+
+textures/sfx/flare
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		16
+	qer_editorimage		textures/editor/flare.tga
+	{
+		if ( parm7 == 0 )
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+textures/sfx/flare_32
+{
+	// FIXME
+	
+	nonsolid
+	noshadows
+}
+
+textures/flares/flare_sizeable
+{
+	// FIXME
+	
+	nonsolid
+	noshadows
+}
+
+textures/sfx/flare_8
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		8
+	qer_editorimage		textures/editor/flare.tga
+	{
+		if ( parm7 == 0 )
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+textures/sfx/flare_2
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		2
+	qer_editorimage		textures/editor/flare.tga
+	{
+		if ( parm7 == 0 )
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+
+textures/sfx/flare_1
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		1
+	qer_editorimage		textures/editor/flare.tga
+	{
+		if ( parm7 == 0 )
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+/* this flare uses parm4 to modify the size */
+textures/sfx/flareSizeable
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		( 16 + parm4 )
+	qer_editorimage		textures/editor/flare.tga
+	{
+		if ( parm7 == 0 )
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+
+textures/sfx/flare_cv
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		16
+	qer_editorimage		textures/editor/flare.tga
+
+	{
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+textures/sfx/flare_toggle
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		16
+	qer_editorimage		textures/editor/flare.tga
+
+	{
+		blend		add
+		map		_quadratic
+		rgba
+		red		parm0 * parm7
+		green	parm1 * parm7
+		blue	parm2 * parm7
+		alpha	parm3 * parm7
+		vertexcolor
+	}
+}
+
+textures/sfx/flare_toggle2
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		16
+	qer_editorimage		textures/editor/flare.tga
+
+	{
+		blend		add
+		map		_quadratic
+		rgba
+		red		parm0 * parm7
+		green	parm1 * parm7
+		blue	parm2 * parm7
+		alpha	parm3 * parm7
+		vertexcolor
+	}
+}
+
+textures/sfx/flare_cv2
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		16
+	qer_editorimage		textures/editor/flare.tga
+
+	{
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+//duplicate of flare needed for models
+textures/sfx/flare2
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		( 16 + parm4 )
+	qer_editorimage		textures/editor/flare.tga
+
+	{
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+//duplicate of flare needed for models
+textures/sfx/flare3
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		( 16 + parm4 )
+	qer_editorimage		textures/editor/flare.tga
+
+	{
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+
+//duplicate of flare needed for models
+textures/sfx/flare4
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		( 16 + parm4 )
+	qer_editorimage		textures/editor/flare.tga
+
+	{
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+
+//duplicate of flare needed for models
+textures/sfx/flare5
+{
+	noshadows
+	translucent
+	nonsolid
+	deform flare 		( 16 + parm4 )
+	qer_editorimage		textures/editor/flare.tga
+
+	{
+		blend		add
+		map		_quadratic
+		colored
+		vertexcolor
+	}
+}
+

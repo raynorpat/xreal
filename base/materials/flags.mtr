@@ -1,0 +1,50 @@
+
+
+models/flags/flagpole
+{
+	diffuseMap		 models/flags/flagpole_diffuse.png
+	normalMap		 models/flags/flagpole_normal.png
+	specularMap	 	 models/flags/flagpole_specular.png
+}
+
+
+models/flags/blueflag
+{
+	//polygonOffset
+	//noshadows
+	twoSided
+	deformVertexes wave 100 sin 5 5 .5 2
+	
+	diffuseMap		models/flags/blueflag_diffuse.png
+	normalMap		models/flags/blueflag_normal.png
+	specularMap		models/flags/blueflag_specular.png
+	glowMap			models/flags/blueflag_glow.png
+}
+
+
+models/flags/redflag
+{
+	//polygonOffset
+	//noshadows
+	twoSided
+	deformVertexes wave 100 sin 5 5 .5 2
+	
+	diffuseMap		models/flags/redflag_diffuse.png
+	normalMap		models/flags/redflag_normal.png
+	specularMap		models/flags/redflag_specular.png
+	//glowMap			models/flags/redflag_glow.png
+}
+
+
+
+models/flags/neutralflag
+{
+	//polygonOffset
+	//noshadows
+	twoSided
+	deformVertexes wave 100 sin 5 5 .5 2
+	
+	diffuseMap		models/flags/neutralflag_diffuse.png
+	normalMap		models/flags/neutralflag_normal.png
+	specularMap		models/flags/neutralflag_specular.png
+}

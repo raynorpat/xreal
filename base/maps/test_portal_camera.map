@@ -1,0 +1,196 @@
+Version 2
+// entity 0
+{
+"classname" "worldspawn"
+"_keeplights" "1"
+"editor_drLastCameraPos" "-16.1031 142.103 171.32"
+"editor_drLastCameraAngle" "-11.1 211.5 0"
+// primitive 0
+{
+brushDef3
+{
+( 0 0 -1 256 ) ( ( 0.0104166651 0 1.3333334923 ) ( 0 0.010416667 1.9999996424 ) ) "textures/reflex_layout/ceiling" 0 0 0
+( 0 0 1 -272 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1 1.344e-007 0 -192.0000152588035 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1.344e-007 -1 0 -128.0000152588023 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -1.343e-007 0 -191.9999389648035 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1.343e-007 1 0 -256.0000000000046 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+}
+}
+// primitive 1
+{
+brushDef3
+{
+( 0 0 -1 -16 ) ( ( 0.0104166651 0 1.3333334923 ) ( 0 0.010416667 1.9999996424 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 0 ) ( ( 0.0104166651 0 1.3333334923 ) ( 0 0.010416667 2.0000002384 ) ) "textures/reflex_layout/floor" 0 0 0
+( -1 1.344e-007 0 -192.0000152588035 ) ( ( 0.010416666 0 2.6666665077 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+( -1.344e-007 -1 0 -128.0000152588023 ) ( ( 0.0104166679 0 2.0000004768 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -1.343e-007 0 -191.9999389648035 ) ( ( 0.010416666 0 1.3333334923 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+( 1.343e-007 1 0 -256.0000000000046 ) ( ( 0.0104166679 0 1.9999995232 ) ( 0 0.25 0 ) ) "textures/common/caulk" 0 0 0
+}
+}
+// primitive 2
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.2499990463 0 0.00025177 ) ( 0 0.0104166679 1.9999997616 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.2499990463 0 0.00025177 ) ( 0 0.0104166679 2.0000002384 ) ) "textures/common/caulk" 0 0 0
+( -1 1.344e-007 0 -192.0000305176035 ) ( ( 0.25 0 4 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -1.344e-007 -1 0 256.0000000000046 ) ( ( 0.0104166679 0 2.0000007153 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+( 1 -1.343e-007 0 -191.9999237061035 ) ( ( 0.25 0 -0 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1.343e-007 1 0 -272.0000000000049 ) ( ( 0.0104166679 0 1.999999404 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+}
+}
+// primitive 3
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.2499991655 0 35.9998855591 ) ( 0 0.0104166679 1.9999998808 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.2499991655 0 35.9998855591 ) ( 0 0.0104166679 2.0000002384 ) ) "textures/common/caulk" 0 0 0
+( -1 1.344e-007 0 -191.9999694824035 ) ( ( 0.2500001192 0 31.9999847412 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -1.344e-007 -1 0 -144.0000000000026 ) ( ( 0.0104166679 0 1.9999998808 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1 -1.343e-007 0 -191.9999847412035 ) ( ( 0.25 0 36 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1.344e-007 1 0 128.0000000000023 ) ( ( 0.0104166679 0 2 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+// primitive 4
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 52 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.010416667 0 1.3333333731 ) ( -0 0.25 16 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -128 ) ( ( 0.25 0 16 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1 0 0 -208 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 0 1 0 -256 ) ( ( 0.25 0 52 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 192 ) ( ( 0.010416667 0 2.6666667461 ) ( 0 0.015625 4 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+// primitive 5
+{
+brushDef3
+{
+( 0 0 -1 0 ) ( ( 0.010416667 0 1.3333333731 ) ( -0 0.25 16 ) ) "textures/common/caulk" 0 0 0
+( 0 0 1 -256 ) ( ( 0.010416667 0 1.3333333731 ) ( 0 0.25 52 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -128 ) ( ( 0.25 0 52 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( 1 0 0 192 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/portal1" 0 0 0
+( 0 1 0 -256 ) ( ( 0.25 0 16 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 -208 ) ( ( 0.010416667 0 2.6666667461 ) ( 0 0.015625 4 ) ) "textures/common/caulk" 0 0 0
+}
+}
+}
+// entity 1
+{
+"classname" "info_player_start"
+"name" "info_player_start_1"
+"angle" "90"
+"origin" "128 -32 32"
+}
+// entity 2
+{
+"classname" "light"
+"name" "light_2"
+"_color" "0.78 0.78 0.84"
+"falloff" "0.000000"
+"light_radius" "225 225 225"
+"nodiffuse" "0"
+"noshadows" "0"
+"nospecular" "0"
+"origin" "-128 192 128"
+}
+// entity 3
+{
+"classname" "light"
+"name" "light_3"
+"_color" "0.78 0.78 0.84"
+"falloff" "0"
+"light_radius" "225 225 225"
+"nodiffuse" "0"
+"noshadows" "0"
+"nospecular" "0"
+"origin" "128 192 128"
+}
+// entity 4
+{
+"classname" "light"
+"name" "light_4"
+"_color" "0.78 0.78 0.84"
+"falloff" "0"
+"light_radius" "225 225 225"
+"nodiffuse" "0"
+"noshadows" "0"
+"nospecular" "0"
+"origin" "-128 -64 128"
+}
+// entity 5
+{
+"classname" "light"
+"name" "light_5"
+"_color" "0.78 0.78 0.84"
+"falloff" "0"
+"light_radius" "225 225 225"
+"nodiffuse" "0"
+"noshadows" "0"
+"nospecular" "0"
+"origin" "128 -64 128"
+}
+// entity 6
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_1"
+"origin" "-128 64 32"
+}
+// entity 7
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_2"
+"angle" "270"
+"origin" "0 192 32"
+}
+// entity 8
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_3"
+"angle" "90"
+"origin" "0 -64 32"
+}
+// entity 9
+{
+"classname" "misc_portal_surface"
+"name" "misc_portal_surface_1"
+"origin" "-176 88 32"
+"target" "misc_portal_camera_1"
+}
+// entity 10
+{
+"classname" "misc_portal_camera"
+"name" "misc_portal_camera_1"
+"angle" "90"
+"origin" "128 -64 56"
+}
+// entity 11
+{
+"classname" "func_static"
+"name" "func_static_1"
+"origin" "128 -32 0"
+"model" "models/mapobjects/power/pad.lwo"
+}
+// entity 12
+{
+"classname" "trigger_teleport"
+"name" "trigger_teleport_1"
+"model" "trigger_teleport_1"
+"origin" "-188 64 128"
+"target0" "info_player_start_1"
+// primitive 0
+{
+brushDef3
+{
+( 0 0 1 -128 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( 0 1 0 -192 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( 1 0 0 -4 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( 0 0 -1 -128 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( 0 -1 0 -192 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( -1 0 0 -4 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+}
+}
+}

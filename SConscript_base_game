@@ -1,0 +1,100 @@
+import os, string, sys
+
+Import('env')
+
+# the file with vmMain function MUST be the first one of the list
+game_src = [
+'code/game/g_main.c',
+'code/game/acebot_ai.c',
+'code/game/acebot_cmds.c',
+'code/game/acebot_items.c',
+'code/game/acebot_movement.c',
+'code/game/acebot_nodes.c',
+'code/game/acebot_spawn.c',
+'code/game/bg_misc.c',
+'code/game/bg_pmove.c',
+'code/game/bg_slidemove.c',
+'code/game/g_active.c',
+'code/game/g_arenas.c',
+'code/game/g_bot.c',
+'code/game/g_client.c',
+'code/game/g_cmds.c',
+'code/game/g_combat.c',
+'code/game/g_items.c',
+'code/game/g_mem.c',
+'code/game/g_misc.c',
+'code/game/g_missile.c',
+'code/game/g_mover.c',
+'code/game/g_session.c',
+'code/game/g_spawn.c',
+'code/game/g_svcmds.c',
+'code/game/g_target.c',
+'code/game/g_team.c',
+'code/game/g_trigger.c',
+'code/game/g_unlagged.c',
+'code/game/g_utils.c',
+'code/game/g_weapon.c',
+'code/game/q_math.c',
+'code/game/q_shared.c'
+]
+
+dll_src = [
+'code/game/g_syscalls.c',
+]
+
+lua_src = [
+'code/lua-5.1/src/lapi.c',
+'code/lua-5.1/src/lcode.c',
+'code/lua-5.1/src/ldebug.c',
+'code/lua-5.1/src/ldo.c',
+'code/lua-5.1/src/ldump.c',
+'code/lua-5.1/src/lfunc.c',
+'code/lua-5.1/src/lgc.c',
+'code/lua-5.1/src/llex.c',
+'code/lua-5.1/src/lmem.c',
+'code/lua-5.1/src/lobject.c',
+'code/lua-5.1/src/lopcodes.c',
+'code/lua-5.1/src/lparser.c',
+'code/lua-5.1/src/lstate.c',
+'code/lua-5.1/src/lstring.c',
+'code/lua-5.1/src/ltable.c',
+'code/lua-5.1/src/ltm.c',
+'code/lua-5.1/src/lundump.c',
+'code/lua-5.1/src/lvm.c',
+'code/lua-5.1/src/lzio.c',
+'code/lua-5.1/src/lauxlib.c',
+'code/lua-5.1/src/lbaselib.c',
+'code/lua-5.1/src/ldblib.c',
+#'code/lua-5.1/src/liolib.c',
+#'code/lua-5.1/src/lmathlib.c',
+'code/lua-5.1/src/ltablib.c',
+'code/lua-5.1/src/lstrlib.c',
+'code/lua-5.1/src/loadlib.c',
+'code/game/g_lua.c',
+'code/game/lua_entity.c',
+'code/game/lua_game.c',
+'code/game/lua_qmath.c',
+'code/game/lua_vector.c'
+]
+
+game_env = env.Copy()
+game_env.Append(CCFLAGS='-DQAGAME')
+game_env.Append(CCFLAGS='-DLUA')
+game_env.Append(CCFLAGS='-Icode/lua-5.1/src')
+
+if env['arch'] == 'linux-i386':
+	game_env.SharedLibrary('game', [game_src, dll_src, lua_src], LIBS=['m'])
+	game_env.InstallAs('#base/qagamei386.so', 'libgame.so')
+	
+elif env['arch'] == 'linux-x86_64':
+	game_env.SharedLibrary('game', [game_src, dll_src, lua_src], LIBS=['m'])
+	game_env.InstallAs('#base/qagamex86_64.so', 'libgame.so')
+
+elif env['arch'] == 'netbsd-i386':
+	game_env.SharedLibrary('game', [game_src, dll_src, lua_src], LIBS=['m'])
+	game_env.InstallAs('#base/qagamei386.so', 'libgame.so')
+
+elif env['arch'] == 'win32-mingw':
+	game_env.SharedLibrary('game', [game_src, dll_src, lua_src], LIBS=['m'])
+	game_env.InstallAs('#base/qagamex86.dll', 'game.dll')
+

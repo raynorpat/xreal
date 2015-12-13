@@ -1,0 +1,125 @@
+
+
+//==================
+// SUPER SHOTGUN
+//==================
+
+models/weapons/shotgun/shotgun
+{
+
+	noShadows
+	//noselfShadow
+	//unsmoothedTangents
+	
+	diffusemap		models/weapons/shotgun/shotgun_d.tga
+	{
+		blend 		bumpmap
+		map  		addnormals(models/weapons/shotgun/shotgun_local.tga, heightmap(models/weapons/shotgun/shotgun_h.tga, 5 ) )
+	}
+    specularmap	 	models/weapons/shotgun/shotgun_s.tga
+}
+
+models/weapons/shotgun/q2_w_supershotgun01
+{
+
+	noShadows
+	//noselfShadow
+	//unsmoothedTangents
+	
+	diffusemap		models/weapons/shotgun/shotgun_d.tga
+	normalmap		addnormals(models/weapons/shotgun/shotgun_local.tga, heightmap(models/weapons/shotgun/shotgun_h.tga, 5 ) )
+    specularmap	 	models/weapons/shotgun/shotgun_s.tga
+	/*
+	{
+		blend 		add
+		map			models/q2_items/q2_item_pulse.tga
+		red 		( q2iteminout [Parm4 + (time / 1.5) ]) * Parm0
+		green 		( q2iteminout [Parm4 + (time / 1.5) ]) * Parm1
+		blue 		( q2iteminout [Parm4 + (time / 1.5) ]) * Parm2
+	}
+	*/
+}
+
+
+models/weapons/shotgun/shotgun_muzzflash
+{
+	sort nearest
+	deform sprite
+	{
+		forceHighQuality
+		if 		( time + parm4 ) * 6.4 < 1.0
+		blend 		add
+		map 		models/weapons/shotgun/shotgun_muzzflash_strip.tga
+		scale 		1 / 32 , 1
+		scroll 		q2table32[ (time + parm4) * 6.4] , 0
+		rotate		q2rotate90[ parm5 ]
+		clamp
+	}
+}
+
+models/weapons/shotgun/shotgun_muzzflash2
+{
+	sort nearest
+	//deform tube
+	{
+		forceHighQuality
+		if ( time + parm4 ) * 5 < 1.0
+		blend 		add
+		map 		models/weapons/shotgun/shotgun_muzzflash2_strip.tga
+		scale 		1 / 8 , 1
+		scroll 		q2table8[ (time + parm4) * 5] , 0
+		clamp
+	}
+}
+
+models/weapons/shotgun/shotgun_muzzflashb
+{
+	sort nearest
+	deform sprite
+	{
+		forceHighQuality
+		if 		( time + parm4 ) * 7 < 1.0
+		blend 		add
+		map 		models/weapons/shotgun/shotgun_muzzflash_strip.tga
+		scale 		1 / 32 , 1
+		scroll 		q2table32[ (time + parm4) * 7] , 0
+		rotate		q2rotate90[ parm5 ]
+		clamp
+	}
+}
+
+models/weapons/shotgun/shotgun_muzzflash2b
+{
+	sort nearest
+	//deform tube
+	{
+		forceHighQuality
+		if 		( time + parm4 ) * 5 < 1.0
+		blend 		add
+		map 		models/weapons/shotgun/shotgun_muzzflash2_strip.tga
+		scale 		1 / 8 , 1
+		scroll 		q2table8[ (time + parm4) * 5] , 0
+		clamp
+	}
+}
+
+
+/*
+models/weapons/shotgun/f_shotgun
+{
+	sort additive
+	cull disable
+	{
+		map	models/weapons/shotgun/f_shotgun.tga
+		blend add
+	}
+}
+*/
+
+
+models/weapons/shotgun/shell
+{
+	diffuseMap models/weapons/shells/shell_d.png
+	normalMap models/weapons/shells/shell_n.png
+	specularMap models/weapons/shells/shell_s.png
+}

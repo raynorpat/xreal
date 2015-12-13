@@ -1,0 +1,120 @@
+// feuer
+
+models/weapons/rocketl/f_rocketl
+{
+	twoSided
+	sort additive
+	{
+		map models/weapons/rocketl/f_rocketl.tga
+		blend add
+	}
+}
+models/weapons/rocketl/flame_small
+{
+	twoSided
+	sort additive
+	{
+		map models/weapons/rocketl/f_small.tga
+		blend add
+	}
+}
+
+
+// rocketlauncher
+
+
+models/weapons/rocketl/rocketl_uvw_frame_exp_d // rahmen ums rohr
+{
+	diffuseMap models/weapons/rocketl/rocketl_uvw_frame_exp_d.tga
+	normalMap models/weapons/rocketl/frame_n.png
+	specularMap models/weapons/rocketl/frame_s.tga
+	
+	/*
+	{
+		stage reflectionMap
+		blend GL_ONE_MINUS_DST_COLOR, GL_ZERO
+		//blend GL_DST_COLOR, GL_ZERO
+		cubeMap cubemaps/pete/carbon-creek512
+	}
+	normalMap models/weapons/rocketl/frame_n.png
+	*/
+}
+models/weapons/rocketl/tube_d //schläuche 
+{
+	diffuseMap models/weapons/rocketl/tube_d.tga
+	normalMap models/weapons/rocketl/tube_n.png
+	specularMap models/weapons/rocketl/tube_d.tga
+}
+models/weapons/rocketl/rocketl_uvw_exp //inneres rohr
+{
+	diffuseMap models/weapons/rocketl/rocketl_uvw_exp.tga
+	normalMap models/weapons/rocketl/roor_n.png
+	specularMap models/weapons/rocketl/roor_s.tga
+}
+
+models/weapons/rocketl/rocketl_uvw_rtop_exp_d //platte vorne/oben, griff, abzug, schale
+{
+	diffuseMap models/weapons/rocketl/rocketl_uvw_rtop_exp_d.tga
+	normalMap models/weapons/rocketl/front_n.png
+	specularMap models/weapons/rocketl/rocketl_uvw_rtop_exp_d.tga
+	
+	/*
+	{
+		stage reflectionMap
+		blend GL_ONE_MINUS_DST_COLOR, GL_ZERO
+		//blend GL_DST_COLOR, GL_ZERO
+		cubeMap cubemaps/pete/carbon-creek512
+	}
+	normalMap models/weapons/rocketl/front_n.png
+	*/
+}
+models/weapons/rocketl/rocketl_body_d // hinterteil -.-
+{
+	diffuseMap models/weapons/rocketl/rocketl_body_d.tga
+	normalMap models/weapons/rocketl/body_n2.png
+	specularMap models/weapons/rocketl/rocketl_body_d.tga
+}
+
+// missile
+
+models/projectiles/missile/missile
+{
+	{
+		stage diffuseMap
+		map	models/projectiles/missile/missile.png
+	}
+	normalMap heightmap(models/projectiles/missile/missile_bump.png, 3)
+	specularMap models/projectiles/missile/missile_spec.png
+	{
+		map models/projectiles/missile/missile_glow.png
+		blend add
+	}
+}
+
+models/projectiles/missile/missileflar
+{
+	twoSided
+	{
+		map models/projectiles/missile/missileflar.png
+		blend add
+		scroll time * 10.0, 0
+	}
+}
+
+models/projectiles/missile/missilefls1
+{
+	twoSided
+	{
+		map models/projectiles/missile/missilefls1.png
+		blend add
+	}
+}
+
+models/projectiles/missile/missilefls2
+{
+	twoSided
+	{
+		map models/projectiles/missile/missilefls2.png
+		blend add
+	}
+}

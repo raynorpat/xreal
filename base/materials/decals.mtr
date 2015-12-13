@@ -1,0 +1,130 @@
+
+// wall marks
+// use blendFunc GL_ZERO GL_ONE_MINUS_SRC_COLOR so that
+// their "contribution" can be damped down in fog volumes
+// with distance
+textures/decals/blood_splat01
+{
+	qer_editorImage textures/decals/blood_splat01.tga
+
+	nopicmip			// make sure a border remains
+	polygonOffset
+	{
+		clamp
+		map textures/decals/blood_splat01.tga
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		vertexColor
+	}
+}
+
+textures/decals/blood_splat02
+{
+	qer_editorImage textures/decals/blood_splat02.tga
+
+	nopicmip			// make sure a border remains
+	polygonOffset
+	{
+		clamp
+		map textures/decals/blood_splat02.tga
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		vertexColor
+	}
+}
+
+textures/decals/blood_splat03
+{
+	qer_editorImage textures/decals/blood_splat03.tga
+
+	nopicmip			// make sure a border remains
+	polygonOffset
+	{
+		clamp
+		map textures/decals/blood_splat03.tga
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR
+		vertexColor
+	}
+}
+
+textures/decals/blood_splat04
+{
+	qer_editorImage textures/decals/blood_splat04.tga
+
+	nopicmip
+	polygonOffset
+	{
+		clamp
+		map textures/decals/blood_splat04.tga
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+		vertexColor
+	}
+}
+
+textures/decals/blood_splat05
+{
+	qer_editorImage textures/decals/blood_splat05.tga
+
+	nopicmip
+	polygonOffset
+	{
+		clamp
+		map textures/decals/blood_splat05.tga
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+		vertexColor
+	}
+}
+
+textures/decals/blood_splat06
+{
+	qer_editorImage textures/decals/blood_splat06.tga
+
+	nopicmip
+	polygonOffset
+	{
+		clamp
+		map textures/decals/blood_splat06.tga
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+		vertexColor
+	}
+}
+
+textures/decals/_grungemaps/grunge17
+{
+	// FIXME
+	
+	nonsolid
+	noshadows
+}
+
+textures/decals/_grungemaps/grunge7
+{
+	// FIXME
+	
+	nonsolid
+	noshadows
+}
+
+textures/decals/dirtblast
+{
+	// FIXME
+	
+	nonsolid
+	noshadows
+}
+
+textures/decals/sdirt10
+{
+	// FIXME
+	
+	nonsolid
+	noshadows
+}
+
+textures/decals/stain01b
+{
+	// FIXME
+	
+	nonsolid
+	noshadows
+}
+
+

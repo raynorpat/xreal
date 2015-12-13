@@ -1,0 +1,145 @@
+﻿PROGRAMMING
+===========
+Robert "Tr3B" Beckebans - lead programming
+Adrian "otty" Fuhrmann - user interface
+Josef "cnuke" Söntgen - cgame stuff
+Björn "bj0ern" Paschen - Win32 specific fixes
+Pat "raynorpat" Raynor - bugfixes, PNG support, misc other stuff
+Iain "Jock" Mckay - x86_64 support
+Tim "Timbo" Angus - .avi video recording support
+Manfred "Defcon-x" Nerurkar - misc renderer enhancements
+Jason Thomas Dolan - Linux ALSA sound backend
+Ryan C. Gordon "icculus" - Linux SDL sound backend
+Stuart Dalton - Ogg Vorbis support, OpenAL sound backend
+Joerg Dietrich - Ogg Vorbis support
+Andrew Tridgell - MD4 checksum GPL code
+Tony J. White - libcURL http-download redirection support, Win Alt-Tab support
+ensiform - console clock enhancements
+Nicolas “Berserk” Flekenstein - ASElib color support
+Neil “haste” Toronto - Unlagged game and cgame code
+
+
+MODELLING
+=========
+Julian "Plaque" Morris - projectile models
+Mikael "Ruohis" Ruohomaa - lightning gun weapon model
+Robert "BJA" Hodri - map objects: light models  http://www.bja-design.de
+Ken "kat" Beyer - map objects: jumppad, lantern, weapon marker http://www.quake3bits.com
+Lee David Ash - gauntlet weapon model
+gw - map objects: teleporter, fan models
+
+
+XreaL Team
+----------
+Adrian "otty" Fuhrmann - health and powerup models
+Michael "mic" Denno - shotgun shells, rocket launcher weapon model
+
+
+QuakeII: Lost Marine Team
+-------------------------
+Thearrel "Kiltron" McKinney - granted permission to use the weapon models, Thank You !
+Jim "Revility" Kern  http://www.art.atomicarmadillo.com/
+ - machinegun model
+ - super shotgun model used as shotgun
+ - shotgun model used as railgun
+
+
+OpenArena Team
+--------------
+jzero - ammo models
+
+
+Sapphire Scar Team
+------------------
+dfacto - par machinegun model
+Earthquake - par machinegun model
+NecEvil  - par machinegun model
+
+
+Alone Team
+----------
+Josh "Jack Rammsdell" Greenburg - Map and 3d/2d art creation creation, material defs and scripts.
+Peter_86 - Character and Weapon model creation
+Voldemort - Map, Texture, Def, material, and Script Creation
+Arkibator - Map creation
+MacBeth - Sound Creation
+Stephan - Texture Creation
+
+
+
+LEVEL DESIGN
+============
+Yan "Method" Ostretsov - yan_test
+Stefan "ReFlex" Lautner - REDM08, UGLY R.G.A
+Pat "raynorpat" Raynor - Longest, Soul
+Tom "phantazm11" Perryman - phantq4dm4
+
+
+
+2D ART
+======
+Christian "Lorax" Ballsieper
+Josef "cnuke" Söntgen
+Willi "whammes" Hammes - explosion sprites, particles, decals
+Robin "Wakey" Pengelstorfer
+Stefan "ReFlex" Lautner
+Nathan "jitspoe" Wulf - hud numbers
+Adrian "otty" Fuhrmann
+Pat "raynorpat" Raynor
+Michael "mic" Denno
+Yves "evillair" Allaire - Quake4 eX texture set
+Philip Klevestav - Quake4 pk01 texture set
+Matt "Lunaran"  Breit - Quake4 Powerplant texture set
+Yan "Method" Ostretsov - Quake4 method texture set
+Tom "phantazm11" Perryman - Quake4 aztech texture set
+Oilpainter - Quake4 Rustex texture set
+hi_volt - sky clouds
+leileilol - menu art, effect textures
+
+
+
+SFX
+===
+
+OpenArena Team
+--------------
+Mancubus (mancubus.net) - is the announcer!
+leileilol - gib sounds
+
+
+Sapphire Scar Team
+------------------
+
+
+The Freesound Project
+---------------------
+AdcBicycle
+Abyssmal
+Andrew Duke
+aust_paul
+b0bd0bbs
+dobroide
+Erdie
+HcTrancer
+ignotus
+JimPurbrick
+Jovica
+kijjaz
+loofa
+man
+nkuitse
+Oppusum
+PoisedToGlitch
+room
+suonho
+swelk
+young_daddy
+
+
+
+DEVELOPMENT ASSISTANCE
+======================
+Josef "cnuke" Söntgen - development media mirror and game server
+Mathias "Skynet" Heyer - OpenGL guru
+
+

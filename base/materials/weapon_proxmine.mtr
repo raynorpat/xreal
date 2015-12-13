@@ -1,0 +1,39 @@
+
+models/weapons/proxmine/f_proxmine
+{
+        cull disable
+        {
+                map models/weapons/proxmine/f_proxmine.tga
+                blendFunc add
+                rgbGen identity
+        }
+}
+
+models/weapons/proxmine/proxmine2
+{
+		cull disable
+        {
+                map models/weapons/proxmine/proxmine2.tga
+                rgbGen lightingdiffuse
+        }
+        {
+                map models/weapons/proxmine/proxmine2b.tga
+                blendFunc add
+                rgbGen wave sin .5 .5 0 2
+        }
+}
+
+models/weapons/proxmine/proxmine1
+{
+        cull disable
+        {
+                map models/weapons/proxmine/proxmine1b.tga
+                tcmod scroll 0 2
+                rgbGen lightingdiffuse
+        }
+        {
+                map models/weapons/proxmine/proxmine1.tga
+                blendFunc Blend
+                rgbGen lightingdiffuse
+        }
+}

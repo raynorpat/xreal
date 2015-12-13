@@ -1,0 +1,4097 @@
+
+/*
+===========================================================================================================
+-----------------------------------------------------------------------------------------------------------
+
+ XreaL entity definition file for DarkRadiant
+ 
+ FIXME: Models in the editor do not have skins applied
+ FIXME2: Spawnflags?
+ 
+ NOTE: Some of these may be wrong but all of them show up in the editor entity selection window so may
+ need to fix them if they dont work when you try to use them. ~Encryption
+ 
+------------------------------------------------------------------------------------------------------------
+============================================================================================================
+*/
+
+/*
+============================================================================================================
+
+WorldSpawn Entity
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef worldspawn
+{
+	"editor_color"					"0 0 0"
+	"editor_mins"					"?"
+	"editor_maxs"					"?"
+
+	"editor_usage"					"Only used for the world."
+	
+	"editor_var music"				"music wav file."
+	"editor_var ambientColor"		"RGB value for ambient light color"
+	"editor_var fogColor"			"RGB value for global fog color"
+	"editor_float fogDensity"		"float value for global fog density"
+	"editor_var gravity"			"gravity value for the level."
+	"editor_bool perPolyCollision"	"Per Polygon Collision: when set to 1, collision code will trace against draw surfaces and special collision surfaces."
+	"editor_var gridsize"           "Dynamic Light Granularity: granularity of the lightgrid created by q3map. Value is three integers separated by spaces, representing number of units between grid points in X Y Z. Default gridsize value is 128 128 256. Use larger powers of 2 to reduce BSP size and compile time on very large maps."
+	"editor_var _blocksize"         "BSP Block Size: q3map always splits the BSP tree along the planes X=_blocksize*n and Y=_blocksize*n. Default _blocksize value is 1024. Increase the blocksize using larger powers of 2 to reduce compile times on very large maps with a low structural brush density."
+	"editor_float _lightmapscale"   "Lightmap Scale: Floating point value scaling the resolution of lightmaps on brushes/patches in the world. Can be overridden in func_group (or other entities) (default 1.0)."
+	"editor_var _castshadows"		"Shadow Caster Level: Allows per-entity control over shadow casting. Defaults to 0 on entities, 1 on world. 0 = no shadow casting. 1 = cast shadows on world. > 1 = cast shadows on entities with _rs (or _receiveshadows) with the corresponding value, AND world. Negative values imply same, but DO NOT cast shadows on world."
+	"editor_var _receiveshadows" 	"Shadow Receiver Level: Allows per-entity control over shadow reception. Defaults to 1 on everything (world shadows). 0 = receives NO shadows. > 1 = receive shadows only from corresponding keyed entities (see above) and world. &lt; 1 = receive shadows ONLY from corresponding keyed entities."
+	
+	"spawnclass"					"idWorldspawn"
+	"message"						""
+	"music"							""
+	"ambientColor"                  "0 0 0"
+	"fogColor"                      "0 0 0"
+	"fogDensity"					"0"
+	"gravity"						"800"
+	"perPolyCollision"				"0"
+	"gridsize"						"0"
+	"_blocksize"					"0"
+	"_lightmapscale"				"1.0"
+	"_castshadows"					"0"
+	"_receiveshadows"				"1"
+}
+
+
+/*
+============================================================================================================
+
+Light Entity
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef light
+{
+	"editor_color"					".65 .65 1"
+	"editor_mins"					"-8 -8 -8"
+	"editor_maxs"					"8 8 8"
+	"editor_rotatable"				"1"
+
+	"editor_usage"					"Light source."
+	
+	"editor_material texture"		"light shader to use."
+	"editor_color color"			"light color"
+	"editor_var shaderParm3"		"shaderParm 3"
+	"editor_var shaderParm4"		"shaderParm 4"
+	"editor_var shaderParm5"		"shaderParm 5"
+	"editor_var shaderParm6"		"shaderParm 6"
+	"editor_var shaderParm7"		"shaderParm 7"
+	"editor_var light_radius"		"Boxed Light Radius: overrides the default 300 300 300 box radius."
+	"editor_float light_distance"	"Spotlight Radius: overrides the default 300 unit radius of a spotlight."
+	"editor_float light_fovX"		"Spotlight FOV width angle: overrides the default 90 degrees."
+	"editor_float light_fovY"		"Spotlight FOV height angle: overrides the default 90 degrees."
+	"editor_bool noshadows"			"No Shadows, Set this key to 1 to disable shadow casting."
+	"editor_bool noradiosity"		"No Radiosity, Set this key to 1 to disable XMap2 radiosity creation."
+
+	"spawnclass"					"idLight"  // this is required for DarkRadiant
+	
+	"light_radius"					"300 300 300"
+	"light_distance"				"300"
+	"light_fovX"					"90"
+	"light_fovY"					"90"
+	"noshadows"						"0"
+	"noradiosity"					"0"
+}
+
+
+/*
+============================================================================================================
+
+Info_ Entities
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef info_null
+{
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				"Used as a positional target for light entities to create a spotlight effect. A target_position can be used instead of this but was kept in Q3A for legacy purposes."
+	
+	"spawnclass"				"idStaticEntity"
+}
+
+entityDef info_notnull
+{
+	"inherit"				"info_null"
+
+	"editor_color"			"0 0.5 0"
+	"editor_mins"			"-8 -8 -8"
+	"editor_maxs"			"8 8 8"
+
+	"editor_usage"			"Used as a positional target for entities that can use directional pointing. A target_position can be used instead of this but was kept in Q3A for legacy purposes."
+	
+	"editor_bool notfree"	"Hidden For FFA: when set to 1, entity will not spawn in 'Free for all' and 'Tournament' modes."
+	"editor_bool notteam"	"Hidden For Teamplay: when set to 1, entity will not spawn in 'Teamplay' and 'CTF' modes."
+	"editor_bool notsingle"	"Hidden For SP: when set to 1, entity will not spawn in Single Player mode (bot play mode)."
+	"editor_bool initial"	"Initial Spawn Point: makes the spawnpoint the initial place for the player to spawn at the beginning of the game."
+
+	"spawnclass"			"idStaticEntity"
+	
+	"notfree"				"0"
+	"notteam"				"0"
+	"notsingle"				"0"
+}
+
+
+entityDef info_location
+{
+	"editor_color"			"1 1 0"
+	"editor_mins"			"-4 -4 -4"
+	"editor_maxs"			"4 4 4"
+
+	"editor_usage"			"Place one of these in each door-separated area for naming the gameplay sections"
+	"editor_var name"		"location name for HUD.  Cannot be the same as any other entity in the game."
+	"editor_var location"	"use this when you have two locations with the same name."
+
+	"spawnclass"			"idLocationEntity"
+}
+
+
+entityDef info_locationSeparator
+{
+	"editor_color"			"1 1 0"
+	"editor_mins"			"-16 -16 -16"
+	"editor_maxs"			"16 16 16"
+
+	"editor_usage"			"Touch a vis-portal with this to break location name flood filling without using a door"
+
+	"spawnclass"			"idLocationSeparatorEntity"
+}
+
+
+/*
+entityDef info_camp  
+{  
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idStaticEntity"
+	
+    "range"                     "0"  //"Range"number of units that the bot can move away from camp entity while camping on it."
+    "weight"                    "0"  //"Weight"number that is compared against the weight assigned to all the other camp spots in the map to determine if a bot chooses to camp there. The value is normalized against all other weight values."
+}
+*/
+
+
+entityDef info_player_intermission
+{    
+	"editor_color"				"1 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16"
+	"editor_rotatable"			"1"
+	
+	"editor_usage"				"Camera for intermission screen between matches. This also automatically generates the podium for bot arena matches (see Notes). Can be aimed by setting the 'angles' key or targeting an pointing to an aiming entity. Use only one per level."
+	
+	"spawnclass"				"idPlayerStart"
+	
+	"editor_var angles"			"alternate 'pitch, yaw, roll' angles method of aiming intermission camera (default 0 0 0)."
+	"editor_var target"			"point this to an info_notnull or target_position entity to set the camera's pointing angles."
+	
+    "angles"                    "0 0 0"
+    "target"                    ""
+}
+
+
+/*
+============================================================================================================
+
+Player Start Entities
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef info_player_start
+{
+	"editor_color"			"1 0 0"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 64"
+	"editor_showangle"		"1"
+
+	"editor_usage"			"Potential spawning position for single player games."
+	
+	"editor_var angle"		"Yaw Angle: direction in which player will look when spawning in the game. Does not apply to bots."
+	"editor_var target"		"this can point at a target_give entity for respawn freebies."
+	"editor_bool nobots"    "when set to 1, bots will never use this spawn point to respawn in the game."
+	"editor_bool nohumans"	"when set to 1, human players will never use this spawn point to respawn in the game."
+	"editor_bool notfree"	"Hidden For FFA: when set to 1, entity will not spawn in 'Free for all' and 'Tournament' modes."
+	"editor_bool notteam"	"Hidden For Teamplay: when set to 1, entity will not spawn in 'Teamplay' and 'CTF' modes."
+	"editor_bool notsingle"	"Hidden For SP: when set to 1, entity will not spawn in Single Player mode (bot play mode)."
+	"editor_bool initial"	"Initial Spawn Point: makes the spawnpoint the initial place for the player to spawn at the beginning of the game."
+
+	"spawnclass"			"idPlayerStart"
+	"angle"					"0"
+    "target"				""
+	"nobots"				"0"
+	"nohumans"				"0"
+	"notfree"				"0"
+	"notteam"				"0"
+	"notsingle"				"0"
+	"initial"               "0"
+}
+
+entityDef info_player_deathmatch
+{
+	"inherit"				"info_player_start"
+	
+	"editor_color"			"1 0 1"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 64"
+	"editor_showangle"		"1"
+
+	"editor_usage"			"Potential spawning position for deathmatch games.  The first time a player enters the game, they will be at an 'initial' spot."
+	"editor_var target"		"targets to fire when someone spawns in."
+	"editor_var initial"	"this is an initial spawn spot"
+
+	"spawnclass"			"idPlayerStart"
+}
+
+
+
+entityDef info_player_teleport
+{
+	"inherit"					"info_player_start"
+	
+	"editor_color"				"1 0 0"
+	"editor_mins"				"-16 -16 0"
+	"editor_maxs"				"16 16 64"
+	"editor_showangle"			"1"
+
+	"editor_usage"				"Teleport destination location point for trigger_teleporter entities."
+	
+	"spawnclass"				"idPlayerStart"
+}
+
+
+/*
+============================================================================================================
+
+Team Player Start Entities
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef team_CTF_blueplayer
+{    
+	"editor_color"				"0 .2 1" 	
+	"editor_mins"				"-16 -16 -24"
+	"editor_maxs"				"16 16 32"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idPlayerStart"
+	
+    "target"					"0"
+}
+
+
+entityDef team_CTF_bluespawn 
+{   
+	"editor_color"				"0 .2 1" 	
+	"editor_mins"				"-16 -16 -24"
+	"editor_maxs"				"16 16 32"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idPlayerStart"
+	
+    "target"                    "0"  //"Target"this can point at a target_give entity for respawn freebies."
+}
+
+
+entityDef team_CTF_redplayer 
+{   
+	"editor_color"				"1 .2 0" 	
+	"editor_mins"				"-16 -16 -24"
+	"editor_maxs"				"16 16 32"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idPlayerStart"
+	
+    "target" 					"0"
+}
+
+
+entityDef team_CTF_redspawn 
+{   
+	"editor_color"				"1 .2 0" 	
+	"editor_mins"				"-16 -16 -24"
+	"editor_maxs"				"16 16 32"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idPlayerStart"
+	
+    "target" 					"0"
+}
+
+
+/*
+============================================================================================================
+
+Team Base Entities
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef team_redobelisk  
+{  
+	"editor_color"				"1 .2 0" 
+	"editor_mins"				"16 -16 0"
+	"editor_maxs"				"16 16 88"
+	"editor_showangle"			"1"
+	"model"                     "models/powerups/overload_base.md3"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "angle" 					"0"
+    "gametype" 					"0"
+// key="SUSPENDED"                        "0"  //"No Drop To Floor" bit="0"item will spawn where it was placed in map and won't drop to the floor."
+}
+
+
+entityDef team_blueobelisk  
+{  
+	"editor_color"				"0 .2 1" 
+	"editor_mins"				"16 -16 0"
+	"editor_maxs"				"16 16 88"
+	"editor_showangle"			"1"
+	"model"                     "models/powerups/overload_base.md3"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "angle" 					"0"
+    "gametype" 					"0"
+}
+
+
+entityDef team_neutralobelisk  
+{  
+	"editor_color"				"1 .2 1" 
+	"editor_mins"				"16 -16 0"
+	"editor_maxs"				"16 16 88"
+	"editor_showangle"			"1"
+	"model"                     "models/powerups/obelisk/obelisk.md3"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "gametype" 					"0"
+}
+
+
+/*
+============================================================================================================
+
+Weapon Pickups
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef weapon_bfg 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/weapons2/bfg/bfg.md3"
+	
+	"editor_usage"				"Big Freaking Gun.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random"					"0"
+    "count" 					"0"
+    "team" 						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+    "notbot" 					"0"
+}
+
+
+entityDef weapon_gauntlet 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/weapons/gauntlet/gauntlet.md3"
+	
+	"editor_usage"				"Gauntlet.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "team"						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle"					"0"
+    "notbot"					"0"
+}
+
+
+entityDef weapon_grapplinghook 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/weapons2/grapple/grapple.md3"
+	
+	"editor_usage"				"Grappling Hook.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "team"						"0"
+    "target" 					"0"
+    "notfree"					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+    "notbot" 					"0"
+}
+
+
+entityDef weapon_grenadelauncher 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/weapons2/grenadel/grenadel.md3"
+	
+	"editor_usage"				"Grenade Launcher.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "count"						"0"
+    "team" 						"0"
+    "target" 					"0"
+    "notfree"					"0"
+    "notteam"					"0"
+    "notsingle"					"0"
+    "notbot" 					"0"
+}
+
+
+entityDef weapon_lightning 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models\weapons\lightning\lightning.md3"
+	
+	"editor_usage"				"Lightning Gun.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "count" 					"0"
+    "team" 						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+    "notbot" 					"0"
+}
+
+
+entityDef weapon_machinegun
+{    
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models\weapons\machinegun\machinegun.md3"
+	
+	"editor_usage"				"Machinegun.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "count" 					"0"
+    "team" 						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+    "notbot" 					"0"
+}
+
+
+entityDef weapon_plasmagun 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/weapons2/plasma/plasma.md3"
+	
+	"editor_usage"				"Plasmagun.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "count" 					"0"
+    "team" 						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+    "notbot"					"0"
+}
+
+
+entityDef weapon_railgun 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/weapons2/railgun/railgun.md3"
+	
+	"editor_usage"				"Railgun.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "count"						"0"
+    "team" 						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+    "notbot"					"0"
+}
+
+
+entityDef weapon_rocketlauncher
+{    
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/weapons/rocketl/_rocketl.md3"
+	
+	"editor_usage"				"Rocket Launcher.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "count" 					"0"
+    "team" 						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+    "notbot" 					"0"
+}
+
+
+entityDef weapon_shotgun 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                "models/weapons/shotgun/shotgun.md3"
+	
+	"editor_usage"				"Shotgun.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "count" 					"0"
+    "team" 						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle"					"0"
+    "notbot"					"0"
+}
+
+
+entityDef weapon_chaingun 
+{   
+	"editor_color"				"0 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                    "models/weapons/vulcan/vulcan.md3"
+	
+	"editor_usage"				"Chaingun.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"						"0"
+    "random"					"0"
+    "count" 					"0"
+    "team"						"0"
+    "target" 					"0"
+    "notbot" 					"0"
+    "notfree" 					"0"
+    "notteam"  					"0"
+    "notsingle" 				"0"
+    "gametype" 					"0"
+}
+
+
+entityDef weapon_nailgun 
+{   
+	"editor_color"				"0 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/weapons/nailgun/nailgun.md3"
+	
+	"editor_usage"				"Nailgun.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+		
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0"
+    "random" 					"0"
+    "count" 					"0"
+    "team"  					"0"
+    "target" 					"0"
+    "notbot" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+}
+
+
+entityDef weapon_prox_launcher
+{    
+	"editor_color"				"0 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/weapons/proxmine/proxmine.md3"
+	
+	"editor_usage"				"Proximity Mine Launcher.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"  					"0"
+    "random" 					"0"
+    "count" 					"0"
+    "team"						"0"
+    "target" 					"0"
+    "notbot" 					"0"
+    "notfree"  					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+    "gametype" 					"0"
+}
+
+
+/*
+============================================================================================================
+
+Ammo Pickups
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef ammo_bfg
+{		
+	"editor_color"				".3 .3 1"  /*"model"                     "models/powerups/ammo/bfgam.md3"*/
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16"
+	
+	"editor_usage"				"BFG Ammo.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"			            "0" 
+    "random"			        "0" 
+    "count"		                "0" 
+    "team"			            "0" 
+    "target"		            "0"   
+    "notfree"		            "0" 
+    "notteam"		            "0" 
+    "notsingle"	                "0" 
+    "notbot"		            "0" 
+}
+
+
+entityDef ammo_bullets	
+{
+	"editor_color"				".3 .3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/ammo/machinegunam.md3"
+	
+	"editor_usage"				"Machinegun Ammo.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"			"idItem"
+	
+    "wait"			            "0"
+    "random"			        "0"
+    "count"		                "0"
+    "team"			            "0"
+    "target"		            "0"   
+    "notfree"		            "0"
+    "notteam"		            "0"
+    "notsingle"	                "0"
+    "notbot"					"0"
+}
+
+
+entityDef ammo_cells 
+{  
+	"editor_color"				".3 .3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/ammo/plasmaam.md3"
+	
+	"editor_usage"				"Plasmagun Ammo.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"				        "0"  
+    "random"				    "0"  
+    "count"			            "0"  
+    "team"				        "0"  
+    "target"			        "0"  
+
+    "notfree"			        "0"  
+    "notteam"			        "0"  
+    "notsingle"		            "0"  
+    "notbot"			        "0"  
+//  key="SUSPENDED"			"0"  
+}
+
+
+entityDef ammo_grenades
+{   
+	"editor_color"				".3 .3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/ammo/grenadeam.md3"
+	
+	"editor_usage"				"Grenade Launcher Ammo.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"			"idItem"
+	
+    "wait"				        "0"  
+    "random"				    "0"  
+    "count"			            "0"  
+    "team"				        "0"  
+    "target"			        "0"  
+    "notfree"			        "0"  
+    "notteam"			        "0"  
+    "notsingle"		            "0"  
+    "notbot"			        "0"  
+//// key="SUSPENDED"			"0"  
+}
+
+
+entityDef ammo_lightning 
+{  
+	"editor_color"				".3 .3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/ammo/lightningam.md3"
+	
+	"editor_usage"				"Lightninggun Ammo.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"			"idItem"
+	
+    "wait"				        "0"  
+    "random"				    "0"  
+    "count"			            "0"  
+    "team"				        "0"  
+    "target"			        "0"  
+    "notfree"			        "0"  
+    "notteam"			        "0"  
+    "notsingle"		            "0"  
+    "notbot"			        "0"  
+//// key="SUSPENDED"			"0"  
+}
+
+
+entityDef ammo_rockets 
+{ 
+	"editor_color"				".3 .3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/ammo/rocketam.md3"
+	
+	"editor_usage"				"Rocket Launcher.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"						"0"  
+    "random"					"0"  
+    "count"						"0"  
+    "team"						"0"  
+    "target"					"0"  
+    "notfree"					"0"  
+    "notteam"					"0"  
+    "notsingle"                 "0"  
+    "notbot"					"0"  
+//// key="SUSPENDED"			"0"  
+}
+
+
+entityDef ammo_shells
+{    
+	"editor_color"				".3 .3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16"
+	"model"                     "models/powerups/ammo/shotgunam.md3"
+	 
+	"editor_usage"				"Shotgun Shells.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"			"idItem"
+	 
+    "wait"						"0" 
+    "random"					"0" 
+    "count"						"0" 
+    "team"						"0" 
+    "target"					"0" 
+    "notfree"					"0" 
+    "notteam"					"0" 
+    "notsingle"                 "0" 
+    "notbot"					"0" 
+//// key="SUSPENDED"			"0" 
+}
+
+
+entityDef ammo_slugs
+{    
+	"editor_color"				".3 .3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/ammo/railgunam.md3"
+	
+	"editor_usage"				"Railgun Ammo.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"			"idItem"
+	
+    "wait"						"0" 
+    "random"					"0" 
+    "count"						"0" 
+    "team"						"0" 
+    "target"					"0" 
+    "notfree"					"0" 
+    "notteam"					"0" 
+    "notsingle"                 "0" 
+    "notbot"					"0" 
+//// key="SUSPENDED"			"0" 
+}
+
+
+entityDef ammo_nails 
+{   
+	"editor_color"				".3 .3 1" 
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16"
+	 "model"                     "models/powerups/ammo/nailgunam.md3"
+	 
+	"editor_usage"				"Nailgun Ammo.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"			"idItem"
+	 
+    "wait"						"0"  
+    "random"					"0"  
+    "count"						"0"  
+    "team"						"0"  
+    "target"					"0"  
+    "notbot"					"0"  
+    "notfree"					"0"  
+    "notteam"					"0"  
+    "notsingle"                 "0"  
+    "gametype"					"0"  
+//// key="SUSPENDED"			"0"  
+}
+
+
+entityDef ammo_mines 
+{   
+	"editor_color"				".3 .3 1" 
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16"
+	 "model"                     "models/powerups/ammo/proxmineam.md3"
+	 
+	"editor_usage"				"Proximity Launcher Ammo.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"			"idItem"
+	 
+    "wait"						"0"  
+    "random"					"0"  
+    "count"						"0"  
+    "team"						"0"  
+    "target"					"0"  
+    "notbot"					"0"  
+    "notfree"					"0"  
+    "notteam"					"0"  
+    "notsingle"                 "0"  
+    "gametype"					"0"  
+// key="SUSPENDED"				"0"  
+}
+
+
+entityDef ammo_belt 
+{   
+	"editor_color"				".3 .3 1" 
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/ammo/chaingunam.md3"
+	
+	"editor_usage"				"Chaingun Ammo.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when this is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"			"idItem"
+	
+    "wait"						"0"  
+    "random"					"0"  
+    "count"						"0"  
+    "team"						"0"  
+    "target"					"0"  
+    "notbot"					"0"  
+    "notfree"					"0"  
+    "notteam"					"0"  
+    "notsingle"                 "0"  
+    "gametype"					"0"  
+// key="SUSPENDED"				"0"  
+}
+
+
+/*
+============================================================================================================
+
+Holdable Pickups
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef holdable_medkit 
+{   
+	"editor_color"				".7 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/holdable/medkit.md3"
+	
+	"editor_usage"				"Personal Medical Kit.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0" 
+    "random"                    "0" 
+    "team"                      "0" 
+    "target"                    "0" 
+    "notfree"                   "0" 
+    "notteam"                   "0" 
+    "notsingle"                 "0" 
+    "notbot"                    "0" 
+// key="SUSPENDED"              "0" 
+}
+
+
+entityDef holdable_teleporter
+{    
+	"editor_color"				".7 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/holdable/teleporter.md3"
+	
+	"editor_usage"				"Personal Teleporter.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0" 
+    "random"                    "0" 
+    "team"                      "0" 
+    "target"                    "0" 
+    "notfree"                   "0" 
+    "notteam"                   "0" 
+    "notsingle"                 "0" 
+    "notbot"                    "0" 
+// key="SUSPENDED"              "0" 
+}
+
+
+entityDef holdable_kamikaze   
+{ 
+	"editor_color"				".3 .3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/kamikazi.md3"
+	
+	"editor_usage"				"Kamikaze.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0" 
+    "random"                    "0" 
+    "team"                      "0" 
+    "target"                    "0" 
+    "notbot"                    "0" 
+    "notfree"                   "0" 
+    "notteam"                   "0" 
+    "notsingle"                 "0" 
+    "gametype"                  "0" 
+// key="SUSPENDED"              "0" 
+}
+
+
+entityDef holdable_invulnerability 
+{   
+	"editor_color"				".3 .3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/holdable/invulnerability.md3"
+	
+	"editor_usage"				"Invulnerability.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0"
+    "random"                    "0"
+    "team"                      "0"
+    "target"                    "0"
+    "notbot"                    "0"
+    "notfree"                   "0"
+    "notteam"                   "0"
+    "notsingle"                 "0"
+    "gametype"                  "0"
+// key="SUSPENDED"              "0"
+}
+
+
+/*
+============================================================================================================
+
+Item Pickups
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef item_armor_body 
+{   
+	"editor_color"				".6 0 0" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/armor/armor_red.md3"
+	
+	"editor_usage"				"Red Armor.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0"  
+    "random"                    "0"  
+    "team"                      "0"  
+    "target"                    "0"  
+    "notfree"                   "0"  
+    "notteam"                   "0"  
+    "notsingle"                 "0"  
+    "notbot"                    "0"  
+// key="SUSPENDED"              "0"  
+}
+
+
+entityDef item_armor_combat 
+{   
+	"editor_color"				"1 .75 .3" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/armor/armor_yel.md3"
+	
+	"editor_usage"				"Yellow Armor.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 20)-
+Sets the amount of ammo given to the player when weapon is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0" 
+    "random"                    "0" 
+    "team"                      "0" 
+    "target"                    "0" 
+    "notfree"                   "0" 
+    "notteam"                   "0" 
+    "notsingle"                 "0" 
+    "notbot"					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_armor_shard
+{    
+	"editor_color"				"0 .7 0" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/armor/shard.md3"
+	
+	"editor_usage"				"Armor Shard.
+	
+-------- KEYS --------
+
+(*wait*) -(default 5, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notbot*)
+Used to make an item invisible for bot attraction.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0" 
+    "random"                    "0" 
+    "team"                      "0" 
+    "target"                    "0" 
+    "notfree"                   "0" 
+    "notteam"                   "0" 
+    "notsingle"                 "0" 
+    "notbot"					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_botroam  
+{  
+	"editor_color"				"1 0.5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				"An invisible item to attract Bots.
+	
+-------- KEYS --------
+
+(*weight*)
+Non-zero floating point value, most often in the range 0 to 400. (Higher values are allowed but keep in mind that the bot should also be attracted to normal items.  Don't make the weight value too high.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "weight"                    "0"  
+    "notfree"                   "0" 
+    "notteam"                   "0" 
+    "notsingle"					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_enviro 
+{   
+	"editor_color"				".5 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/instant/enviro.md3"
+	
+	"editor_usage"				"Battle Suit power-up - Gives protection against slime, lava and weapon splash damage. Lasts 30 seconds.
+	
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 30)-
+Time in seconds power-up will last when picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0" 
+    "random"                    "0" 
+    "count"                     "0" 
+    "team"                      "0" 
+    "target"                    "0" 
+    "notfree"                   "0" 
+    "notteam"                   "0" 
+    "notsingle"                 "0" 
+    "notbot"					"0" 
+}
+
+
+entityDef item_flight 
+{   
+	"editor_color"				".5 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/instant/flight.md3"
+	
+	"editor_usage"				"Flight power-up. Lasts 60 seconds.
+	
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 60)-
+Time in seconds power-up will last when picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0" 
+    "random"                    "0" 
+    "count"                     "0" 
+    "team"                      "0" 
+    "target"                    "0" 
+    "notfree"                   "0" 
+    "notteam"                   "0" 
+    "notsingle"                 "0" 
+    "notbot"					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_haste  
+{  
+	"editor_color"				".5 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/instant/haste.md3"
+	
+	"editor_usage"				"Speed power-up. Makes player run at double speed for 30 seconds.
+	
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 30)-
+Time in seconds power-up will last when picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"						"0" 
+    "random"					"0" 
+    "count"						"0" 
+    "team"						"0" 
+    "target"					"0"	
+    "notfree"					"0" 
+    "notteam"					"0" 
+    "notsingle"					"0" 
+    "notbot"					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_health 
+{   
+	"editor_color"				".8 .8 0" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/health/medium_cross.md3"
+	
+	"editor_usage"				"Yellow cross bubble - 25 Health. Cannot be picked up over 100 health.
+	
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 25)-
+sets the amount of health points given to the player when item is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"						"0" 
+    "random"					"0" 
+    "count"						"0" 
+    "team"						"0" 
+    "target" 					"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+    "notbot"					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_health_large 
+{   
+	"editor_color"				"1 0 0" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/health/large_cross.md3"
+	
+	"editor_usage"				"Gold cross bubble - 50 Health. Cannot be picked up over 100 health.
+	
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 50)-
+sets the amount of health points given to the player when item is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idItem"
+	
+    "wait"						"0" 
+    "random"					"0" 
+    "count" 					"0" 
+    "team" 						"0" 
+    "target" 					"0" 
+    "notfree"					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+    "notbot"					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_health_mega 
+{   
+	"editor_color"				"0 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/health/mega_cross.md3"
+	
+	"editor_usage"				"Blue M bubble - 100 Health. Adds 100 health points to current health up to a maximum of 200.
+	
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 100)-
+sets the amount of health points given to the player when item is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random).
+"
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0" 
+    "random"					"0" 
+    "count" 					"0" 
+    "team" 						"0" 
+    "target" 					"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+    "notbot" 					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_health_small 
+{   
+	"editor_color"				"0 1 0" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/health/small_cross.md3"
+	
+	"editor_usage"				"Green cross bubble - 5 Health. Can be picked up over 100 health but slowly wears out to 100 afterwards.
+	
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 5)-
+sets the amount of health points given to the player when item is picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random).
+"
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0" 
+    "random" 					"0" 
+    "count" 					"0" 
+    "team" 						"0" 
+    "target" 					"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+    "notbot" 					"0" 
+// key="SUSPENDED"
+}
+
+
+entityDef item_invis 
+{   
+	"editor_color"				".5 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/instant/invis.md3"
+	
+	"editor_usage"				"Invisibility power-up. Lasts 30 seconds.	
+
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 30)-
+Time in seconds power-up will last when picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random).
+"
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0" 
+    "random"					"0" 
+    "count"						"0" 
+    "team" 						"0" 
+    "target" 					"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+    "notbot" 					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_quad 
+{   
+	"editor_color"				".4 .6 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/instant/quad.md3"
+	
+	"editor_usage"				"Quad Damage power-up. Lasts 30 seconds.
+	
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 30)-
+Time in seconds power-up will last when picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random).
+"
+	
+	"spawnclass"				"idItem"
+	
+    "wait" 						"0" 
+    "random" 					"0" 
+    "count" 					"0" 
+    "team" 						"0" 
+    "target" 					"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+    "notbot" 					"0" 
+// key="SUSPENDED" 
+}
+
+
+entityDef item_regen
+{    
+	"editor_color"				".5 0 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/instant/regen.md3"
+	
+	"spawnclass"				"idItem"
+	
+	"editor_usage"				"Health Regeneration power-up. This will boost your current health by 5 points every second for a period of up to 30 seconds or up to 200 points whichever comes first. Afterwards, any health points over 100 slowly wears out to 100.
+	
+-------- KEYS --------
+	
+(*wait*) -(default 120, -1 = never respawn)-
+Time in seconds before item respawns after being picked up.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*count*) -(default 30)-
+Time in seconds power-up will last when picked up.
+
+(*team*)
+Set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes).
+
+(*target*)
+Picking up the item will trigger the entity this points to.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+The amount of time it takes for an item in the team to respawn is determined by the wait value of the item that was picked up previously. So if one of the items in the team has it's wait key set to -1 (never respawn), the random respawning cycle of the teamed items will stop after that item is picked up.
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random).
+"
+	
+    "wait" 						"0" 
+    "random"					"0" 
+    "count"						"0" 
+    "team" 						"0" 
+    "target" 					"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+    "notbot" 					"0" 
+// key="SUSPENDED" 
+}
+
+
+/*
+============================================================================================================
+
+Func_ Entities
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef func_bobbing 
+{   
+	"editor_color"				"0 .5 .8"
+	
+	"editor_usage"				"Solid entity that oscillates back and forth in a linear motion. By default, it will have an amount of displacement in either direction equal to the dimension of the brush in the axis in which it's bobbing. Entity bobs on the Z axis (up-down) by default. It can also emit sound if the noise key is set. Will crush the player when blocked.
+
+-------- KEYS --------
+    					   					 
+(*speed*) -(default 4)-
+Amount of time in seconds for one complete oscillation cycle.
+
+(*height*) -(default 32)-
+Sets the amount of travel of the oscillation movement.
+
+(*phase*) -(default 0)-
+Sets the start offset of the oscillation cycle. Values must be 0 &lt; phase &lt; 1. Any integer phase value is the same as no offset.
+
+(*noise*) -(EXAMPLE sound/world/drone6.wav)-
+Path/name of .wav file to play. Use looping sounds only.
+
+(*notfree*)
+When set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)
+When set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)
+When set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+In order for the sound to be emitted from the entity, it is recommended to include a brush with an origin shader at its center, otherwise the sound will not follow the entity as it moves. Setting the origin key is simply an alternate method to using an origin brush. When using the model key, the origin point of the model will correspond to the origin point defined by either the origin brush or the origin coordinate value.
+
+Target this entity with a misc_model to have the model attached to the entity (set the model's target key to the same value as this entity's name)."
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "speed"						"0"  
+    "height"					"0"  
+    "phase"						"0"  
+    "noise"						"0"  
+    "notfree"					"0"  
+    "notteam"					"0"  
+    "notsingle"                 "0"  
+    
+// key="X_AXIS"					"0"  //"X Axis" bit="0"entity will bob along the X axis."
+// key="Y_AXIS"					"0"  //"Y Axis" bit="1"entity will bob along the Y axis."
+}
+
+
+entityDef func_button
+{    
+	"editor_color"				"0 .5 .8"
+	
+	"editor_usage"				"When a button is touched by a player, it moves in the direction set by the angle key, triggers all its targets, stays pressed by an amount of time set by the wait key, then returns to it's original position where it can be operated again.
+	
+-------- KEYS --------
+
+(*movedir*) -(up = -1, down = -2)-
+Determines the direction in which the button will move.
+
+(*target*)
+All entities with a matching targetname will be triggered.
+
+(*speed*)
+Speed of button's displacement (default 40).
+
+(*wait*) -(default 1, -1 = return immediately)-
+Number of seconds button stays pressed.
+ 
+(*lip*) -(default 4 units)-
+Lip remaining at end of move.
+
+(*health*) -(default 0)- 
+If set to any non-zero value, the button must take damage (any amount) to activate.
+
+(*notfree*)
+When set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)
+When set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)
+When set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+Target this entity with a misc_model to have the model attached to the entity (set the model's target key to the same value as this entity's name)."
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "movedir"                   "0"  
+    "target"					"0"  
+    "speed"						"0"  
+    "wait"						"0"  
+    "lip"						"0"  
+    "health"					"0"  
+    "notfree"					"0"  
+    "notteam"					"0"  
+    "notsingle"                 "0"  
+}
+
+
+entityDef func_door 
+{   
+	"editor_color"				"0 .5 .8"
+	
+	"editor_usage"				"Normal sliding door entity. By default, the door will activate when player walks close to it or when damage is inflicted to it.
+	
+-------- KEYS --------
+
+(*movedir*)	
+determines the opening direction of door (up = -1, down = -2).
+
+(*speed*)	
+determines how fast the door moves (default 100).
+
+(*wait*)	
+number of seconds before door returns (default 2, -1 = return immediately).
+
+(*lip*)	
+lip remaining at end of move (default 8).
+
+(*name*)	
+if set, a func_button or trigger is required to activate the door.
+
+(*health*)	
+-default 0- if set to any non-zero value, the button must take damage (any amount) to activate.
+
+(*dmg*)	
+damage to inflict on player when he blocks operation of door (default 4). Door will reverse direction when blocked unless CRUSHER spawnflag is set.
+
+(*team*)	
+assign the same team name to multiple doors that should operate together.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+Unlike in Quake 2, doors that touch are NOT automatically teamed. If you want doors to operate together, you have to team them manually by assigning the same team name to all of them. Setting the origin key is simply an alternate method to using an origin brush. When using the model key, the origin point of the model will correspond to the origin point defined by either the origin brush or the origin coordinate value.
+
+Target this entity with a misc_model to have the model attached to the entity (set the model's target key to the same value as this entity's name)."
+
+	"spawnclass"				"idSpawnableEntity"
+		
+	"notfree"		"0"
+	"notteam"		"0"
+	"notsingle"		"0"
+	
+	"movedir"		"0"
+	"speed"			"0"
+	"wait"			"0"
+	"lip"			"0"
+		
+    "health"		"0"
+    "dmg"			"0"
+    "team"			"0"
+		
+// key="START_OPEN"             "0"  //"Start Open" bit="0"the door will spawn in the open state and operate in reverse."
+// key="CRUSHER"                "0"  //"Crusher" bit="2"door will not reverse direction when blocked and will keep damaging player until he dies or gets out of the way."
+}
+
+
+entityDef func_group 
+{   
+	"editor_color"				"0 .5 .8"
+	
+	"editor_usage"				"This is not an entity as such. It is strictly an editor utility to group world brushes and patches together for convenience (selecting, moving, copying, etc). You cannot group entities with this.
+	
+-------- KEYS --------
+
+(*terrain*)
+When set to 1, the entity becomes a terrain entity. Note: unecessary when compiling with Q3Map2. See Q3Map2 keys.
+
+-------- NOTES --------
+
+The TAB key can be used to flip through the component pieces of a selected func_group entity, isolating individual components. To make a func_group into a terrain entity, refer to the Terrain Construction documentation."
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "terrain"                   "0"
+}
+
+
+entityDef func_pendulum 
+{   
+	"editor_color"				"0 .5 .8"
+	
+	"editor_usage"				"Solid entity that describes a pendulum back and forth rotation movement. Rotates on the X axis by default. Pendulum frequency is a physical constant based on the length of the beam and gravity. Blocking the pendulum instantly kills a player.
+
+-------- KEYS --------
+	
+(*angle*) -(default 0)-
+Angle offset of axis of rotation from default X axis.
+    
+(*speed*) -(default 30)-
+Angle of swing arc in either direction from initial position.
+    
+(*phase*) -(default 0)-
+Sets the start offset of the swinging cycle. Values must be 0 &lt; phase &lt; 1. Any integer phase value is the same as no offset.
+
+(*noise*) -(EXAMPLE sound/world/drone6.wav)-
+Path/name of .wav file to play. Use looping sounds only.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+You need to have an origin brush as part of this entity. The center of that brush will be the point through which the rotation axis passes. Setting the origin key is simply an alternate method to using an origin brush. Pendulum will rotate along the X axis by default. Very crude operation: pendulum cannot rotate along Z axis, the speed of swing (frequency) is not adjustable. When using the model key, the origin point of the model will correspond to the origin point defined by either the origin brush or the origin coordinate value.
+
+Target this entity with a misc_model to have the model attached to the entity (set the model's target key to the same value as this entity's name)."
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "angle"                     "0"  
+    "speed"                     "0"  
+    "phase"                     "0"  
+    "noise"                     "0"  
+    "notfree"                   "0"  
+    "notteam"                   "0"  
+    "notsingle"                 "0"  
+}
+
+
+entityDef func_plat  
+{  
+	"editor_color"				"0 .5 .8"
+	
+	"editor_usage"				"Rising platform the player can ride to reach higher places. Plats must always be drawn in the raised position, so they will operate and be lighted correctly but they spawn in the lowered position. The plat will stay in the raised position until the player steps off.
+
+-------- KEYS --------
+
+(*speed*) -(default 150)-
+Determines how fast the plat moves.
+
+(*lip*) -(default 16)-
+Lip remaining at end of move. Has no effect if height is set.
+
+(*height*)
+If set, this will determine the total amount of vertical travel of the plat.
+
+(*dmg*) -(default 4)-
+Damage to inflict on player when he blocks operation of plat. Plat will reverse direction when blocked.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+By default, the total amount of vertical travel of a platform is implicitly determined by the overall vertical size of the brushes of which it's made minus the lip value. But if the height key is used, then the total amount of vertical travel of the plat will be exactly that value regardless of the shape and size of the plat and regardless of the value of the lip key. Using the height key is the best method for any kind of platforms and the only possible one for thin plats which need to travel vertical distances many times their own thickness. Setting the origin key is simply an alternate method to using an origin brush. When using the model key, the origin point of the model will correspond to the origin point defined by either the origin brush or the origin coordinate value.
+
+There is a way to make plats play proper sounds. Just create a sound\movers\plats folder under baseq3 and put 2 sounds named pt1_strt.wav and pt1_end.wav in it. Those can be the renamed sounds from the Q2 plats or renamed copies of the sound\movers\doors sounds you can extract from your pak0.pk3 file or new custom sounds if you're up to it. Thanks to Fragzilla for the tip.
+
+Target this entity with a misc_model to have the model attached to the entity (set the model's target key to the same value as this entity's name)."
+	
+	"spawnclass"			"idSpawnableEntity"
+	
+	"speed"                     "0"  
+    "lip"                       "0"  
+    "height"                    "0"  
+    "dmg"                       "0"  
+    "notfree"                   "0"  
+    "notteam"                   "0"  
+    "notsingle"                 "0"  
+}
+
+
+entityDef func_rotating 
+{   
+	"editor_color"				"0 .5 .8"
+	
+	"editor_usage"				"Solid entity that rotates continuously. Rotates on the Z axis by default and requires an origin brush. It will always start on in the game and is not targetable.
+
+-------- KEYS --------
+	
+(*speed*) -(default 100)-
+Determines how fast entity rotates.
+
+(*noise*) -(eg. sound/world/drone6.wav)-
+Path/name of .wav file to play. Use looping sounds only.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+You need to have an origin brush as part of this entity. The center of that brush will be the point through which the rotation axis passes. Setting the origin key is simply an alternate method to using an origin brush. It will rotate along the Z axis by default. You can check either the X_AXIS or Y_AXIS box to change that. When using the model key, the origin point of the model will correspond to the origin point defined by either the origin brush or the origin coordinate value.
+
+Target this entity with a misc_model to have the model attached to the entity (set the model's target key to the same value as this entity's name)."
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "speed"                     "0"  
+    "noise"                     "0" 
+    "notfree"                   "0"  
+    "notteam"                   "0"  
+    "notsingle"                 "0"  
+    
+// key="X_AXIS"                 "0"  //"X Axis" bit="2"entity will rotate along the X axis."
+// key="Y_AXIS"                 "0"  //"Y Axis" bit="3"entity will rotate along the Y axis."
+}
+
+
+entityDef func_static 
+{   
+	"editor_color"				"0 .5 .8"
+	"editor_mins"				"?"
+	"editor_maxs"				"?"
+	
+	"editor_usage"				"Same as misc_model in Q3A."
+	"editor_usage1"				"Static non-solid bspmodel. Can be used for conditional walls and models."
+	
+	"editor_bool forceMeta"		"if 1, XMap2 turns model triangles into planar surfaces so models can be lightmapped"
+	"editor_bool clipModel"		"if 1, XMap2 creates collision brushes for this model"
+	"editor_bool solid"			"if 0, XMap2 adds a "nonsolid" material parameter to it."
+	
+	"spawnclass"				"idStaticEntity"
+	
+	"forceMeta"					"0"
+	"clipModel"					"0"
+	"solid"						"1"
+}
+
+
+entityDef func_timer 
+{   
+	"editor_color"				"0 .5 .8" 
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	
+	"editor_usage"				"Time delay trigger that will continuously fire its targets after a preset time delay. The time delay can also be randomized. When triggered, the timer will toggle on/off.
+
+-------- KEYS --------
+	
+(*wait*) -(default 1)-
+Delay in seconds between each triggering of its targets.
+
+(*random*) -(default 0 - see Notes)-
+Random time variance in seconds added or subtracted from wait delay.
+
+(*target*)
+This points to the entities to trigger.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+When the random key is set, its value is used to calculate a minimum and a maximum delay. The final time delay will be a random value anywhere between the minimum and maximum values: (min delay = wait - random) (max delay = wait + random)."
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "wait"                      "0"  
+    "random"                    "0"  
+    "target"                    "0"  
+    "notfree"                   "0"  
+    "notteam"                   "0"  
+    "notsingle"                 "0"  
+    
+// key="START_ON"               "0"  //"Start On" bit="0"timer will start on in the game and continuously fire its targets."
+}
+
+
+entityDef func_train 
+{   
+	"editor_color"				"0 .5 .8"
+	
+	"editor_usage"				"Trains are moving solids that follow a string of path_corner entities. Trains in Q3A are very basic, they also require an origin brush (see Notes).
+	
+-------- KEYS --------
+
+(*speed*) -(default 100 or overridden by speed value of path)-
+Speed of displacement of train.
+
+(*target*)
+This points to the first path_corner of the path which is also the spawn location of the train's origin.
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+1. Trains always start on in the game.
+2. Trains do not damage the played when blocked.
+3. Trains cannot emit sound.
+4. Trains are not triggerable or toggle-able.
+5. Trains cannot be block-stopped just by getting in their way, the player must be wedged between the train and another obstacle to block it.
+
+Setting the origin key is simply an alternate method to using an origin brush. When using the model key, the origin point of the model will correspond to the origin point defined by either the origin brush or the origin coordinate value.
+
+Target this entity with a misc_model to have the model attached to the entity (set the model's target key to the same value as this entity's name)."
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "speed"                     "0"  
+    "target"                    "0"  
+    "notfree"                   "0"  
+    "notteam"                   "0"  
+    "notsingle"                 "0"  
+}
+
+
+entityDef func_mover  
+{  
+	"editor_color"				"0 .5 .8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				"Static non-solid bspmodel. Can be used for conditional walls and models.
+	
+-------- KEYS --------
+	
+(*luaThink*)
+Lua Think Function.	
+
+(*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode).
+
+-------- NOTES --------
+
+When using the model key, the origin point of the model will correspond to the origin point defined by either the origin brush or the origin coordinate value. If a model is included with a targeted func_static, the brush(es) of the entity will be removed from the game but the .md3 model won't: it will automatically be moved to the (0 0 0) world origin so you should NOT include an .md3 model to a targeted func_static.
+
+Because the map has only a single bot navigation file, func_static's cannot be used to make significant changes in game play flow between differing game types.
+
+Target this entity with a misc_model to have the model attached to the entity (set the model's target key to the same value as this entity's name)."
+	
+	"spawnclass"				"idSpawnableEntity"
+	
+    "notfree"                   "0" 
+    "notteam"                   "0" 
+    "notsingle"					"0" 
+    "luaThink"                  "0"  
+}
+
+
+entityDef func_teleporter 
+{   
+	"editor_color"				"0 .5 0"
+ 	"editor_mins"				"-8 -8 -8"
+ 	"editor_maxs"				"8 8 8"
+ 	"editor_showangle"			"1"
+ 	
+ 	"editor_usage"				"Activating this will teleport players to the location of this entity. Unlike trigger_teleport, this entity must be activated by a trigger and does NOT allow client prediction of events.
+
+-------- KEYS --------
+ 	
+ (*notfree*)	
+when set to 1, entity will not spawn in Free for all and Tournament modes.
+
+(*notteam*)	
+when set to 1, entity will not spawn in Teamplay and CTF modes.
+
+(*notsingle*)	
+when set to 1, entity will not spawn in Single Player mode (bot play mode)."
+ 	
+ 	"spawnclass"				"idSpawnableEntity"
+ 	
+    "notfree"                   "0"
+    "notteam"                   "0"
+    "notsingle"                 "0"
+}
+
+
+/*
+============================================================================================================
+
+Team Pickups
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef team_CTF_neutral
+{   
+	"editor_color"				"1 .2 1" 
+	"editor_mins"				"16 -16 -24"
+	"editor_maxs"				"16 16 -32"
+	"editor_showangle"			"1"
+	"model"                     "models/flags/n_flag.md3"
+	 
+	"editor_usage"				""
+	
+	"spawnclass"				"idItem"
+	 
+    "angle" 					"0"
+    "gametype" 					"0"
+// key="SUSPENDED"
+}
+
+
+entityDef team_CTF_red
+{   
+	"editor_color"				"1 .2 0" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"editor_showangle"			"1"
+	"model"                     "models/flags/r_flag.md3"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idItem"
+	
+}
+
+
+entityDef team_CTF_blue
+{    
+	"editor_color"				"0 .2 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"editor_showangle"			"1"
+	"model"                     "models/flags/b_flag.md3"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idItem"
+	
+}
+
+
+entityDef item_scout
+{    
+	"editor_color"				"0.3 0.3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/scout.md3"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0"  //"Respawn Delay"time in seconds before the item respawns after being picked up (default 0, -1 = never respawn)."
+    "random"                    "0"  //"Respawn Delay Variance"random time variance in seconds added or subtracted from "wait" delay (default 0 - see Notes)."
+    "count"                     "0"  //"Powerup Duration"time in seconds power-up will last when picked up (default 30)."
+    "team"                      "0"  //"Team Name"set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes)."
+    "target"                    "0"  //"Target"picking up the item will trigger the entity this points to."
+    //"name"                      "0"  //"Target Name"a target_give entity can point to this for respawn freebies."
+    "notbot"                    "0"  //"Invisible To Bots"used to make an item invisible for bot attraction."
+    "notfree"                   "0"  //"Hidden For FFA"when set to 1, entity will not spawn in "Free for all" and "Tournament" modes."
+    "notteam"                   "0"  //"Hidden For Teamplay"when set to 1, entity will not spawn in "Teamplay" and "CTF" modes."
+    "notsingle"                 "0"  //"Hidden For SP"when set to 1, entity will not spawn in Single Player mode (bot play mode)."
+    "gametype"                  "0"  //"Game Type"the valid values are ffa, tournament, single, team, ctf, one//, obelisk, harvester. Once a value for this key is set, it will ONLY appear in the listed gametype(s). Separate gametypes by commas."
+// key="SUSPENDED"              "0"  //"No Drop To Floor" bit="0"item will spawn where it was placed in map and won't drop to the floor."
+// key="REDTEAM"                "0"  //"Red Team Only" bit="1"only players on the red team may pick up this item."
+// key="BLUETEAM"               "0"  //"Blue Team Only" bit="2"only players on the blue team may pick up this item."
+}
+
+
+entityDef item_guard 
+{   
+	"editor_color"				"0.3 0.3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/guard.md3"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0"  //"Respawn Delay"time in seconds before the item respawns after being picked up (default 0, -1 = never respawn)."
+    "random"                    "0"  //"Respawn Delay Variance"random time variance in seconds added or subtracted from "wait" delay (default 0 - see Notes)."
+    "count"                     "0"  //"Powerup Duration"time in seconds power-up will last when picked up (default 30)."
+    "team"                      "0"  //"Team Name"set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes)."
+    "target"                    "0"  //"Target"picking up the item will trigger the entity this points to."
+    //"name"                      "0"  //"Target Name"a target_give entity can point to this for respawn freebies."
+    "notbot"                    "0"  //"Invisible To Bots"used to make an item invisible for bot attraction."
+    "notfree"                   "0"  //"Hidden For FFA"when set to 1, entity will not spawn in "Free for all" and "Tournament" modes."
+    "notteam"                   "0"  //"Hidden For Teamplay"when set to 1, entity will not spawn in "Teamplay" and "CTF" modes."
+    "notsingle"                 "0"  //"Hidden For SP"when set to 1, entity will not spawn in Single Player mode (bot play mode)."
+    "gametype"                  "0"  //"Game Type"the valid values are ffa, tournament, single, team, ctf, one//, obelisk, harvester. Once a value for this key is set, it will ONLY appear in the listed gametype(s). Separate gametypes by commas."
+// key="SUSPENDED"              "0"  //"No Drop To Floor" bit="0"item will spawn where it was placed in map and won't drop to the floor."
+// key="REDTEAM"                "0"  //"Red Team Only" bit="1"only players on the red team may pick up this item."
+// key="BLUETEAM"               "0"  //"Blue Team Only" bit="2"only players on the blue team may pick up this item."
+}
+
+
+entityDef item_doubler  
+{  
+	"editor_color"				"0.3 0.3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/doubler.md3"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0"  //"Respawn Delay"time in seconds before the item respawns after being picked up (default 0, -1 = never respawn)."
+    "random"                    "0"  //"Respawn Delay Variance"random time variance in seconds added or subtracted from "wait" delay (default 0 - see Notes)."
+    "count"                     "0"  //"Powerup Duration"time in seconds power-up will last when picked up (default 30)."
+    "team"                      "0"  //"Team Name"set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes)."
+    "target"                    "0"  //"Target"picking up the item will trigger the entity this points to."
+    //"name"                      "0"  //"Target Name"a target_give entity can point to this for respawn freebies."
+    "notbot"                    "0"  //"Invisible To Bots"used to make an item invisible for bot attraction."
+    "notfree"                   "0"  //"Hidden For FFA"when set to 1, entity will not spawn in "Free for all" and "Tournament" modes."
+    "notteam"                   "0"  //"Hidden For Teamplay"when set to 1, entity will not spawn in "Teamplay" and "CTF" modes."
+    "notsingle"                 "0"  //"Hidden For SP"when set to 1, entity will not spawn in Single Player mode (bot play mode)."
+    "gametype"                  "0"  //"Game Type"the valid values are ffa, tournament, single, team, ctf, one//, obelisk, harvester. Once a value for this key is set, it will ONLY appear in the listed gametype(s). Separate gametypes by commas."
+// key="SUSPENDED"              "0"  //"No Drop To Floor" bit="0"item will spawn where it was placed in map and won't drop to the floor."
+// key="REDTEAM"                "0"  //"Red Team Only" bit="1"only players on the red team may pick up this item."
+// key="BLUETEAM"               "0"  //"Blue Team Only" bit="2"only players on the blue team may pick up this item."
+}
+
+
+entityDef item_ammoregen
+{    
+	"editor_color"				"0.3 0.3 1" 	
+	"editor_mins"				"-16 -16 -16"
+	"editor_maxs"				"16 16 16" 
+	"model"                     "models/powerups/ammo.md3"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idItem"
+	
+    "wait"                      "0"  //"Respawn Delay"time in seconds before the item respawns after being picked up (default 0, -1 = never respawn)."
+    "random"                    "0"  //"Respawn Delay Variance"random time variance in seconds added or subtracted from "wait" delay (default 0 - see Notes)."
+    "team"                      "0"  //"Team Name"set this to team items. Teamed items will respawn randomly after team master is picked up (see Notes)."
+    "target"                    "0"  //"Target"picking up the item will trigger the entity this points to."
+    //"name"                      "0"  //"Target Name"a target_give entity can point to this for respawn freebies."
+    "notbot"                    "0"  //"Invisible To Bots"used to make an item invisible for bot attraction."
+    "notfree"                   "0"  //"Hidden For FFA"when set to 1, entity will not spawn in "Free for all" and "Tournament" modes."
+    "notteam"                   "0"  //"Hidden For Teamplay"when set to 1, entity will not spawn in "Teamplay" and "CTF" modes."
+    "notsingle"                 "0"  //"Hidden For SP"when set to 1, entity will not spawn in Single Player mode (bot play mode)."
+    "gametype"                  "0"  //"Game Type"the valid values are ffa, tournament, single, team, ctf, one//, obelisk, harvester. Once a value for this key is set, it will ONLY appear in the listed gametype(s). Separate gametypes by commas."
+// key="SUSPENDED"              "0"  //"No Drop To Floor" bit="0"item will spawn where it was placed in map and won't drop to the floor."
+// key="REDTEAM"                "0"  //"Red Team Only" bit="1"only players on the red team may pick up this item."
+// key="BLUETEAM"               "0"  //"Blue Team Only" bit="2"only players on the blue team may pick up this item."
+}
+
+
+/*
+============================================================================================================
+
+Misc_ Entities
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef misc_portal_camera 
+{   
+	"editor_color"				"1 .5 .25" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idCamera"
+	
+    "angles" 					"0" 
+    "target" 					"0" 
+    //"name" 						"0" 
+    "roll" 						"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle"					"0" 
+// key="SLOWROTATE" 
+// key="FASTROTATE"
+}
+
+
+entityDef misc_portal_surface  
+{  
+	"editor_color"				"1 .5 .25" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idStaticEntity"
+	
+    "target" 					"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle"					"0" 
+}
+
+
+entityDef misc_teleporter_dest 
+{   
+	"editor_color"				"1 .5 .25" 	
+	"editor_mins"				"-32 -32 -24"
+	"editor_maxs"				"32 32 -16"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idStaticEntity"
+	
+    "angle" 					"0" 
+    //"name" 						"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+}
+
+
+/*
+============================================================================================================
+
+Path Entity
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef path_corner   
+{ 
+	"editor_color"				".5 .3 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idStaticEntity"
+	
+    "target" 					"0" 
+    //"name" 						"0" 
+    "speed" 					"0" 
+    "wait" 						"0" 
+    "notfree" 					"0" 
+    "notteam"					"0" 
+    "notsingle" 				"0" 
+}
+
+
+/*
+============================================================================================================
+
+Shooter_ Entities
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef shooter_grenade 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idStaticEntity"
+	
+    "angles" 					"0" 
+    //"name" 						"0" 
+    "target" 					"0" 
+    "random" 					"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+}
+
+
+entityDef shooter_plasma   
+{ 
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idStaticEntity"
+	
+    "angles" 					"0" 
+    //"name" 						"0" 
+    "target"					"0" 
+    "random" 					"0" 
+    "notfree"					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+}
+
+
+entityDef shooter_rocket 
+{   
+	"editor_color"				"1 0 .5" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idStaticEntity"
+	
+    "angles"					"0" 
+    //"name" 						"0" 
+    "target" 					"0" 
+    "random" 					"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+}
+
+
+/*
+============================================================================================================
+
+Target_ Entities
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef speaker
+{
+	"editor_color"					"0 .7 .7"
+	"editor_mins"					"-8 -8 -8"
+	"editor_maxs"					"8 8 8"
+	"editor_material"				"textures/common/speaker"
+	
+	"editor_usage"					"Formerly target_speaker. Sound generating entity that plays .wav files. Normal non-looping sounds play each time the target_speaker is triggered. Looping sounds can be set to play by themselves (no activating trigger) or be toggled on/off by a trigger."
+	"editor_displayFolder"			"Sound"
+	
+	"editor_snd s_shader"			"path/name of .wav or .ogg nfile to play (eg. sound/world/growl1.wav)."
+	"editor_bool s_looping"			"force looping"
+	"editor_bool s_waitfortrigger"	"play on load or play when triggered."
+	"editor_bool s_global"			"sound will play full volume throughout the level."
+	"editor_bool s_activator"		"sound will play only for the player that activated the target."
+	"editor_var wait"				"when set > 0, seconds between triggerings.  time between sounds is wait + or - random"
+	"editor_var random"				"wait variance."
+	"editor_bool notfree"			"Hidden For FFA: when set to 1, entity will not spawn in 'Free for all' and 'Tournament' modes."
+	"editor_bool notteam"			"Hidden For Teamplay: when set to 1, entity will not spawn in 'Teamplay' and 'CTF' modes."
+	"editor_bool notsingle"			"Hidden For SP: when set to 1, entity will not spawn in Single Player mode (bot play mode)."
+	
+	"editor_var s_volume"			"UNSUPPORTED: override shader volume level."
+	"editor_var s_minDistance"		"UNSUPPORTED: override shader minDistance."
+	"editor_var s_maxDistance"		"UNSUPPORTED: override shader maxDistance."
+	"editor_var s_omni"				"UNSUPPORTED: force omnidirectional"
+	"editor_bool s_occlusion"		"UNSUPPORTED: force no portal occlusion"
+	
+	"spawnclass"					"idSound"
+	
+	"s_shader"						""
+	"s_looping"						"0"
+	"s_waitfortrigger"				"0"
+	"s_global"						"0"
+	
+	"notfree"						"0"
+	"notteam"						"0"
+	"notsingle"						"0"
+}
+
+
+entityDef target_delay  
+{  
+	"editor_color"				"0 .7 .7" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    //"name" 						"0" 
+    "target" 					"0" 
+    "wait" 						"0" 
+    "delay" 					"0" 
+    "random" 					"0" 
+    "notfree"					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+}
+
+
+entityDef target_give  
+{  
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    "target"					"0" 
+    //"name" 						"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+}
+
+
+entityDef target_kill 
+{   
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    //"name" 						"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+}
+
+
+entityDef target_laser 
+{   
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    "angles" 					"0" 
+    "target" 					"0" 
+    //"name" 						"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0" 
+    "notsingle" 				"0" 
+//START_ON : 
+}
+
+//<list name="colorIndex"
+//  <item name="white" value="0"/>
+//  <item name="red" value="1"/>
+//  <item name="green" value="2"/>
+//  <item name="yellow" value="3"/>
+//  <item name="blue" value="4"/>
+//  <item name="cyan" value="5"/>
+//  <item name="magenta" value="6"/>
+//  <item name="white2" value="7"/>
+//</list>
+
+entityDef target_location 
+{   
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+//message :   
+    "count" 					"0" 
+    "notfree"					"0" 
+    "notteam"					"0" 
+    "notsingle" 				"0" 
+}
+
+
+entityDef target_position
+{	
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    //"name" 						"0" 
+    "notfree" 					"0" 
+    "notteam" 					"0"	
+    "notsingle" 				"0"
+}
+
+
+entityDef target_print 
+{   
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    "message" 					"0"
+    //"name" 						"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+// key="REDTEAM" 				"0"
+// key="BLUETEAM" 				"0"
+// key="PRIVATE" 				"0"
+}
+
+
+entityDef target_push  
+{  
+	"editor_color"				".5 .5 .5" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    "angles" 					"0"
+    "speed" 					"0"
+    //"name" 						"0"
+    "target"					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+// key="BOUNCEPAD"
+}
+
+
+entityDef target_relay  
+{  
+	"editor_color"				"0 .7 .7" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    //"name"						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam"					"0"
+    "notsingle" 				"0"
+// key="RED_ONLY" 
+// key="BLUE_ONLY"
+// key="RANDOM" 
+}
+
+
+entityDef target_remove_powerups 
+{   
+	"editor_color"				"0 .7 .7" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    //"name" 						"0"
+    "notfree" 					"0"
+    "notteam"					"0"
+    "notsingle" 				"0"
+}
+
+
+entityDef target_score  
+{  
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    //"name"						"0"
+    "count" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+}
+
+
+entityDef target_teleporter
+{    
+	"editor_color"				"0 .5 0" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    //"name" 						"0"
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+}
+
+
+entityDef target_fx  
+{  
+	"editor_color"				"1 .5 .25" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	"editor_showangle"			"1"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTarget"
+	
+    //"name" 						"0"
+    "luaThink" 					"0"
+    "wait" 						"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+    "start_on" 					"0"
+}
+
+
+/*
+============================================================================================================
+
+Trigger_ Entities
+____________________________________________________________________________________________________________
+============================================================================================================
+*/
+
+entityDef trigger_always 
+{   
+	"editor_color"				".5 .5 .5" 	
+	"editor_mins"				"-8 -8 -8"
+	"editor_maxs"				"8 8 8"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTrigger" 
+	
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle"					"0"
+}
+
+
+entityDef trigger_hurt 
+{   
+	"editor_color"				".5 .5 .5"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTrigger"
+	
+    "dmg" 						"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+// key="START_OFF" 
+// key="SILENT" 
+// key="NO_PROTECTION" 
+// key="SLOW" 
+}
+
+
+entityDef trigger_multiple 
+{   
+	"editor_color"				".5 .5 .5"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTrigger"
+	
+    "target" 					"0"
+    //"name" 						"0"
+    "wait" 						"0"
+    "random" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+}
+
+
+entityDef trigger_push 
+{   
+	"editor_color"				".5 .5 .5"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTrigger"
+	
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle" 				"0"
+}
+
+
+entityDef trigger_teleport
+{    
+	"editor_color"				".5 .5 .5"
+	
+	"editor_usage"				""
+	
+	"spawnclass"				"idTrigger"
+	
+    "target" 					"0"
+    "notfree" 					"0"
+    "notteam" 					"0"
+    "notsingle"					"0"
+}
+
+/*
+____________________________________________________________________________________________________________
+
+End XreaL entity definition file
+____________________________________________________________________________________________________________
+*/
+

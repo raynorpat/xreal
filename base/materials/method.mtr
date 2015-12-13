@@ -1,0 +1,638 @@
+//===========================================
+// TEXTURES
+//===========================================
+
+textures/method/asphalt
+{
+	qer_editorimage		textures/method/asphalt.tga
+
+	diffusemap		textures/method/asphalt.tga
+	bumpmap			textures/method/asphalt_local.tga
+	specularmap		textures/method/asphalt_s.tga
+}
+
+textures/method/window_small
+{
+	qer_editorimage		textures/method/window_small.tga
+
+	diffusemap		textures/method/window_small.tga
+	bumpmap			textures/method/window_small_local.tga
+	specularmap		textures/method/window_small_s.tga
+
+	/*
+	{
+	    blend GL_ONE, gl_one
+       	cubeMap		gfx/env/core
+        texgen		reflect
+	}
+	*/
+}
+
+textures/method/metal2
+{
+	qer_editorimage		textures/method/metal2.tga
+
+	diffusemap		textures/method/metal2.tga
+	bumpmap			textures/method/metal2_local.tga
+	specularmap		textures/method/metal2_s.tga
+}
+
+textures/method/metal_white
+{
+	qer_editorimage		textures/method/metal_white.tga
+
+	diffusemap		textures/method/metal_white.tga
+	bumpmap			textures/method/metal_blue_local.tga
+	specularmap		textures/method/metal_blue_s.tga
+}
+
+textures/method/metal_floor
+{
+	qer_editorimage		textures/method/metal_floor.tga
+
+	diffusemap		textures/method/metal_floor.tga
+	bumpmap			textures/method/metal_floor_local.tga
+	specularmap		textures/method/metal_floor_s.tga
+}
+
+textures/method/metal_floor_white
+{
+	qer_editorimage		textures/method/metal_floor_white.tga
+
+	diffusemap		textures/method/metal_floor_white.tga
+	bumpmap			textures/method/metal_floor_local.tga
+	specularmap		textures/method/metal_floor_s.tga
+}
+
+textures/method/metal4
+{
+	qer_editorimage		textures/method/metal4.tga
+
+	diffusemap		textures/method/metal4.tga
+	bumpmap			textures/method/metal3_local.tga
+	specularmap		textures/method/metal3_s.tga
+}
+
+textures/method/plate
+{
+	qer_editorimage		textures/method/plate.tga
+
+	diffusemap		textures/method/plate.tga
+	bumpmap			textures/method/plate_local.tga
+	specularmap		textures/method/plate_s.tga
+}
+
+textures/method/plate_painted
+{
+	qer_editorimage		textures/method/plate_painted.tga
+
+	diffusemap		textures/method/plate_painted.tga
+	bumpmap			textures/method/plate_local.tga
+	specularmap		textures/method/plate_s.tga
+}
+
+textures/method/metal_floor2_glow
+{
+	qer_editorimage		textures/method/metal_floor2.tga
+
+	diffusemap		textures/method/metal_floor2.tga
+	bumpmap			textures/method/metal_floor2_local.tga
+	specularmap		textures/method/metal_floor2_s.tga
+
+	{
+		blend add
+		map textures/method/metal_floor2_g.tga
+		colored
+	}
+}
+
+textures/method/trim4
+{
+	qer_editorimage		textures/method/trim4.tga
+
+	diffusemap		textures/method/trim4.tga
+	bumpmap			textures/method/trim4_local.tga
+	specularmap		textures/method/trim4_s.tga
+}
+
+textures/method/trim_white
+{
+	qer_editorimage		textures/method/trim_white.tga
+
+	diffusemap		textures/method/trim_white.tga
+	bumpmap			textures/method/trim4_local.tga
+	specularmap		textures/method/trim4_s.tga
+}
+
+textures/method/trim2
+{
+	qer_editorimage		textures/method/trim2.tga
+
+	diffusemap		textures/method/trim2.tga
+	bumpmap			textures/method/trim2_local.tga
+	specularmap		textures/method/trim2_s.tga
+}
+
+textures/method/sidewalk
+{
+	qer_editorimage		textures/method/sidewalk.tga
+
+	diffusemap		textures/method/sidewalk.tga
+	bumpmap			textures/method/sidewalk_local.tga
+	specularmap		textures/method/sidewalk_s.tga
+}
+
+textures/method/sidewalk_trim
+{
+	qer_editorimage		textures/method/sidewalk_trim.tga
+
+	diffusemap		textures/method/sidewalk_trim.tga
+	bumpmap			textures/method/sidewalk_trim_local.tga
+	specularmap		textures/method/sidewalk_trim_s.tga
+}
+
+textures/method/wood_planks
+{
+	qer_editorimage		textures/method/wood_planks.tga
+
+	diffusemap		textures/method/wood_planks.tga
+	bumpmap			textures/method/wood_planks_local.tga
+	specularmap		textures/method/wood_planks_s.tga
+}
+
+textures/method/wood_white
+{
+	qer_editorimage		textures/method/wood_white.tga
+
+	diffusemap		textures/method/wood_white.tga
+	bumpmap			textures/method/wood_blue_local.tga
+	specularmap		textures/method/wood_blue_s.tga
+}
+
+textures/method/brick
+{
+	qer_editorimage		textures/method/brick.tga
+
+	diffusemap		textures/method/brick.tga
+	bumpmap			textures/method/brick_local.tga
+	specularmap		textures/method/brick_s.tga
+}
+
+textures/method/brick_white
+{
+	qer_editorimage		textures/method/brick_white.tga
+
+	diffusemap		textures/method/brick_white.tga
+	bumpmap			textures/method/brick_local.tga
+	specularmap		textures/method/brick_s.tga
+}
+
+//===========================================
+// MOSS
+//===========================================
+
+textures/method/wood_moss
+{
+	qer_editorimage		textures/method/wood_moss.tga
+
+	diffusemap		textures/method/wood_moss.tga
+	bumpmap			textures/method/wood_planks_local.tga
+	specularmap		textures/method/wood_planks_s.tga
+}
+
+textures/method/wood_white_moss
+{
+	qer_editorimage		textures/method/wood_white_moss.tga
+
+	diffusemap		textures/method/wood_white_moss.tga
+	bumpmap			textures/method/wood_planks_local.tga
+	specularmap		textures/method/wood_planks_s.tga
+}
+
+textures/method/asphalt_moss
+{
+	qer_editorimage		textures/method/asphalt_moss.tga
+
+	diffusemap		textures/method/asphalt_moss.tga
+	bumpmap			textures/method/asphalt_local.tga
+	specularmap		textures/method/asphalt_s.tga
+}
+
+
+textures/method/brick_moss
+{
+	qer_editorimage		textures/method/brick_moss.tga
+
+	diffusemap		textures/method/brick_moss.tga
+	bumpmap			textures/method/brick_local.tga
+	specularmap		textures/method/brick_s.tga
+}
+
+textures/method/brick_white_moss
+{
+	qer_editorimage		textures/method/brick_white_moss.tga
+
+	diffusemap		textures/method/brick_white_moss.tga
+	bumpmap			textures/method/brick_local.tga
+	specularmap		textures/method/brick_s.tga
+}
+
+textures/method/plate_painted_moss
+{
+	qer_editorimage		textures/method/plate_painted_moss.tga
+
+	diffusemap		textures/method/plate_painted_moss.tga
+	bumpmap			textures/method/plate_local.tga
+	specularmap		textures/method/plate_s.tga
+}
+
+textures/method/sidewalk_moss
+{
+	qer_editorimage		textures/method/sidewalk_moss.tga
+
+	diffusemap		textures/method/sidewalk_moss.tga
+	bumpmap			textures/method/sidewalk_local.tga
+	specularmap		textures/method/sidewalk_s.tga
+}
+
+textures/method/metal2_moss
+{
+	qer_editorimage		textures/method/metal2_moss.tga
+
+	diffusemap		textures/method/metal2_moss.tga
+	bumpmap			textures/method/metal2_local.tga
+	specularmap		textures/method/metal2_s.tga
+}
+
+textures/method/metal_white_moss
+{
+	qer_editorimage		textures/method/metal_white_moss.tga
+
+	diffusemap		textures/method/metal_white_moss.tga
+	bumpmap			textures/method/metal_blue_local.tga
+	specularmap		textures/method/metal_blue_s.tga
+}
+
+textures/method/metal_floor_moss
+{
+	qer_editorimage		textures/method/metal_floor_moss.tga
+
+	diffusemap		textures/method/metal_floor_moss.tga
+	bumpmap			textures/method/metal_floor_local.tga
+	specularmap		textures/method/metal_floor_s.tga
+}
+
+textures/method/sidewalk_trim_moss
+{
+	qer_editorimage		textures/method/sidewalk_trim_moss.tga
+
+	diffusemap		textures/method/sidewalk_trim_moss.tga
+	bumpmap			textures/method/sidewalk_trim_local.tga
+	specularmap		textures/method/sidewalk_trim_s.tga
+}
+
+
+textures/method/trim2_moss
+{
+	qer_editorimage		textures/method/trim2_moss.tga
+
+	diffusemap		textures/method/trim2_moss.tga
+	bumpmap			textures/method/trim2_local.tga
+	specularmap		textures/method/trim2_s.tga
+}
+
+textures/method/trim_white_moss
+{
+	qer_editorimage		textures/method/trim_white_moss.tga
+
+	diffusemap		textures/method/trim_white_moss.tga
+	bumpmap			textures/method/trim4_local.tga
+	specularmap		textures/method/trim4_s.tga
+}
+
+textures/method/trim4_moss
+{
+	qer_editorimage		textures/method/trim4_moss.tga
+
+	diffusemap		textures/method/trim4_moss.tga
+	bumpmap			textures/method/trim4_local.tga
+	specularmap		textures/method/trim4_s.tga
+}
+
+textures/method/trim5_moss
+{
+	qer_editorimage	textures/method/trim5_moss.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/method/trim5_moss.tga
+		alphaTest 0.5
+	}
+
+	bumpmap			textures/method/trim5_local.tga
+	specularmap		textures/method/trim5_s.tga
+}
+
+textures/method/spanish_moss
+{
+	qer_editorimage	textures/method/spanish_moss.tga
+	noShadows
+	nonSolid
+	twoSided
+	alphashadow
+
+	{
+		blend diffuseMap
+		map textures/method/spanish_moss.tga
+		alphaTest 0.5
+	}
+}
+
+//===========================================
+// DECALS
+//===========================================
+
+textures/method/arena_zero
+{
+	qer_editorimage textures/method/arena_zero.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/arena_zero.tga
+	}
+}
+
+textures/method/arena_one
+{
+	qer_editorimage textures/method/arena_one.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/arena_one.tga
+	}
+}
+
+textures/method/arena_two
+{
+	qer_editorimage textures/method/arena_two.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/arena_two.tga
+	}
+}
+
+textures/method/red_ivy
+{
+	qer_editorimage	textures/method/red_ivy.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/method/red_ivy.tga
+		alphaTest 0.5
+	}
+}
+
+textures/method/papers
+{
+	qer_editorimage	textures/method/papers.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/method/papers.tga
+		alphaTest 0.5
+	}
+}
+
+textures/method/wood_chipped
+{
+	qer_editorimage	textures/method/wood_chipped.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/method/wood_chipped.tga
+		alphaTest 0.5
+	}
+}
+
+textures/method/dirt
+{
+	qer_editorimage textures/method/dirt.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	nonsolid
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/dirt.tga
+	}
+}
+
+textures/method/dirt1
+{
+	qer_editorimage textures/method/dirt1.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	nonsolid
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/dirt1.tga
+	}
+}
+
+textures/method/dirt3
+{
+	qer_editorimage textures/method/dirt3.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	nonsolid
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/dirt3.tga
+	}
+}
+
+textures/method/dirt4
+{
+	qer_editorimage textures/method/dirt4.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	nonsolid
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/dirt4.tga
+	}
+}
+
+textures/method/dirt7
+{
+	qer_editorimage textures/method/dirt7.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	nonsolid
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/dirt7.tga
+	}
+}
+
+textures/method/dirt8
+{
+	qer_editorimage textures/method/dirt8.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	nonsolid
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/dirt8.tga
+	}
+}
+
+textures/method/beam
+{
+	qer_editorimage	textures/method/beam.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/method/beam.tga
+		alphaTest 0.5
+	}
+
+	bumpmap			textures/method/beam_local.tga
+	specularmap		textures/method/beam_s.tga
+}
+
+textures/method/trim5
+{
+	qer_editorimage	textures/method/trim5.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/method/trim5.tga
+		alphaTest 0.5
+	}
+
+	bumpmap			textures/method/trim5_local.tga
+	specularmap		textures/method/trim5_s.tga
+}
+
+textures/method/cap
+{
+	qer_editorimage	textures/method/cap.tga
+	noShadows
+	nonSolid
+	twoSided
+	{
+		blend diffuseMap
+		map textures/method/cap.tga
+		alphaTest 0.5
+	}
+
+	bumpmap			textures/method/cap_local.tga
+	specularmap		textures/method/cap_s.tga
+}
+
+//===========================================
+// PUDDLE
+//===========================================
+
+textures/method/puddle
+{
+	qer_editorimage textures/method/puddle.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/puddle.tga
+	}
+
+	{	
+		maskColor
+		map textures/method/puddle.tga
+	}
+
+	{
+		maskAlpha
+		blend gl_dst_alpha, gl_one
+		mirrorRenderMap     512 512 
+		translate   0.5 , 0.5 
+		scale   0.5 , 0.5
+		red   .75 * Parm0
+		green .75 * Parm1
+		blue  .75 * Parm2
+	}
+}
+
+textures/method/puddle_dry
+{
+	qer_editorimage textures/method/puddle.tga
+	DECAL_MACRO
+	noShadows
+//	noimpact
+	translucent
+	
+	{	
+		blend GL_DST_COLOR, GL_SRC_COLOR
+		map textures/method/puddle.tga
+	}
+}
+
+//===========================================
+// SKY
+//===========================================
+
+lights/meth_fog
+{
+	fogLight			
+	noShadows
+
+	{
+		map 		gfx/lights/meth_fog.tga
+		colored
+	}
+}
+

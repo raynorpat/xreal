@@ -1,0 +1,60 @@
+
+textures/tr3b_lights/roqVideoLight
+{
+	lightFalloffImage	makeintensity(lights/squarelight1a.tga)
+//	lightFalloffImage	_noFalloff
+	{
+		stage attenuationMapXY
+		//rotate	time * 3.7
+		colored
+		//rgb		flickerblink[ time * 1 ]
+		videoMap video/idlogo.RoQ
+		//map lights/squarelight1.tga
+		clamp
+	}
+}
+
+
+textures/tr3b_lights/cloudscroll
+{
+//	lightFalloffImage	_noFalloff
+	lightFalloffImage	makeintensity(lights/squarelight1b.png)
+	{
+		forceHighQuality
+		map			textures/tr3b_sky/plasma_noise2.png
+		colored
+		scroll		time * 0.03, time * 0.01
+		//rgb		storm2table[ time * .1 ]
+	}
+	/*
+	{
+		if(storm3Table[time * 0.1])
+	
+		forceHighQuality
+		map			textures/tr3b_sky/plasma_noise1.png
+		colored
+	    rotate		time * .1
+		//zeroClamp
+		rgb storm3Table[time * 0.1]
+	}
+	*/
+}
+
+textures/tr3b_lights/volumetricLightTest
+{
+	volumetricLight
+	{
+		stage attenuationMapZ
+		map makeintensity(lights/squarelight1a.tga)
+		edgeClamp
+	}
+	{
+		//blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR	// get dimmer as the textures get brighter
+		blend add
+		stage attenuationMapXY
+		forceHighQuality
+		map lights/squarelight1.tga
+		colored
+		zeroClamp
+	}
+}

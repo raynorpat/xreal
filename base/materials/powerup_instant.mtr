@@ -1,0 +1,626 @@
+/* powerup_instant.mtr
+
+material for instant powerups, rewritten and checked by otty 2007
+
+*/
+
+models/powerups/instant/enviro
+{
+	
+	{
+		map models/powerups/instant/enviro.png
+      		
+	}
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+      		
+  		red	0.75 + sinTable[time * 2] * 0.4
+    		green 0.75 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+        		
+          	rotate time * -0.1
+          	blend add
+	}
+}
+
+models/powerups/instant/enviro_ring
+{
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+      		
+  		red	0.75 + sinTable[time * 2] * 0.4
+    		green 0.75 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+        		
+          	rotate time * -0.1
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+		
+        		rotate time * 0.2
+        		
+		blend add
+		
+		red	0.75 + sinTable[time * 2] * 0.4
+      		green 0.75 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+        	
+	}
+}
+
+
+
+
+models/powerups/instant/enviro_flare
+{
+	deformVertexes autosprite
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * 0.3
+		blend add
+		red	0.75 + sinTable[time * 0.52] * 0.4
+      		green 0.75 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+    	
+	}
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * -0.5
+		blend add
+		red	0.75 + sinTable[time * 0.52] * 0.4
+     		green 0.75 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+     	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+models/powerups/instant/regen
+{
+	
+	twosided
+	{
+		map models/powerups/instant/regen.png
+      		
+	}
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+      		
+  		red	0.75 + sinTable[time * 2] * 0.4
+    		green 0.09 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+        		
+          	rotate time * -0.1
+          	blend add
+	}
+}
+
+models/powerups/instant/regen_ring
+{
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+      		
+  		red	0.75 + sinTable[time * 2] * 0.4
+    		green 0.09 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+        		
+          	rotate time * -0.1
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+		
+        		rotate time * 0.2
+        		
+		blend add
+		
+		red	0.75 + sinTable[time * 2] * 0.4
+      		green 0.09 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+        	
+	}
+}
+
+
+
+
+models/powerups/instant/regen_flare
+{
+	deformVertexes autosprite
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * 0.3
+		blend add
+		red	0.75 + sinTable[time * 0.52] * 0.4
+      		green 0.09 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+    	
+	}
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * -0.5
+		blend add
+		red	0.75 + sinTable[time * 0.52] * 0.4
+     		green 0.09 + sinTable[time * 0.52] * 0.4
+     		blue	0.02 + sinTable[time *0.52] * 0.4
+     	
+	}
+}
+
+
+
+
+
+models/powerups/instant/flight
+{
+	
+	twosided
+	{
+		map models/powerups/instant/flight.png
+      		
+	}
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+     		
+		red	0.075 + sinTable[time * 0.52] * 0.4
+     		green 0.009 + sinTable[time * 0.52] * 0.4
+     		blue	0.082 + sinTable[time *0.52] * 0.4
+     	
+          	rotate time * -0.8
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+        		
+        		rotate time * 0.6
+		blend add
+		red	0.075 + sinTable[time * 2] * 0.4
+     		green 0.009 + sinTable[time * 2] * 0.4
+     		blue	0.082 + sinTable[time *2] * 0.4
+     	
+
+	}
+
+	
+}
+
+
+models/powerups/instant/flight_ring
+{
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+      		
+  		red	0.75 + sinTable[time * 2] * 0.4
+     		green 0.09 + sinTable[time * 2] * 0.4
+     		blue	0.82 + sinTable[time *2] * 0.4
+     		
+          	rotate time * -0.1
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+		
+        		rotate time * 0.2
+        		
+		blend add
+		
+		red	0.75 + sinTable[time * 2] * 0.4
+     		green 0.09 + sinTable[time * 2] * 0.4
+     		blue	0.82 + sinTable[time *2] * 0.4
+     	
+	}
+}
+
+
+
+
+models/powerups/instant/flight_flare
+{
+	deformVertexes autosprite
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * 0.3
+		blend add
+		red	0.75 + sinTable[time * 0.52] * 0.4
+     		green 0.09 + sinTable[time * 0.52] * 0.4
+     		blue	0.82 + sinTable[time *0.52] * 0.4
+     	
+	}
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * -0.5
+		blend add
+		red	0.75 + sinTable[time * 0.52] * 0.4
+     		green 0.09 + sinTable[time * 0.52] * 0.4
+     		blue	0.82 + sinTable[time *0.52] * 0.4
+     	
+	}
+}
+
+
+models/powerups/instant/invis
+{
+	
+	twosided
+	{
+		map models/powerups/instant/invis.png
+      		
+	}
+
+	{
+		map gfx/effect/effmap03.png
+    		blend add
+  		
+     	  	scroll 0, sinTable[time * 0.2] * 0.5 + 0.5
+          
+	}
+	
+}
+
+
+
+
+
+
+models/powerups/instant/invis_ring
+{
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+      		
+  		red	0.24 + sinTable[time * 2] * 0.4
+     		green 0.76 + sinTable[time * 2] * 0.4
+     		blue	0.85 + sinTable[time *2] * 0.4
+     		
+          	rotate time * -0.1
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+		
+        		rotate time * 0.2
+        		
+		blend add
+		
+		red	0.24  + sinTable[time * 0.3] * 0.5
+     		green 0.76 + sinTable[time * 0.3] * 0.5
+		blue	0.9 + sinTable[time * 3] * 0.5
+
+	}
+}
+
+models/powerups/instant/invis_flare
+{
+	deformVertexes autosprite
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * 0.3
+		blend add
+		blue	0.3 + sinTable[time * 0.29] * 0.5
+
+	}
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * -0.5
+		blend add
+		blue	0.4 + sinTable[time * 0.31] * 0.5
+
+	}
+}
+
+
+models/powerups/instant/invis
+{
+	
+	twosided
+	{
+		map models/powerups/instant/invis.png
+      		
+	}
+
+	{
+		map gfx/effect/effmap03.png
+    		blend add
+  		
+     	  	scroll 0, sinTable[time * 0.2] * 0.5 + 0.5
+          
+	}
+	
+}
+
+
+
+
+
+
+models/powerups/instant/invis_ring
+{
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+      		
+  		red	0.24 + sinTable[time * 2] * 0.4
+     		green 0.76 + sinTable[time * 2] * 0.4
+     		blue	0.85 + sinTable[time *2] * 0.4
+     		
+          	rotate time * -0.1
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+		
+        		rotate time * 0.2
+        		
+		blend add
+		
+		red	0.24  + sinTable[time * 0.3] * 0.5
+     		green 0.76 + sinTable[time * 0.3] * 0.5
+		blue	0.9 + sinTable[time * 3] * 0.5
+
+	}
+}
+
+models/powerups/instant/invis_flare
+{
+	deformVertexes autosprite
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * 0.3
+		blend add
+		blue	0.3 + sinTable[time * 0.29] * 0.5
+
+	}
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * -0.5
+		blend add
+		blue	0.4 + sinTable[time * 0.31] * 0.5
+
+	}
+}
+
+
+models/powerups/instant/haste
+{
+	
+	twosided
+	{
+		map models/powerups/instant/haste.png
+       		
+		blend GL_ONE, GL_ZERO
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+        		
+  		red	0.714 + sinTable[time * 0.2] * 0.4
+     		green 0.66 + sinTable[time * 0.2] * 0.4
+     		blue	0.075 + sinTable[time * 0.2] * 0.4
+          	rotate time * -0.8
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+        		rotate time * 0.6
+		blend add
+		red	0.714 + sinTable[time * 0.2] * 0.4
+     		green 0.66 + sinTable[time * 0.2] * 0.4
+     		blue	0.075 + sinTable[time * 0.2] * 0.4
+
+	}
+	
+	
+	{
+		map models/powerups/instant/haste_glow.png
+		rgbGen wave sin .5 .5 .3 0.5	
+		blend blend
+	}
+	
+}
+
+
+
+
+models/powerups/instant/haste_flare
+{
+	deformVertexes autosprite
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * 0.3
+		blend add
+		red	0.1 + sinTable[time * 0.29] * 0.5
+		green 0.1 + sinTable[time * 0.29] * 0.5
+
+	}
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * -0.5
+		blend add
+		red	0.02 + sinTable[time * 0.29] * 0.5
+		green 0.02 + sinTable[time * 0.29] * 0.5
+
+	}
+}
+
+
+models/powerups/instant/haste_ring
+{
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+      
+  		red	0.75 + sinTable[time * 2] * 0.4
+     		green 0.66 + sinTable[time * 2] * 0.4
+     		blue	0.14 + sinTable[time *2] * 0.4
+          	rotate time * -0.1
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+       		rotate time * 0.2
+		blend add
+		red	0.5  + sinTable[time * 0.3] * 0.5
+     		green 0.66 + sinTable[time * 0.3] * 0.5
+		blue	0.15 + sinTable[time * 3] * 0.5
+
+	}
+}
+
+
+models/powerups/instant/quad
+{
+	
+	twosided
+	{
+		map models/powerups/instant/quad.png
+       		
+		blend GL_ONE, GL_ZERO
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+     		
+  		red	0.014 + sinTable[time * 0.2] * 0.4
+     		green 0.066 + sinTable[time * 0.2] * 0.4
+     		blue	0.075 + sinTable[time * 0.2] * 0.4
+          	rotate time * -0.8
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+        		
+        		rotate time * 0.6
+		blend add
+		red	0.14  + sinTable[time * 0.3] * 0.5
+     		green 0.66 + sinTable[time * 0.3] * 0.5
+		blue	0.75 + sinTable[time * 0.3] * 0.5
+
+	}
+	
+	
+	{
+		map models/powerups/instant/quad_glow.png
+		rgbGen wave sin .5 .5 .3 0.5	
+		blend blend
+	}
+	
+}
+
+models/powerups/instant/quad_ring
+{
+	{
+		edgeClamp
+		map gfx/effect/effmap02.png
+      		
+  		red	0.014 + sinTable[time * 2] * 0.4
+     		green 0.066 + sinTable[time * 2] * 0.4
+     		blue	0.75 + sinTable[time *2] * 0.4
+     		
+          	rotate time * -0.1
+          	blend add
+	}
+
+	{
+		edgeClamp
+		map gfx/effect/effmap01.png
+		
+        		rotate time * 0.2
+        		
+		blend add
+		
+		red	0.014  + sinTable[time * 0.3] * 0.5
+     		green 0.066 + sinTable[time * 0.3] * 0.5
+		blue	0.5 + sinTable[time * 3] * 0.5
+
+	}
+}
+
+models/powerups/instant/quad_flare
+{
+	deformVertexes autosprite
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * 0.3
+		blend add
+		blue	0.6 + sinTable[time * 0.29] * 0.5
+
+	}
+	{
+		edgeClamp
+		map gfx/effect/flare01.png
+		blend add
+       		rotate time * -0.5
+		blend add
+		blue	0.7 + sinTable[time * 0.31] * 0.5
+
+	}
+}
+
+

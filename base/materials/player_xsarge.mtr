@@ -1,0 +1,32 @@
+
+models/players/xsarge/SargeBody
+{
+    diffusemap	models/players/xsarge/SargeBody_d.tga
+	normalmap	models/players/xsarge/SargeBody_local.tga
+	//bumpmap	addnormals ( models/players/xsarge/SargeBody_local.tga, heightmap ( models/players/xsarge/sargebody01_h.tga, 4 ))
+	specularmap	models/players/xsarge/sargebody01_s.tga
+}
+
+models/players/xsarge/SargeHead
+{
+	diffusemap	models/players/xsarge/SargeHead_d.tga
+	normalmap   models/players/xsarge/SargeHead_local.tga
+	//bumpmap	addnormals ( models/players/xsarge/SargeHead_local.tga, heightmap ( models/players/xsarge/SargeHead_h.tga, 2 ))
+	specularmap	models/players/xsarge/SargeHead_s.tga
+}
+
+models/players/xsarge/SargeHair
+{
+	diffusemap	models/players/xsarge/SargeHair_d.tga
+	normalmap   models/players/xsarge/SargeHair_local.tga
+	//bumpmap	addnormals ( models/players/xsarge/SargeHair_local.tga, heightmap ( models/players/xsarge/SargeHair_h.tga, 2 ))
+	specularmap	models/players/xsarge/SargeHair_s.tga
+}
+
+models/players/xsarge/SargeCigar
+{
+	diffusemap	models/players/xsarge/SargeCigar_d.tga
+	
+	//bumpmap	addnormals ( models/players/xsarge/SargeCigar_local.tga, heightmap ( models/players/xsarge/SargeCigar_h.tga, 2 ))
+	specularmap	models/players/xsarge/SargeCigar_s.tga
+}

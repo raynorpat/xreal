@@ -1,0 +1,629 @@
+
+Version 2
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+brushDef3
+{
+( 0 0 1 -512 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 1 -0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0 0 -4096 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -0 -0 -1 504 ) ( ( 0.0078125 0 0 ) ( 0 0.0078125 0 ) ) "textures/reflex_layout/ceiling" 0 0 0
+}
+}
+// brush 1
+{
+brushDef3
+{
+( 0 0 1 -512 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 1 -0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0 0 -4096 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 0 -1 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -0 -1 0 1016 ) ( ( 0.0078125 0 -0 ) ( -0 0.0078125 0 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+// brush 2
+{
+brushDef3
+{
+( 0 0 1 -512 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 1 -0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0 0 -4096 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 0 -1 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1 0 -0 4088 ) ( ( 0.0078125 0 -0 ) ( -0 0.0078125 0 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+// brush 3
+{
+brushDef3
+{
+( 0 1 -0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0 0 -4096 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 0 -1 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -0 -0 1 -8 ) ( ( 0.0078125 0 -0 ) ( -0 0.0078125 0 ) ) "textures/reflex_layout/floor" 0 0 0
+}
+}
+// brush 4
+{
+brushDef3
+{
+( 0 0 1 -512 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0 0 -4096 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 0 -1 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -0 1 -0 1016 ) ( ( 0.0078125 0 -0 ) ( -0 0.0078125 0 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+// brush 5
+{
+brushDef3
+{
+( 0 0 1 -512 ) ( ( 0.03125 0 0 ) ( 0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 1 -0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 0 -1 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 0 -1 0 -1024 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( -1 0 0 0 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/caulk" 0 0 0
+( 1 -0 -0 -8 ) ( ( 0.0078125 0 -0 ) ( -0 0.0078125 0 ) ) "textures/reflex_layout/wall" 0 0 0
+}
+}
+}
+// entity 1
+{
+"classname" "team_CTF_blueflag"
+"name" "team_CTF_blueflag_1"
+"origin" "112 0 32"
+"gametype" "ctf oneflag harvester"
+}
+// entity 2
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_2"
+"origin" "128 128 40"
+}
+// entity 3
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_3"
+"origin" "128 256 40"
+}
+// entity 4
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_4"
+"origin" "128 384 40"
+}
+// entity 5
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_5"
+"origin" "128 -128 40"
+}
+// entity 6
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_6"
+"origin" "128 -256 40"
+}
+// entity 7
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_7"
+"origin" "128 -384 40"
+}
+// entity 8
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_8"
+"origin" "128 512 40"
+}
+// entity 9
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_9"
+"origin" "128 640 40"
+}
+// entity 10
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_10"
+"origin" "128 -512 40"
+}
+// entity 11
+{
+"classname" "team_CTF_bluespawn"
+"name" "team_CTF_bluespawn_11"
+"origin" "128 -640 40"
+}
+// entity 12
+{
+"classname" "light"
+"name" "light_1"
+"origin" "2048 0 300"
+"light_radius" "2428 1284 720"
+}
+// entity 13
+{
+"classname" "team_CTF_redflag"
+"name" "team_CTF_redflag_1"
+"origin" "3968 0 32"
+"gametype" "ctf oneflag harvester"
+}
+// entity 14
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_1"
+"origin" "3968 128 40"
+"angle" "180"
+}
+// entity 15
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_2"
+"origin" "3968 256 40"
+"angle" "180"
+}
+// entity 16
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_3"
+"origin" "3968 384 40"
+"angle" "180"
+}
+// entity 17
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_4"
+"origin" "3968 512 40"
+"angle" "180"
+}
+// entity 18
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_5"
+"origin" "3968 640 40"
+"angle" "180"
+}
+// entity 19
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_6"
+"origin" "3968 -128 40"
+"angle" "180"
+}
+// entity 20
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_7"
+"origin" "3968 -256 40"
+"angle" "180"
+}
+// entity 21
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_8"
+"origin" "3968 -384 40"
+"angle" "180"
+}
+// entity 22
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_9"
+"origin" "3968 -512 40"
+"angle" "180"
+}
+// entity 23
+{
+"classname" "team_CTF_redspawn"
+"name" "team_CTF_redspawn_10"
+"origin" "3968 -640 40"
+"angle" "180"
+}
+// entity 24
+{
+"classname" "team_CTF_neutralflag"
+"name" "team_CTF_neutralflag_1"
+"origin" "2048 0 40"
+"gametype" "oneflag"
+}
+// entity 25
+{
+"classname" "team_blueobelisk"
+"name" "team_blueobelisk_1"
+"origin" "128 0 8"
+}
+// entity 26
+{
+"classname" "team_redobelisk"
+"name" "team_redobelisk_1"
+"origin" "3968 0 8"
+"angle" "180"
+}
+// entity 27
+{
+"classname" "team_neutralobelisk"
+"name" "team_neutralobelisk_1"
+"origin" "2048 0 16"
+}
+// entity 28
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_1"
+"origin" "256 0 40"
+}
+// entity 29
+{
+"classname" "info_player_deathmatch"
+"name" "info_player_deathmatch_2"
+"origin" "3840 0 40"
+"angle" "180"
+}
+// entity 30
+{
+"classname" "light"
+"name" "light_2"
+"origin" "256 0 256"
+}
+// entity 31
+{
+"classname" "light"
+"name" "light_3"
+"origin" "3840 0 256"
+}
+// entity 32
+{
+"classname" "item_ammoregen"
+"name" "item_ammoregen_1"
+"origin" "320 64 40"
+"spawnflags" "4"
+}
+// entity 33
+{
+"classname" "item_doubler"
+"name" "item_doubler_1"
+"origin" "320 192 40"
+"spawnflags" "4"
+}
+// entity 34
+{
+"classname" "item_guard"
+"name" "item_guard_1"
+"origin" "320 -64 40"
+"spawnflags" "4"
+}
+// entity 35
+{
+"classname" "item_scout"
+"name" "item_scout_1"
+"origin" "320 -192 40"
+"spawnflags" "4"
+}
+// entity 36
+{
+"classname" "item_ammoregen"
+"name" "item_ammoregen_2"
+"origin" "3776 64 40"
+"spawnflags" "2"
+}
+// entity 37
+{
+"classname" "item_doubler"
+"name" "item_doubler_2"
+"origin" "3776 192 40"
+"spawnflags" "2"
+}
+// entity 38
+{
+"classname" "item_guard"
+"name" "item_guard_2"
+"origin" "3776 -64 40"
+"spawnflags" "2"
+}
+// entity 39
+{
+"classname" "item_scout"
+"name" "item_scout_2"
+"origin" "3776 -192 40"
+"spawnflags" "2"
+}
+// entity 40
+{
+"classname" "light"
+"name" "light_5"
+"origin" "3584 0 256"
+"light_radius" "620 1132 396"
+"_color" "0.740398 0.157702 0.125551"
+}
+// entity 41
+{
+"classname" "light"
+"name" "light_6"
+"origin" "512 0 256"
+"light_radius" "620 1132 396"
+"_color" "0.401679 0.56968 1"
+}
+// entity 42
+{
+"classname" "weapon_plasmagun"
+"name" "weapon_plasmagun_1"
+"origin" "2048 128 40"
+}
+// entity 43
+{
+"classname" "weapon_rocketlauncher"
+"name" "weapon_rocketlauncher_1"
+"origin" "2048 256 40"
+}
+// entity 44
+{
+"classname" "weapon_shotgun"
+"name" "weapon_shotgun_1"
+"origin" "2048 -128 40"
+}
+// entity 45
+{
+"classname" "weapon_lightning"
+"name" "weapon_lightning_1"
+"origin" "2048 -256 40"
+}
+// entity 46
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_1"
+"origin" "192 192 40"
+}
+// entity 47
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_2"
+"origin" "192 320 40"
+}
+// entity 48
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_3"
+"origin" "192 448 40"
+}
+// entity 49
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_4"
+"origin" "192 576 40"
+}
+// entity 50
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_5"
+"origin" "192 704 40"
+}
+// entity 51
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_6"
+"origin" "192 -192 40"
+}
+// entity 52
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_7"
+"origin" "192 -320 40"
+}
+// entity 53
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_8"
+"origin" "192 -448 40"
+}
+// entity 54
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_9"
+"origin" "192 -576 40"
+}
+// entity 55
+{
+"classname" "team_CTF_blueplayer"
+"name" "team_CTF_blueplayer_10"
+"origin" "192 -704 40"
+}
+// entity 56
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_1"
+"origin" "3904 192 40"
+"angle" "180"
+}
+// entity 57
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_2"
+"origin" "3904 320 40"
+"angle" "180"
+}
+// entity 58
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_3"
+"origin" "3904 448 40"
+"angle" "180"
+}
+// entity 59
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_4"
+"origin" "3904 576 40"
+"angle" "180"
+}
+// entity 60
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_5"
+"origin" "3904 704 40"
+"angle" "180"
+}
+// entity 61
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_6"
+"origin" "3904 -192 40"
+"angle" "180"
+}
+// entity 62
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_7"
+"origin" "3904 -320 40"
+"angle" "180"
+}
+// entity 63
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_8"
+"origin" "3904 -448 40"
+"angle" "180"
+}
+// entity 64
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_9"
+"origin" "3904 -576 40"
+"angle" "180"
+}
+// entity 65
+{
+"classname" "team_CTF_redplayer"
+"name" "team_CTF_redplayer_10"
+"origin" "3904 -704 40"
+"angle" "180"
+}
+// entity 66
+{
+"classname" "item_health_large"
+"name" "item_health_large_1"
+"origin" "1920 0 40"
+}
+// entity 67
+{
+"classname" "item_health_large"
+"name" "item_health_large_2"
+"origin" "1792 128 40"
+}
+// entity 68
+{
+"classname" "item_health_large"
+"name" "item_health_large_3"
+"origin" "1856 192 40"
+}
+// entity 69
+{
+"classname" "item_health_large"
+"name" "item_health_large_4"
+"origin" "1920 256 40"
+}
+// entity 70
+{
+"classname" "item_health_large"
+"name" "item_health_large_5"
+"origin" "1792 -128 40"
+}
+// entity 71
+{
+"classname" "item_health_large"
+"name" "item_health_large_6"
+"origin" "1856 -192 40"
+}
+// entity 72
+{
+"classname" "item_health_large"
+"name" "item_health_large_7"
+"origin" "1920 -256 40"
+}
+// entity 73
+{
+"classname" "item_health_large"
+"name" "item_health_large_8"
+"origin" "2176 -256 40"
+}
+// entity 74
+{
+"classname" "item_health_large"
+"name" "item_health_large_9"
+"origin" "2240 -192 40"
+}
+// entity 75
+{
+"classname" "item_health_large"
+"name" "item_health_large_10"
+"origin" "2304 -128 40"
+}
+// entity 76
+{
+"classname" "item_health_large"
+"name" "item_health_large_11"
+"origin" "2176 0 40"
+}
+// entity 77
+{
+"classname" "item_health_large"
+"name" "item_health_large_12"
+"origin" "2304 128 40"
+}
+// entity 78
+{
+"classname" "item_health_large"
+"name" "item_health_large_13"
+"origin" "2240 192 40"
+}
+// entity 79
+{
+"classname" "item_health_large"
+"name" "item_health_large_14"
+"origin" "2176 256 40"
+}
+// entity 80
+{
+"classname" "func_static"
+"name" "func_static_1"
+"origin" "2048 0 8"
+"model" "models/mapobjects/zogg/jump_pad.ase"
+}
+// entity 81
+{
+"classname" "target_position"
+"name" "target_position_1"
+"origin" "2048 0 216"
+}
+// entity 82
+{
+"classname" "item_quad"
+"name" "item_quad_1"
+"origin" "2048 0 164"
+"spawnflags" "1"
+}
+// entity 83
+{
+"classname" "trigger_push"
+"name" "trigger_push_1"
+"model" "trigger_push_1"
+"target" "target_position_1"
+// brush 0
+{
+brushDef3
+{
+( 0 0 1 -24 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( 0 1 0 -44 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( 1 0 0 -2092 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( 0 0 -1 16 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( 0 -1 0 -44 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+( -1 0 0 2004 ) ( ( 0.03125 0 -0 ) ( -0 0.03125 0 ) ) "textures/common/trigger" 0 0 0
+}
+}
+}

@@ -1,0 +1,102 @@
+
+
+textures/tr3b_sky/jump2_512
+{
+	qer_editorimage cubemaps/pete/jump2_512_px.png
+	
+	noFragment 
+	noshadows 
+	nooverlays
+	noimpact 
+	forceOpaque
+	
+	{ 
+		stage skyboxMap
+		cubeMap cubemaps/pete/jump2_512
+	}
+} 
+
+
+textures/tr3b_sky/thunders_cloudyskydark_stormy
+{
+	qer_editorimage   textures/tr3b_sky/baseskystormy.jpg
+
+	xmap_sun 1 1 1 110 90 90	
+
+	noFragment
+	noshadows
+	nooverlays
+	noimpact
+	nolightmap
+//	forceOpaque
+	
+	skyparms - 2048 -
+	
+	{
+		forceHighQuality
+		blend      blend
+		map    textures/tr3b_sky/baseskystormy.jpg
+	}
+	{
+		forceHighQuality
+		blend      add
+		map    textures/tr3b_sky/cloudstormy_d.jpg
+		scroll    time * 0.01, time* 0.02
+		rgb     storm3Table[time * 0.1]
+	}
+	{
+		forceHighQuality
+		blend      filter
+		map    textures/tr3b_sky/cloudstormy_d.jpg
+		scroll    time * 0.04, time* 0.06
+		alpha 0.2
+	}
+	{
+		forceHighQuality
+		blend      gl_dst_color, gl_one
+		map    textures/tr3b_sky/thunders.jpg
+		scroll    time * 0.1, 0.1
+		scale 2, 2
+		rgb flashTable[time * 0.3]
+	}
+}
+
+textures/tr3b_sky/cloudyskybright
+{
+	qer_editorimage		textures/tr3b_sky/orient_sun.png
+
+	xmap_sun 1 0.8 0.7 200 20 70
+	
+	noimpact
+	sky
+
+	skyparms - 2048 -
+
+	{
+		blend		add
+		map			textures/tr3b_sky/orient_sun.png
+		scale		2, 2
+	}
+	{
+		//blend		add
+		//blend		gl_dst_color, gl_one
+		blend		blend
+		map			textures/tr3b_sky/plasma_noise2.png
+		translate 	time * 0.01, 0
+    	}
+	{
+		blend		add
+		map			textures/tr3b_sky/plasma_noise2.png
+		translate 	time * 0.03, time * 0.01
+	}
+	/*
+	{
+		blend		add
+		map			textures/tr3b_sky/plasma_noise2.png
+		translate 	time * 0.03, time * 0.01
+		colored
+		rgb storm3Table[time * 0.1]
+	}
+	*/
+}
+

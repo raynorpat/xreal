@@ -1,0 +1,45 @@
+
+// XreaL additions by QuakerX
+table jumppadtable { snap { 2, 1.95, 1.85, 1.75, 1.65, 1.55, 1.45, 1.35, 1.25, 1.15 , 1.05, 1, .95, .85, .75, .65, .55, .45, .35, .25, .15 , .05} }
+
+models/mapobjects/zogg/jump_pad
+{
+	//noselfShadow
+	//unSmoothedTangents
+	nonSolid
+
+	renderbump  -size 512 256 -aa 2 -trace .05 -MergeHigh models/mapobjects/zogg/jump_pad_local.tga work/models/mapobjects/zogg/jump_pad_hi.lwo
+ 
+	diffusemap 			models/mapobjects/zogg/jump_pad_d.tga
+	bumpmap addnormals 	(models/mapobjects/zogg/jump_pad_local.tga, heightmap (models/mapobjects/zogg/jump_pad_h.tga, 2 ))
+	specularmap			models/mapobjects/zogg/jump_pad_s.tga
+
+	{
+		blend 		add
+		map 			models/mapobjects/zogg/jump_pad_g.tga
+		rgb 			1.25 + sintable [time * 1]
+	}	
+	{
+		blend 		add
+		map			models/mapobjects/zogg/jump_pad_g3.tga
+	}
+}
+
+models/mapobjects/zogg/jump_pad_glow
+{
+	translucent
+	nonSolid
+
+	{ 
+		maskColor
+		map 			makealpha(models/mapobjects/zogg/jump_pad_mask.tga)
+		centerScale 	.73, .73
+	}
+	{
+		blend 		GL_DST_ALPHA, gl_one
+		maskAlpha
+		map 			models/mapobjects/zogg/jump_pad_g2.tga
+		centerScale 	jumppadtable [time * 1], jumppadtable [time * 1]
+		clamp
+	}
+}

@@ -1,0 +1,19 @@
+//====================================
+// QUAKE 2 WEAPONS - Kiltron
+//====================================
+
+//==================
+// VIEWMODEL ARMS
+//==================
+
+models/weapons/arms/arm2
+{
+	//noselfShadow
+	noShadows
+	clamp
+
+	diffusemap		models/weapons/arms/arm2_d.tga
+	normalMap		addnormals(models/weapons/arms/arm2_local.tga, heightmap(models/weapons/arms/arm2_h.tga, 3 ) )	  
+	specularmap		models/weapons/arms/arm2_s.tga
+}
+

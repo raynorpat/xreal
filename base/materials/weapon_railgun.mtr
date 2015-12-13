@@ -1,0 +1,37 @@
+
+
+models/weapons/railgun/railgun
+{
+
+	noShadows
+//  noselfShadow
+//	unsmoothedTangents
+
+    diffusemap		models/weapons/railgun/v_railgun_d.tga
+	{
+		blend bumpmap
+        map  			addnormals(models/weapons/railgun/v_railgun_local.tga, heightmap(models/weapons/railgun/v_railgun_h.tga, 5 ) ) 
+	}
+    specularmap	 	models/weapons/railgun/v_railgun_s.tga
+	{
+		map			models/weapons/railgun/v_railgun_add.tga
+		blend 		add
+		rgb			q2flickertable [ time * 4 ]
+	}
+}
+
+models/weapons/rail/railgun_world
+{
+	ricochet
+    //noselfShadow
+	//smoothedTangents
+
+    diffusemap	 	models/weapons/railgun/w_railgun_d.tga
+	bumpmap      	models/weapons/railgun/w_railgun_local.tga
+	specularmap	 	models/weapons/railgun/w_railgun_s.tga
+	{
+		map			models/weapons/railgun/w_railgun_add.tga
+		blend			add
+		rgb			q2flickertable [ time * 4 ]
+	}
+}

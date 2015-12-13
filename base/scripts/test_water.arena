@@ -1,0 +1,7 @@
+{
+	map  "test_water"
+	longname "test_water"
+	bots  "Visor"
+	fraglimit 25
+	type  "ffa tourney team"
+}

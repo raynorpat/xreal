@@ -1,0 +1,10 @@
+GNU indent options in .indent.pro :
+-bad -bap -bl -bli0 -bls -cbi0 -cdw -ci4 -cli4 -cp33 -di16 
+-hnl -i4 -l130 -lc80 -lp -nbbb -nbbo -nbc -nbfda -nce -ncs 
+-npsl -npcs -nsaf -nsai -nsaw -nsob -pi4 -nprs -sbi0 -ts4 -ut
+
+USAGE:
+indent.exe code/yourfile.c
+
+
+TODO write some code examples to clarify this

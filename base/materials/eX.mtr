@@ -1,0 +1,718 @@
+//----------------------------------------------------------------------//
+// 						 eX texture set									//
+// 				"eX" is evil lair's texture set #10						//
+// 					 http://www.evillair.net							//
+//					   el@evillair.net									//
+//----------------------------------------------------------------------//
+
+/*
+Tr3B: automatic conversion tools to remove templates
+#define guide
+
+#define generic_shader(TextureParm)					\
+{													\
+	qer_editorimage textures/TextureParm##_d		\
+													\
+	bumpmap addnormals ( textures/TextureParm##_local, heightmap ( textures/TextureParm##_h, 1 ) )	\
+	diffusemap	textures/TextureParm##_d			\
+	specularmap	textures/TextureParm##_s			\
+}
+
+
+in Eclipse turn on Regular expressions
+
+Find:
+generic_shader\((eX/eXmetalBase01)\)
+
+Replace With:
+{
+	qer_editorimage textures/$1_d
+
+	bumpmap addnormals ( textures/$1_local, heightmap ( textures/$1_h, 1 ) )
+	diffusemap	textures/$1_d
+	specularmap	textures/$1_s
+}
+*/
+
+// metal bases
+textures/eX/eX_floor_mtl_wrn_01
+{
+	qer_editorimage textures/eX/eX_floor_mtl_wrn_01_d
+
+	bumpmap addnormals ( textures/eX/eX_floor_mtl_wrn_01_local, heightmap ( textures/eX/eX_floor_mtl_wrn_01_h, 1 ) )
+	diffusemap	textures/eX/eX_floor_mtl_wrn_01_d
+	specularmap	textures/eX/eX_floor_mtl_wrn_01_s
+}
+
+textures/eX/eXmetalBase04
+{
+
+	qer_EditorImage		textures/eX/eXmetalBase04_d.tga
+	
+	bumpMap addnormals	(textures/eX/eXmetalBase01_local.tga, heightmap ( textures/eX/eXmetalBase01_h.tga,1 ) )
+	diffuseMap			textures/eX/eXmetalBase04_d.tga
+	specularMap			textures/eX/eXmetalBase01_s.tga
+}
+
+textures/eX/eXmetalBase06rust
+{
+
+	qer_EditorImage		textures/eX/eXmetalBase06rust_d.tga
+	
+	bumpMap addnormals	(textures/eX/eXmetalBase01_local.tga, heightmap ( textures/eX/eXmetalBase01_h.tga,1 ) )
+	diffuseMap			textures/eX/eXmetalBase06rust_d.tga
+	specularMap			textures/eX/eX_cretefloor_01_s.tga
+}
+
+textures/eX/eXmetalBase07rust
+{
+
+	qer_EditorImage		textures/eX/eXmetalBase07rust_d.tga
+	
+	bumpMap addnormals	(textures/eX/eXmetalBase01_local.tga, heightmap ( textures/eX/eXmetalBase01_h.tga,3 ) )
+	diffuseMap			textures/eX/eXmetalBase07rust_d.tga
+	specularMap			textures/eX/eXmetalBase01_s.tga
+}
+
+textures/eX/eXmetalBase01 
+{
+	qer_editorimage textures/eX/eXmetalBase01_d
+
+	bumpmap addnormals ( textures/eX/eXmetalBase01_local, heightmap ( textures/eX/eXmetalBase01_h, 1 ) )
+	diffusemap	textures/eX/eXmetalBase01_d
+	specularmap	textures/eX/eXmetalBase01_s
+}
+
+textures/eX/eXmetalBase02 
+{
+	qer_editorimage textures/eX/eXmetalBase02_d
+
+	bumpmap addnormals ( textures/eX/eXmetalBase02_local, heightmap ( textures/eX/eXmetalBase02_h, 1 ) )
+	diffusemap	textures/eX/eXmetalBase02_d
+	specularmap	textures/eX/eXmetalBase02_s
+}
+
+textures/eX/eXmetalBase03 
+{
+	qer_editorimage textures/eX/eXmetalBase03_d
+
+	bumpmap addnormals ( textures/eX/eXmetalBase03_local, heightmap ( textures/eX/eXmetalBase03_h, 1 ) )
+	diffusemap	textures/eX/eXmetalBase03_d
+	specularmap	textures/eX/eXmetalBase03_s
+}
+
+textures/eX/eXmetalBase05Rust 
+{
+	qer_editorimage textures/eX/eXmetalBase05Rust_d
+
+	bumpmap addnormals ( textures/eX/eXmetalBase05Rust_local, heightmap ( textures/eX/eXmetalBase05Rust_h, 1 ) )
+	diffusemap	textures/eX/eXmetalBase05Rust_d
+	specularmap	textures/eX/eXmetalBase05Rust_s
+} 
+
+// floors
+textures/eX/eX_steptop_01 
+{
+	qer_editorimage textures/eX/eX_steptop_01_d
+
+	bumpmap addnormals ( textures/eX/eX_steptop_01_local, heightmap ( textures/eX/eX_steptop_01_h, 1 ) )
+	diffusemap	textures/eX/eX_steptop_01_d
+	specularmap	textures/eX/eX_steptop_01_s
+}
+
+textures/eX/eX_floor_tread_01 
+{
+	qer_editorimage textures/eX/eX_floor_tread_01_d
+
+	bumpmap addnormals ( textures/eX/eX_floor_tread_01_local, heightmap ( textures/eX/eX_floor_tread_01_h, 1 ) )
+	diffusemap	textures/eX/eX_floor_tread_01_d
+	specularmap	textures/eX/eX_floor_tread_01_s
+} 
+
+textures/eX/eX_floor_grate03_2rescale
+{
+
+	qer_EditorImage		textures/eX/eX_floor_grate_03_d.tga
+	
+	bumpMap addnormals	(textures/eX/eX_floor_grate_03_local.tga, heightmap ( textures/eX/eX_floor_grate_03_h.tga,1 ) )
+	diffuseMap			textures/eX/eX_floor_grate_03_d.tga
+	specularMap			textures/eX/eX_floor_grate_03_s.tga
+}
+
+textures/eX/eX_clangfloor_rusted
+{
+
+	qer_EditorImage		textures/eX/eX_clangfloor_01b_d.tga
+	
+	bumpMap addnormals	(textures/eX/eX_clangfloor_01_local.tga, heightmap ( textures/eX/eX_clangfloor_01_h.tga,1 ) )
+	diffuseMap			textures/eX/eX_clangfloor_01b_d.tga
+	specularMap			textures/eX/eX_clangfloor_01_s.tga
+}
+
+textures/eX/eX_floor_simplines 
+{
+	qer_editorimage textures/eX/eX_floor_simplines_d
+
+	bumpmap addnormals ( textures/eX/eX_floor_simplines_local, heightmap ( textures/eX/eX_floor_simplines_h, 1 ) )
+	diffusemap	textures/eX/eX_floor_simplines_d
+	specularmap	textures/eX/eX_floor_simplines_s
+}
+
+textures/eX/eX_floorpanel_01 
+{
+	qer_editorimage textures/eX/eX_floorpanel_01_d
+
+	bumpmap addnormals ( textures/eX/eX_floorpanel_01_local, heightmap ( textures/eX/eX_floorpanel_01_h, 1 ) )
+	diffusemap	textures/eX/eX_floorpanel_01_d
+	specularmap	textures/eX/eX_floorpanel_01_s
+}
+
+textures/eX/eX_floor_grate03 
+{
+	qer_editorimage textures/eX/eX_floor_grate03_d
+
+	bumpmap addnormals ( textures/eX/eX_floor_grate03_local, heightmap ( textures/eX/eX_floor_grate03_h, 1 ) )
+	diffusemap	textures/eX/eX_floor_grate03_d
+	specularmap	textures/eX/eX_floor_grate03_s
+}
+
+textures/eX/eX_floor_simple_05 
+{
+	qer_editorimage textures/eX/eX_floor_simple_05_d
+
+	bumpmap addnormals ( textures/eX/eX_floor_simple_05_local, heightmap ( textures/eX/eX_floor_simple_05_h, 1 ) )
+	diffusemap	textures/eX/eX_floor_simple_05_d
+	specularmap	textures/eX/eX_floor_simple_05_s
+}
+
+textures/eX/eX_floor_grate_03_128 
+{
+	qer_editorimage textures/eX/eX_floor_grate_03_128_d
+
+	bumpmap addnormals ( textures/eX/eX_floor_grate_03_128_local, heightmap ( textures/eX/eX_floor_grate_03_128_h, 1 ) )
+	diffusemap	textures/eX/eX_floor_grate_03_128_d
+	specularmap	textures/eX/eX_floor_grate_03_128_s
+}
+
+textures/eX/eX_floor_tile_03 
+{
+	qer_editorimage textures/eX/eX_floor_tile_03_d
+
+	bumpmap addnormals ( textures/eX/eX_floor_tile_03_local, heightmap ( textures/eX/eX_floor_tile_03_h, 1 ) )
+	diffusemap	textures/eX/eX_floor_tile_03_d
+	specularmap	textures/eX/eX_floor_tile_03_s
+}
+
+textures/eX/eX_floor_mtl_grate_01 
+{
+	qer_editorimage textures/eX/eX_floor_mtl_grate_01_d
+
+	bumpmap addnormals ( textures/eX/eX_floor_mtl_grate_01_local, heightmap ( textures/eX/eX_floor_mtl_grate_01_h, 1 ) )
+	diffusemap	textures/eX/eX_floor_mtl_grate_01_d
+	specularmap	textures/eX/eX_floor_mtl_grate_01_s
+}
+
+textures/eX/eXmetalFloor02 
+{
+	qer_editorimage textures/eX/eXmetalFloor02_d
+
+	bumpmap addnormals ( textures/eX/eXmetalFloor02_local, heightmap ( textures/eX/eXmetalFloor02_h, 1 ) )
+	diffusemap	textures/eX/eXmetalFloor02_d
+	specularmap	textures/eX/eXmetalFloor02_s
+}
+
+textures/eX/eX_clangfloor_01 
+{
+	qer_editorimage textures/eX/eX_clangfloor_01_d
+
+	bumpmap addnormals ( textures/eX/eX_clangfloor_01_local, heightmap ( textures/eX/eX_clangfloor_01_h, 1 ) )
+	diffusemap	textures/eX/eX_clangfloor_01_d
+	specularmap	textures/eX/eX_clangfloor_01_s
+}
+
+textures/eX/eX_rndfloor_01 
+{
+	qer_editorimage textures/eX/eX_rndfloor_01_d
+
+	bumpmap addnormals ( textures/eX/eX_rndfloor_01_local, heightmap ( textures/eX/eX_rndfloor_01_h, 1 ) )
+	diffusemap	textures/eX/eX_rndfloor_01_d
+	specularmap	textures/eX/eX_rndfloor_01_s
+}
+
+textures/eX/eX_rndfloor_02 
+{
+	qer_editorimage textures/eX/eX_rndfloor_02_d
+
+	bumpmap addnormals ( textures/eX/eX_rndfloor_02_local, heightmap ( textures/eX/eX_rndfloor_02_h, 1 ) )
+	diffusemap	textures/eX/eX_rndfloor_02_d
+	specularmap	textures/eX/eX_rndfloor_02_s
+} 
+
+// walls & trims
+textures/eX/eXmetalrib01 
+{
+	qer_editorimage textures/eX/eXmetalrib01_d
+
+	bumpmap addnormals ( textures/eX/eXmetalrib01_local, heightmap ( textures/eX/eXmetalrib01_h, 1 ) )
+	diffusemap	textures/eX/eXmetalrib01_d
+	specularmap	textures/eX/eXmetalrib01_s
+}
+
+textures/eX/eX_wall_01b
+{
+
+	qer_EditorImage		textures/eX/eX_wall_01b_d.tga
+	
+	bumpMap addnormals	(textures/eX/eX_wall_01_local.tga, heightmap ( textures/eX/eX_wall_01_h.tga,1 ) )
+	diffuseMap			textures/eX/eX_wall_01b_d.tga
+	specularMap			textures/eX/eX_wall_01_s.tga
+}
+
+textures/eX/eX_wall_panels_08 
+{
+	qer_editorimage textures/eX/eX_wall_panels_08_d
+
+	bumpmap addnormals ( textures/eX/eX_wall_panels_08_local, heightmap ( textures/eX/eX_wall_panels_08_h, 1 ) )
+	diffusemap	textures/eX/eX_wall_panels_08_d
+	specularmap	textures/eX/eX_wall_panels_08_s
+}
+
+textures/eX/eX_wall_pipe 
+{
+	qer_editorimage textures/eX/eX_wall_pipe_d
+
+	bumpmap 	textures/eX/eX_wall_pipe_local
+	diffusemap	textures/eX/eX_wall_pipe_d
+	specularmap	textures/eX/eX_wall_pipe_s
+}
+
+textures/eX/eX_wall_u207 
+{
+	qer_editorimage textures/eX/eX_wall_u207_d
+
+	bumpmap addnormals ( textures/eX/eX_wall_u207_local, heightmap ( textures/eX/eX_wall_u207_h, 1 ) )
+	diffusemap	textures/eX/eX_wall_u207_d
+	specularmap	textures/eX/eX_wall_u207_s
+}
+
+textures/eX/eX_deswall_01 
+{
+	qer_editorimage textures/eX/eX_deswall_01_d
+
+	bumpmap addnormals ( textures/eX/eX_deswall_01_local, heightmap ( textures/eX/eX_deswall_01_h, 1 ) )
+	diffusemap	textures/eX/eX_deswall_01_d
+	specularmap	textures/eX/eX_deswall_01_s
+}
+
+textures/eX/eX_wall_b01 
+{
+	qer_editorimage textures/eX/eX_wall_b01_d
+
+	bumpmap addnormals ( textures/eX/eX_wall_b01_local, heightmap ( textures/eX/eX_wall_b01_h, 1 ) )
+	diffusemap	textures/eX/eX_wall_b01_d
+	specularmap	textures/eX/eX_wall_b01_s
+}
+
+textures/eX/eX_wall_panel_05 
+{
+	qer_editorimage textures/eX/eX_wall_panel_05_d
+
+	bumpmap addnormals ( textures/eX/eX_wall_panel_05_local, heightmap ( textures/eX/eX_wall_panel_05_h, 1 ) )
+	diffusemap	textures/eX/eX_wall_panel_05_d
+	specularmap	textures/eX/eX_wall_panel_05_s
+}
+
+textures/eX/eX_wall_01 
+{
+	qer_editorimage textures/eX/eX_wall_01_d
+
+	bumpmap addnormals ( textures/eX/eX_wall_01_local, heightmap ( textures/eX/eX_wall_01_h, 1 ) )
+	diffusemap	textures/eX/eX_wall_01_d
+	specularmap	textures/eX/eX_wall_01_s
+}
+
+textures/eX/eX_wall_bigrib_02 
+{
+	qer_editorimage textures/eX/eX_wall_bigrib_02_d
+
+	bumpmap addnormals ( textures/eX/eX_wall_bigrib_02_local, heightmap ( textures/eX/eX_wall_bigrib_02_h, 1 ) )
+	diffusemap	textures/eX/eX_wall_bigrib_02_d
+	specularmap	textures/eX/eX_wall_bigrib_02_s
+}
+
+textures/eX/eX_wall_bplate_06 
+{
+	qer_editorimage textures/eX/eX_wall_bplate_06_d
+
+	bumpmap addnormals ( textures/eX/eX_wall_bplate_06_local, heightmap ( textures/eX/eX_wall_bplate_06_h, 1 ) )
+	diffusemap	textures/eX/eX_wall_bplate_06_d
+	specularmap	textures/eX/eX_wall_bplate_06_s
+}
+
+textures/eX/eXmetal_plate01 
+{
+	qer_editorimage textures/eX/eXmetal_plate01_d
+
+	bumpmap addnormals ( textures/eX/eXmetal_plate01_local, heightmap ( textures/eX/eXmetal_plate01_h, 1 ) )
+	diffusemap	textures/eX/eXmetal_plate01_d
+	specularmap	textures/eX/eXmetal_plate01_s
+}
+
+textures/eX/eXmetal_plate01B 
+{
+	qer_editorimage textures/eX/eXmetal_plate01B_d
+
+	bumpmap addnormals ( textures/eX/eXmetal_plate01B_local, heightmap ( textures/eX/eXmetal_plate01B_h, 1 ) )
+	diffusemap	textures/eX/eXmetal_plate01B_d
+	specularmap	textures/eX/eXmetal_plate01B_s
+}
+
+textures/eX/eX_metalSupp01 
+{
+	qer_editorimage textures/eX/eX_metalSupp01_d
+
+	bumpmap addnormals ( textures/eX/eX_metalSupp01_local, heightmap ( textures/eX/eX_metalSupp01_h, 1 ) )
+	diffusemap	textures/eX/eX_metalSupp01_d
+	specularmap	textures/eX/eX_metalSupp01_s
+}
+
+textures/eX/eX_metalplate_01 
+{
+	qer_editorimage textures/eX/eX_metalplate_01_d
+
+	bumpmap addnormals ( textures/eX/eX_metalplate_01_local, heightmap ( textures/eX/eX_metalplate_01_h, 1 ) )
+	diffusemap	textures/eX/eX_metalplate_01_d
+	specularmap	textures/eX/eX_metalplate_01_s
+}
+
+textures/eX/eX_metalwall02 
+{
+	qer_editorimage textures/eX/eX_metalwall02_d
+
+	bumpmap addnormals ( textures/eX/eX_metalwall02_local, heightmap ( textures/eX/eX_metalwall02_h, 1 ) )
+	diffusemap	textures/eX/eX_metalwall02_d
+	specularmap	textures/eX/eX_metalwall02_s
+}
+
+textures/eX/eX_mtl_panel_03 
+{
+	qer_editorimage textures/eX/eX_mtl_panel_03_d
+
+	bumpmap addnormals ( textures/eX/eX_mtl_panel_03_local, heightmap ( textures/eX/eX_mtl_panel_03_h, 1 ) )
+	diffusemap	textures/eX/eX_mtl_panel_03_d
+	specularmap	textures/eX/eX_mtl_panel_03_s
+}
+
+textures/eX/eX_mtl_panel_02 
+{
+	qer_editorimage textures/eX/eX_mtl_panel_02_d
+
+	bumpmap addnormals ( textures/eX/eX_mtl_panel_02_local, heightmap ( textures/eX/eX_mtl_panel_02_h, 1 ) )
+	diffusemap	textures/eX/eX_mtl_panel_02_d
+	specularmap	textures/eX/eX_mtl_panel_02_s
+}
+
+textures/eX/eX_mtl_bigplate_04 
+{
+	qer_editorimage textures/eX/eX_mtl_bigplate_04_d
+
+	bumpmap addnormals ( textures/eX/eX_mtl_bigplate_04_local, heightmap ( textures/eX/eX_mtl_bigplate_04_h, 1 ) )
+	diffusemap	textures/eX/eX_mtl_bigplate_04_d
+	specularmap	textures/eX/eX_mtl_bigplate_04_s
+}
+
+textures/eX/eX_mtl_bigplate_04b 
+{
+	qer_editorimage textures/eX/eX_mtl_bigplate_04b_d
+
+	bumpmap addnormals ( textures/eX/eX_mtl_bigplate_04b_local, heightmap ( textures/eX/eX_mtl_bigplate_04b_h, 1 ) )
+	diffusemap	textures/eX/eX_mtl_bigplate_04b_d
+	specularmap	textures/eX/eX_mtl_bigplate_04b_s
+}
+
+textures/eX/eX_rplates_01 
+{
+	qer_editorimage textures/eX/eX_rplates_01_d
+
+	{
+		stage diffusemap
+		map textures/eX/eX_rplates_01_d
+		depthScale 0.03
+	}
+	bumpmap displacemap( addnormals ( textures/eX/eX_rplates_01_local, heightmap ( textures/eX/eX_rplates_01_h, 1 ) ), textures/eX/eX_rplates_01_disp )
+	specularmap	textures/eX/eX_rplates_01_s
+}
+
+textures/eX/eX_trim_01 
+{
+	qer_editorimage textures/eX/eX_trim_01_d
+
+	bumpmap addnormals ( textures/eX/eX_trim_01_local, heightmap ( textures/eX/eX_trim_01_h, 1 ) )
+	diffusemap	textures/eX/eX_trim_01_d
+	specularmap	textures/eX/eX_trim_01_s
+}
+
+textures/eX/eX_q2_01 
+{
+	qer_editorimage textures/eX/eX_q2_01_d
+
+	bumpmap addnormals ( textures/eX/eX_q2_01_local, heightmap ( textures/eX/eX_q2_01_h, 1 ) )
+	diffusemap	textures/eX/eX_q2_01_d
+	specularmap	textures/eX/eX_q2_01_s
+}
+
+textures/eX/eX_q2_01b 
+{
+	qer_editorimage textures/eX/eX_q2_01b_d
+
+	bumpmap addnormals ( textures/eX/eX_q2_01b_local, heightmap ( textures/eX/eX_q2_01b_h, 1 ) )
+	diffusemap	textures/eX/eX_q2_01b_d
+	specularmap	textures/eX/eX_q2_01b_s
+}
+
+textures/eX/eX_q2_01c 
+{
+	qer_editorimage textures/eX/eX_q2_01c_d
+
+	bumpmap addnormals ( textures/eX/eX_q2_01c_local, heightmap ( textures/eX/eX_q2_01c_h, 1 ) )
+	diffusemap	textures/eX/eX_q2_01c_d
+	specularmap	textures/eX/eX_q2_01c_s
+}
+
+textures/eX/eX_q2_01d 
+{
+	qer_editorimage textures/eX/eX_q2_01d_d
+
+	bumpmap addnormals ( textures/eX/eX_q2_01d_local, heightmap ( textures/eX/eX_q2_01d_h, 1 ) )
+	diffusemap	textures/eX/eX_q2_01d_d
+	specularmap	textures/eX/eX_q2_01d_s
+}
+
+textures/eX/eX_q2_01e 
+{
+	qer_editorimage textures/eX/eX_q2_01e_d
+
+	bumpmap addnormals ( textures/eX/eX_q2_01e_local, heightmap ( textures/eX/eX_q2_01e_h, 1 ) )
+	diffusemap	textures/eX/eX_q2_01e_d
+	specularmap	textures/eX/eX_q2_01e_s
+}
+
+textures/eX/eX_trim_baseboard 
+{
+	qer_editorimage textures/eX/eX_trim_baseboard_d
+
+	bumpmap addnormals ( textures/eX/eX_trim_baseboard_local, heightmap ( textures/eX/eX_trim_baseboard_h, 1 ) )
+	diffusemap	textures/eX/eX_trim_baseboard_d
+	specularmap	textures/eX/eX_trim_baseboard_s
+}
+
+textures/eX/eXmetal_plate01c 
+{
+	qer_editorimage textures/eX/eXmetal_plate01c_d
+
+	bumpmap addnormals ( textures/eX/eXmetal_plate01c_local, heightmap ( textures/eX/eXmetal_plate01c_h, 1 ) )
+	diffusemap	textures/eX/eXmetal_plate01c_d
+	specularmap	textures/eX/eXmetal_plate01c_s
+}
+
+textures/eX/eX_mtl_panel_04 
+{
+	qer_editorimage textures/eX/eX_mtl_panel_04_d
+
+	bumpmap addnormals ( textures/eX/eX_mtl_panel_04_local, heightmap ( textures/eX/eX_mtl_panel_04_h, 1 ) )
+	diffusemap	textures/eX/eX_mtl_panel_04_d
+	specularmap	textures/eX/eX_mtl_panel_04_s
+}
+
+textures/eX/eX_trim_vert_01 
+{
+	qer_editorimage textures/eX/eX_trim_vert_01_d
+
+	bumpmap addnormals ( textures/eX/eX_trim_vert_01_local, heightmap ( textures/eX/eX_trim_vert_01_h, 1 ) )
+	diffusemap	textures/eX/eX_trim_vert_01_d
+	specularmap	textures/eX/eX_trim_vert_01_s
+}
+
+textures/eX/eX_trim_baseboard_02 
+{
+	qer_editorimage textures/eX/eX_trim_baseboard_02_d
+
+	bumpmap addnormals ( textures/eX/eX_trim_baseboard_02_local, heightmap ( textures/eX/eX_trim_baseboard_02_h, 1 ) )
+	diffusemap	textures/eX/eX_trim_baseboard_02_d
+	specularmap	textures/eX/eX_trim_baseboard_02_s
+}
+
+textures/eX/eX_trim_baseboard_03 
+{
+	qer_editorimage textures/eX/eX_trim_baseboard_03_d
+
+	bumpmap addnormals ( textures/eX/eX_trim_baseboard_03_local, heightmap ( textures/eX/eX_trim_baseboard_03_h, 1 ) )
+	diffusemap	textures/eX/eX_trim_baseboard_03_d
+	specularmap	textures/eX/eX_trim_baseboard_03_s
+}
+
+textures/eX/eX_trim_simple_01 
+{
+	qer_editorimage textures/eX/eX_trim_simple_01_d
+
+	bumpmap addnormals ( textures/eX/eX_trim_simple_01_local, heightmap ( textures/eX/eX_trim_simple_01_h, 1 ) )
+	diffusemap	textures/eX/eX_trim_simple_01_d
+	specularmap	textures/eX/eX_trim_simple_01_s
+}
+
+textures/eX/eX_trim_psimple_04 
+{
+	qer_editorimage textures/eX/eX_trim_psimple_04_d
+
+	bumpmap addnormals ( textures/eX/eX_trim_psimple_04_local, heightmap ( textures/eX/eX_trim_psimple_04_h, 1 ) )
+	diffusemap	textures/eX/eX_trim_psimple_04_d
+	specularmap	textures/eX/eX_trim_psimple_04_s
+}
+
+textures/eX/eX_trim_psimple_05 
+{
+	qer_editorimage textures/eX/eX_trim_psimple_05_d
+
+	bumpmap addnormals ( textures/eX/eX_trim_psimple_05_local, heightmap ( textures/eX/eX_trim_psimple_05_h, 1 ) )
+	diffusemap	textures/eX/eX_trim_psimple_05_d
+	specularmap	textures/eX/eX_trim_psimple_05_s
+}
+
+textures/eX/eX_trim_support_03 
+{
+	qer_editorimage textures/eX/eX_trim_support_03_d
+
+	bumpmap addnormals ( textures/eX/eX_trim_support_03_local, heightmap ( textures/eX/eX_trim_support_03_h, 1 ) )
+	diffusemap	textures/eX/eX_trim_support_03_d
+	specularmap	textures/eX/eX_trim_support_03_s
+}
+
+textures/eX/eX_trim_simple03 
+{
+	qer_editorimage textures/eX/eX_trim_simple03_d
+
+	bumpmap 	textures/eX/eX_trim_simple03_local
+	diffusemap	textures/eX/eX_trim_simple03_d
+	specularmap	textures/eX/eX_trim_simple03_s
+} 
+
+// concrete
+textures/eX/eX_cretebase_02
+{
+
+	qer_EditorImage		textures/eX/eX_cretebase_02_d.tga
+	
+	bumpMap addnormals	(textures/eX/eX_cretebase_01_local.tga, heightmap ( textures/eX/eX_cretebase_01_h.tga,1 ) )
+	diffuseMap			textures/eX/eX_cretebase_02_d.tga
+	specularMap			textures/eX/eX_cretebase_01_s.tga
+}
+
+textures/eX/eX_cretebase_03_dark
+{
+
+	qer_EditorImage		textures/eX/eX_cretebase_03_dark_d.tga
+	
+	bumpMap addnormals	(textures/eX/eX_cretebase_01_local.tga, heightmap ( textures/eX/eX_cretebase_01_h.tga,1 ) )
+	diffuseMap			textures/eX/eX_cretebase_03_dark_d.tga
+	specularMap			textures/eX/eX_cretebase_01_s.tga
+}
+
+textures/eX/eX_cretebase_01 
+{
+	qer_editorimage textures/eX/eX_cretebase_01_d
+
+	bumpmap addnormals ( textures/eX/eX_cretebase_01_local, heightmap ( textures/eX/eX_cretebase_01_h, 1 ) )
+	diffusemap	textures/eX/eX_cretebase_01_d
+	specularmap	textures/eX/eX_cretebase_01_s
+}
+
+textures/eX/eX_cretewall_01 
+{
+	qer_editorimage textures/eX/eX_cretewall_01_d
+
+	bumpmap addnormals ( textures/eX/eX_cretewall_01_local, heightmap ( textures/eX/eX_cretewall_01_h, 1 ) )
+	diffusemap	textures/eX/eX_cretewall_01_d
+	specularmap	textures/eX/eX_cretewall_01_s
+}
+
+textures/eX/eX_cretewall_02 
+{
+	qer_editorimage textures/eX/eX_cretewall_02_d
+
+	bumpmap addnormals ( textures/eX/eX_cretewall_02_local, heightmap ( textures/eX/eX_cretewall_02_h, 1 ) )
+	diffusemap	textures/eX/eX_cretewall_02_d
+	specularmap	textures/eX/eX_cretewall_02_s
+}
+
+textures/eX/eX_cretewall_03 
+{
+	qer_editorimage textures/eX/eX_cretewall_03_d
+
+	bumpmap addnormals ( textures/eX/eX_cretewall_03_local, heightmap ( textures/eX/eX_cretewall_03_h, 1 ) )
+	diffusemap	textures/eX/eX_cretewall_03_d
+	specularmap	textures/eX/eX_cretewall_03_s
+}
+
+textures/eX/eX_cretewall_03b 
+{
+	qer_editorimage textures/eX/eX_cretewall_03b_d
+
+	bumpmap addnormals ( textures/eX/eX_cretewall_03b_local, heightmap ( textures/eX/eX_cretewall_03b_h, 1 ) )
+	diffusemap	textures/eX/eX_cretewall_03b_d
+	specularmap	textures/eX/eX_cretewall_03b_s
+}
+
+textures/eX/eX_cretefloor_01 
+{
+	qer_editorimage textures/eX/eX_cretefloor_01_d
+
+	bumpmap addnormals ( textures/eX/eX_cretefloor_01_local, heightmap ( textures/eX/eX_cretefloor_01_h, 1 ) )
+	diffusemap	textures/eX/eX_cretefloor_01_d
+	specularmap	textures/eX/eX_cretefloor_01_s
+}
+
+textures/eX/eX_cretefloor_01b 
+{
+	qer_editorimage textures/eX/eX_cretefloor_01b_d
+
+	bumpmap addnormals ( textures/eX/eX_cretefloor_01b_local, heightmap ( textures/eX/eX_cretefloor_01b_h, 1 ) )
+	diffusemap	textures/eX/eX_cretefloor_01b_d
+	specularmap	textures/eX/eX_cretefloor_01b_s
+} 
+
+// lights
+textures/eX/eX_lightpanel_01_orange
+{
+	qer_EditorImage		textures/eX/eX_lightpanel_01_d.tga
+	
+	nonSolid
+	noShadows
+	bumpMap			textures/eX/eX_lightpanel_01_local.tga
+	diffuseMap		textures/eX/eX_lightpanel_01_d.tga
+	specularMap		textures/eX/eX_lightpanel_01_s.tga
+	{
+		blend		add
+		map			textures/eX/eX_lightpanel_01_add.tga
+		red		1.000000 
+		green		.59
+		blue		0.01
+	}
+}
+
+textures/eX/eX_light_u201_orange
+{
+	qer_EditorImage		textures/eX/eX_light_u201_d.tga
+	
+	nonSolid
+	noShadows
+	bumpMap			textures/eX/eX_light_u201_local.tga
+	diffuseMap		textures/eX/eX_light_u201_d.tga
+	specularMap		textures/eX/eX_light_u201_s.tga
+	{
+		blend		add
+		map			textures/eX/eX_light_u201_add.tga
+		red		1.000000 
+		green		.59
+		blue		0.01
+	}
+}

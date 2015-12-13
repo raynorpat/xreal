@@ -1,0 +1,64 @@
+
+models/players/visor/visor
+{
+	{
+		stage diffuseMap
+		map models/players/visor/red.tga
+	}
+	{
+		stage bumpMap
+		map heightMap(models/players/visor/red_h.tga, 2)
+	}
+	{
+		stage specularMap
+		map models/players/visor/red_s.tga
+	}
+}
+
+models/players/visor/red
+{
+	{
+		stage diffuseMap
+		map models/players/visor/red.tga
+	}
+	{
+		stage bumpMap
+		map heightMap(models/players/visor/red_h.tga, 2)
+	}
+	{
+		stage specularMap
+		map models/players/visor/red_s.tga
+	}
+}
+
+models/players/visor/blue
+{
+	{
+		stage diffuseMap
+		map models/players/visor/blue.tga
+	}
+	{
+		stage bumpMap
+		map heightMap(models/players/visor/red_h.tga, 2)
+	}
+	{
+		stage specularMap
+		map models/players/visor/blue_s.tga
+	}
+}
+
+models/players/visor/zindahsh
+{
+	{
+		stage diffuseMap
+		map models/players/visor/zindahsh.tga
+	}
+	{
+		stage bumpMap
+		map heightMap(models/players/visor/zindahsh_h.tga, 2)
+	}
+	{
+		stage specularMap
+		map models/players/visor/zindahsh_s.tga
+	}
+}

@@ -1,0 +1,13 @@
+// texture and material by Fabz0r
+
+textures/fabz0r/items/flagpole
+{
+	 qer_editorImage	 	 textures/fabz0r/items/flagpole_diffuse.png
+
+	 diffuseMap		 textures/fabz0r/items/flagpole_diffuse.png
+
+	 normalMap		 invertAlpha(textures/fabz0r/items/flagpole_normal.png)
+
+	 specularMap	 	 textures/fabz0r/items/flagpole_specular.png
+}
+

@@ -1,0 +1,77 @@
+
+textures/reflex_ugly/mat_a
+{
+
+	qer_EditorImage		        textures/reflex_ugly/mat_a.tga
+	bumpMap 	                textures/reflex_ugly/mat_local.tga
+	diffuseMap			textures/reflex_ugly/mat_a.tga
+	specularMap			textures/reflex_ugly/mat_spec.tga
+}
+
+textures/reflex_ugly/mat_b
+{
+
+	qer_EditorImage		        textures/reflex_ugly/mat_b.tga
+	bumpMap 	                textures/reflex_ugly/mat_local.tga
+	diffuseMap			textures/reflex_ugly/mat_b.tga
+	specularMap			textures/reflex_ugly/mat_spec.tga
+}
+
+
+textures/reflex_ugly/mat_c
+{
+
+	qer_EditorImage		        textures/reflex_ugly/mat_c.tga
+	bumpMap 	                textures/reflex_ugly/mat_local.tga
+	diffuseMap			textures/reflex_ugly/mat_c.tga
+	specularMap			textures/reflex_ugly/mat_spec.tga
+}
+
+textures/reflex_ugly/mat_d
+{
+
+	qer_EditorImage		        textures/reflex_ugly/mat_d.tga
+	bumpMap 	                textures/reflex_ugly/mat_local.tga
+	diffuseMap			textures/reflex_ugly/mat_d.tga
+	specularMap			textures/reflex_ugly/mat_spec.tga
+}
+
+textures/reflex_ugly/decal1
+{
+	qer_editorimage textures/reflex_ugly/decal1.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/reflex_ugly/decal1.tga
+	}
+}
+
+textures/reflex_ugly/decal2
+{
+	qer_editorimage textures/reflex_ugly/decal2.tga
+	DECAL_MACRO
+	noShadows
+	noimpact
+	translucent
+
+	{
+		blend GL_DST_COLOR, GL_SRC_COLOR		
+		Map textures/reflex_ugly/decal2.tga
+	}
+}
+
+textures/reflex_ugly/void
+{
+		qer_editorimage	textures/reflex_ugly/black.tga
+                diffuseMap	textures/reflex_ugly/black.tga
+
+	noFragment
+	noshadows
+	noimpact
+	nooverlays
+
+}

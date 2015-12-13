@@ -1,0 +1,5 @@
+
+- CNQ3 fixes to avoid further conflicts with the IOQuake3 code
+- IOQuake3 mumble support
+- physics engine support with a propietary third party engine like PhysX
+

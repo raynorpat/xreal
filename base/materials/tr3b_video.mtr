@@ -1,0 +1,12 @@
+
+textures/tr3b_video/roqVideoTest
+
+{
+	 qer_editorImage	 textures/common/qer_portal.png
+	 
+	 {
+		videoMap video/intro.RoQ
+		//scroll time * 0.1, 0
+	 }
+}
+

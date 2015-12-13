@@ -1,0 +1,150 @@
+
+
+models/powerups/armor/energy_grn1
+{
+   deformVertexes wave 100 sin 2 0 0 0
+   {
+		map textures/effects/envmaprail.tga
+		blendFunc GL_ONE GL_ONE
+                tcGen environment
+                tcmod rotate 30
+		tcMod scroll 1 1
+                rgbGen wave triangle -0.3 1.3 0 .3
+	}
+
+}
+
+models/powerups/armor/energy_red1
+{
+   
+	{
+		map models/powerups/armor/energy_red1.tga
+		blend add
+		tcMod scroll 7.4 1.3
+	}
+}
+
+models/powerups/armor/energy_yel1
+{
+	{
+		map models/powerups/armor/energy_yel3.tga 
+		blend add
+		tcMod scroll 7.4 1.3
+	}
+}
+
+models/powerups/armor/newred
+{
+	{
+                map textures/sfx/specular.tga          
+                tcGen environment
+                rgbGen identity
+	}
+	{
+		//stage diffuseMap
+		map models/powerups/armor/newred.tga
+		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+		//alphaTest 0.5
+	} 
+}
+
+models/powerups/armor/newyellow
+{      
+        {
+                map textures/sfx/specular.tga          
+                tcGen environment
+                rgbGen identity
+	}  
+        {
+		map models/powerups/armor/newyellow.tga
+                blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
+		rgbGen identity
+	}
+       
+         
+}
+
+models/powerups/armor/shard_d
+{
+	diffuseMap models/powerups/armor/shard_d.tga
+	bumpMap models/powerups/armor/shard_n.tga
+	specularMap models/powerups/armor/shard_s.tga
+	{
+		map models/powerups/armor/shard_glo.tga
+		blend add
+	}
+	{
+		map models/powerups/armor/shard_glo.tga
+		blend add
+		
+		//red sinTable[time * 2] * 0.5 + 0.5
+		//green sinTable[time * 2] * 0.5 + 0.5
+		//blue sinTable[time * 2] * 0.5 + 0.5
+		
+		red spark_neontable1[time * 0.7]
+		green spark_neontable1[time * 0.7]
+		blue spark_neontable1[time * 0.7]
+		
+		//rgbGen identity
+		//alphaGen wave sawtooth 0 1 0 1 
+	}
+}
+
+
+
+
+//armor shaders by otty
+//dekor used by booth, front and back different for each red
+//and yellow armor
+
+models/powerups/armor/armor_red_front
+{
+	diffuseMap  models/powerups/armor/armor_red_front.png
+	bumpMap  models/powerups/armor/armor_front_n.png
+	specularMap  models/powerups/armor/armor_front_s.png
+	
+	
+}
+models/powerups/armor/armor_red_back
+{
+	diffuseMap  models/powerups/armor/armor_red_back.png
+	bumpMap  models/powerups/armor/armor_back_n.png
+	specularMap  models/powerups/armor/armor_back_s.png
+	
+}
+
+models/powerups/armor/armor_yellow_front
+{
+	diffuseMap  models/powerups/armor/armor_yellow_front.png
+	bumpMap  models/powerups/armor/armor_front_n.png
+	specularMap  models/powerups/armor/armor_front_s.png
+
+	
+}
+models/powerups/armor/armor_yellow_back
+{
+	diffuseMap  models/powerups/armor/armor_yellow_back.png
+	bumpMap  models/powerups/armor/armor_back_n.png
+	specularMap  models/powerups/armor/armor_back_s.png
+
+
+	
+}
+models/powerups/armor/armor_dekor
+{
+
+	diffuseMap  models/powerups/armor/armor_dekor.png
+	bumpMap  models/powerups/armor/armor_dekor_n.png
+	specularMap  models/powerups/armor/armor_dekor_s.png
+
+	{
+		map models/powerups/armor/armor_dekor_glow.png
+		blend add
+
+		red spark_neontable1[time * 0.2]
+		green spark_neontable1[time * 0.2]
+		blue spark_neontable1[time * 0.2]
+
+	}	
+}

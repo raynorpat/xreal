@@ -1,0 +1,124 @@
+
+//==================
+// MACHINEGUN
+//==================
+
+models/weapons/machinegun/machinegun
+{
+	//noselfShadow
+	//unsmoothedTangents
+
+	diffusemap		models/weapons/machinegun/machinegun_d.tga
+	{
+		blend 		bumpmap
+		map			addnormals(models/weapons/machinegun/machinegun_local.tga, heightmap(models/weapons/machinegun/machinegun_h.tga, 6 ) )	  
+	}		
+	specularmap		models/weapons/machinegun/machinegun_s.tga
+	
+	{
+		blend 		add
+		map			models/weapons/machinegun/machinegun_add.tga
+		red 		( q2firetable2 [Parm4 + (time / 6) ]) * Parm0
+		green 		( q2firetable2 [Parm4 + (time / 6) ]) * Parm1
+		blue 		( q2firetable2 [Parm4 + (time / 6) ]) * Parm2
+	}
+}
+
+models/weapons/machinegun/w_machinegun
+{
+	//noselfShadow
+	//unsmoothedTangents
+
+	diffusemap		models/weapons/machinegun/machinegun_d.tga
+	{
+		blend 		bumpmap
+		map			addnormals(models/weapons/machinegun/machinegun_local.tga, heightmap(models/weapons/machinegun/machinegun_h.tga, 6 ) )	  
+	}		
+	specularmap		models/weapons/machinegun/machinegun_s.tga
+	{
+		blend 		add
+		map			models/weapons/machinegun/machinegun_add.tga
+		red 		( q2firetable2 [Parm4 + (time / 6) ]) * Parm0
+		green 		( q2firetable2 [Parm4 + (time / 6) ]) * Parm1
+		blue 		( q2firetable2 [Parm4 + (time / 6) ]) * Parm2
+	}
+}
+
+
+models/weapons/machinegun/machinegun_muzzflash
+{
+	twoSided
+	deform sprite
+	sort nearest
+	noShadows
+	{
+		forceHighQuality
+		if 			( time + parm4 ) * 8 < 1.0
+		//if parm4
+		blend 		add
+		map 		models/weapons/machinegun/machinegun_muzzflash_strip.tga
+		scale 		1 / 12 , 1
+		scroll 		q2table12[ (time + parm4) * 8 ] , 0
+		rotate		q2rotate90[ parm5 ]
+	}
+}
+
+models/weapons/machinegun/machinegun_muzzflashb
+{
+	twoSided
+	deform sprite
+	sort nearest
+	noShadows
+	{
+		forceHighQuality
+		if 			( time + parm4 ) * 7 < 1.0
+		blend 		add
+		map 		models/weapons/machinegun/machinegun_muzzflash_strip.tga
+		scale 		1 / 12 , 1
+		scroll 		q2table12[ (time + parm4) * 7 ] , 0
+		rotate		q2rotate90[ parm5 ]
+	}
+}
+
+models/weapons/machinegun/machinegun_muzzflash2
+{
+	twoSided
+	//deform tube
+	sort nearest
+	noShadows
+	{
+		forceHighQuality
+		if 			( time + parm4 ) * 7 < 1.0
+		blend 		add
+		map 		models/weapons/machinegun/machinegun_muzzflash2_strip.tga
+		scale 		1 / 4 , 1
+		scroll 		q2table4[ (time + parm4) * 7] , 0
+	}
+}
+
+models/weapons/machinegun/machinegun_muzzflash2b
+{
+	twoSided
+	//deform tube
+	sort nearest
+	noShadows
+	{
+		forceHighQuality
+		if 			( time + parm4 ) * 6 < 1.0
+		blend 		add
+		map 		models/weapons/machinegun/machinegun_muzzflash2_strip.tga
+		scale 		1 / 4 , 1
+		scroll 		q2table4[ (time + parm4) * 6] , 0
+	}
+}
+
+models/weapons/machinegun/f_machinegun
+{
+	twoSided
+	sort additive
+	noshadows
+	{
+		map	models/weapons/machinegun/f_machinegun.png
+		blend add
+	}
+}

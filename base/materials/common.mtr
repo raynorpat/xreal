@@ -1,0 +1,745 @@
+
+// none of the surfaces in this file generate visible drawing,
+// they are just for modifying the game and utility behavior
+
+// surfaces without stages will never get marks, so they
+// don't need to explicitly specify noOverlays
+
+//==============================================================================
+// portals
+//==============================================================================
+
+// visportal brushes stop the area flood fills in xmap and
+// define portals, separating the world into areas
+textures/common/areaportal
+{
+	qer_editorimage	textures/common/areaportal.tga
+	qer_trans 0.50
+	
+	nonsolid
+	noshadows
+	nomarks
+	nolightmap
+	structural
+	areaportal
+}
+
+textures/editor/visportal
+{
+	qer_editorimage	textures/common/visportal.tga
+	qer_trans 0.5
+	
+	nonsolid
+	noshadows
+	nomarks
+	nolightmap
+	//structural
+	//areaportal
+}
+
+// bot specific "do not enter" brush
+textures/common/donotenter
+{
+	qer_editorimage	textures/common/donotenter.tga
+	qer_trans 0.50
+	
+	nonsolid
+	noshadows
+	donotenter
+}
+
+// bot specific cluster portal
+textures/common/clusterportal
+{
+	qer_editorimage	textures/common/clusterportal.tga
+	qer_trans 0.50
+	
+	nodraw
+	nonsolid
+	noshadows
+	clusterportal
+}
+
+// subviews are for perfect mirrors or portals
+// without any extra surface drawing
+textures/common/mirror1
+{
+	qer_editorimage textures/common/qer_mirror.tga
+	
+	mirror
+	nolightmap
+	
+	{
+		stage screenMap
+		map _portalRender
+		depthWrite
+		color 1, 1, 1, 1
+	}
+}
+
+textures/common/mirror2
+{
+	qer_editorimage textures/common/qer_mirror.tga
+	
+	nolightmap
+	mirror
+	
+	{
+		stage screenMap
+		map _portalRender
+		depthWrite
+		color 0.8, 0.8, 0.8, 1
+	}
+}
+
+textures/common/mirror3
+{
+	qer_editorimage textures/common/qer_mirror.tga
+	
+	nolightmap
+	mirror
+	
+	{
+		stage screenMap
+		map _portalRender
+		depthWrite
+		color 0.8, 0.8, 0.8, 1
+	}
+	{
+		stage	heathazemap
+		map		textures/tr3b_water/watertest_local.tga
+		scroll	0 , time * -0.9
+		scale	0.5, 0.5
+		deformMagnitude	0.5
+	}
+}
+
+textures/common/portal1
+{
+	qer_editorimage textures/common/qer_portal.tga
+	
+	nolightmap
+	portal 512 // portal distance for fading, default is 256
+	tessSize 16
+	
+	{
+		stage portalMap
+		map _portalRender
+		depthWrite
+		color 1, 1, 1, 1
+	}
+}
+
+textures/common/portalNoDistanceFade
+{
+	qer_editorimage textures/common/qer_portal.tga
+	
+	nolightmap
+	portal 99999
+	
+	{
+		stage screenMap
+		map _portalRender
+		depthWrite
+		color 1, 1, 1, 1
+	}
+}
+
+//==============================================================================
+// caulk/hint
+//==============================================================================
+
+// a caulk brush will behave as a normal solid surface
+// for collision detection and utility flood filling, and
+// should be used whenever you know the area isn't going to
+// be visible, but it needs to be closed off for things to
+// work right.  Curves and models don't stop the utility
+// flood filling, so you need to have solid brushes behind
+// them.  Setting the faces that won't ever be seen to
+// caulk will save some rendering time and data space.
+textures/common/caulk
+{
+	qer_editorimage textures/common/caulk.tga
+	qer_trans 0.5
+	
+	noshadows
+	forceOpaque			// will still seal levels
+}
+
+// nodraw is used for surfaces that don't have any automatic
+// interaction with anything
+textures/common/nodraw
+{
+	qer_editorimage textures/common/nodraw.tga
+	qer_trans 0.5
+
+	nonsolid
+	noshadows
+}
+
+// nodraw solid is used for surfaces that are not visible but are used to collide with
+textures/common/nodrawsolid
+{
+	qer_editorimage textures/common/nodrawsolid.tga
+	qer_trans 0.5
+	
+	noshadows
+}
+
+textures/common/hint
+{
+	qer_editorimage textures/common/hint.tga
+	qer_nocarve
+	qer_trans 0.30
+	
+	nonsolid
+	structural
+	noimpact
+	noshadows
+	hint
+}
+
+//==============================================================================
+// shadows
+//==============================================================================
+
+// This is an invisible brush that should cast a shadow
+textures/common/shadow
+{
+	qer_editorimage textures/common/shadow.tga
+	qer_trans 0.5
+	
+	nonsolid
+	forceshadows
+}
+
+textures/common/shadow2
+{
+	qer_editorimage textures/common/shadow.tga
+	qer_trans 0.5
+	
+	nonsolid
+	forceshadows
+	noselfshadow
+}
+
+//==============================================================================
+// triggers
+//==============================================================================
+
+textures/common/trigger
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve		// don't let an awry CSG operation cut it up
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trigmulti
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trigonce
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trigtimer
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trigrelay
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trighurt
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trigfade
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/triggui
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trigair
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trigentityname
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trigentityname_once
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+textures/common/trigflashlight
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	flashlight_trigger
+}
+
+textures/common/trigshotclip
+{
+	qer_editorimage textures/common/trigger.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+	trigger
+}
+
+//==============================================================================
+// clips
+//==============================================================================
+
+// a clip brush is solid to players and monsters, but not missiles
+textures/common/clip
+{
+	qer_editorimage textures/common/clip.tga
+	qer_trans 0.5
+	
+	noimpact
+	nonsolid
+	monsterclip
+	playerclip
+	noshadows
+}
+
+// 
+textures/common/clip_plusmovables
+{
+	qer_editorimage textures/common/clipplus.tga
+	qer_trans 0.5
+	
+	noimpact
+	nonsolid
+	monsterclip
+	playerclip
+	moveableclip 
+	noshadows
+}
+
+// full clip is just like a solid brush, clipping missiles, monsters, and players
+textures/common/full_clip
+{
+	qer_editorimage textures/common/full_clip.tga
+	qer_trans 0.5
+	
+	monsterclip
+	playerclip
+	moveableclip
+	noshadows
+}
+
+// a player clip brush is solid to players only, not monsters or anything else
+textures/common/player_clip
+{
+	qer_editorimage textures/common/clip.tga
+	qer_trans 0.5
+	
+	noimpact
+	nonsolid
+	playerclip
+	noshadows
+}
+
+// a monster clip brush is solid to monsters only
+textures/common/monster_clip
+{
+	qer_editorimage textures/common/monster_clip.tga
+	qer_trans 0.5
+	
+	nonsolid
+	monsterclip
+	noshadows
+}
+
+// a moveable clip brush is solid only to moveables like rigid bodies and articulated figures
+textures/common/moveable_clip
+{
+	qer_editorimage textures/common/moveable_clip.tga
+	qer_trans 0.5
+	
+	nonsolid
+	moveableclip
+	noshadows
+}
+
+// a IK clip brush is solid only to IK collision testing
+textures/common/ik_clip
+{
+	qer_editorimage textures/common/ikclip.tga
+	qer_trans 0.5
+	
+	nonsolid
+	ikclip
+	noshadows
+}
+
+textures/common/moveableclipmodel
+{
+	qer_editorimage textures/common/clip.tga
+	qer_trans 0.5
+	
+	noshadows
+}
+
+// if an ASE/LWO model has a surface that uses this material that surface will
+// be used for collision detection instead of the visual surface(s)
+textures/common/collision
+{
+	qer_editorimage textures/common/collision.tga
+	qer_trans 0.5
+	
+	noshadows
+	collision
+}
+
+// a cushion is an invisible surface that is
+// solid to movement, but will never give falling
+// damage.  Put a thin sliver brush over jump pads, etc.
+textures/common/cushion
+{
+	qer_editorimage textures/common/cushion.tga
+	qer_trans 0.5
+	
+	nonsolid
+	playerclip
+	nodamage
+	noshadows
+}
+
+// slick is an invisible surface that should be
+// used as a thin sliver brush over floors to cause sliding
+textures/common/slick
+{
+	qer_editorimage textures/common/slick.tga
+	qer_trans 0.5
+	
+	slick
+	noshadows
+}
+
+// nodrop is a volume modifier that is tested
+// before dropping items, used to keep items
+// from cluttering up death pits
+textures/common/nodrop
+{
+	qer_editorimage textures/common/nodrop.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	nodrop
+	nonsolid
+	noshadows
+}
+
+// noimpact can be used as a thin sliver
+// brush over surfaces that you want missiles to
+// just dissapear into, instead of exploding on
+textures/common/noimpact
+{
+	qer_editorimage textures/common/noimpact.tga
+	qer_trans 0.5
+	
+	noimpact
+	noshadows
+}
+
+textures/common/missileclip
+{
+	qer_editorimage textures/common/missileclip.tga
+	qer_trans 0.40
+	
+	nodamage
+	playerclip
+	noshadows
+}
+
+textures/common/weapclip
+{
+	qer_editorimage textures/common/weapclip.tga
+	qer_trans 0.40
+	
+	noshadows
+}
+
+textures/common/metalclip
+{
+	qer_editorimage textures/common/metalclip.tga
+	qer_trans 0.40
+	
+	nonsolid
+	noimpact
+	playerclip
+	noshadows
+	metalsteps
+}
+
+textures/common/botclip
+{
+	qer_editorimage textures/common/botclip.tga
+	qer_trans 0.40
+	
+	nonsolid
+	noimpact
+	noshadows
+	botclip
+}
+
+// a ladder brush is solid to players and monsters, but not missiles (11/06/01)
+// players can climb ladder brushes
+textures/common/ladder
+{
+	qer_editorimage textures/common/ladder.tga
+	qer_trans 0.5
+	
+	nonsolid
+	monsterclip
+	playerclip
+	noimpact
+	ladder
+	noshadows
+}
+
+
+
+//==============================================================================
+// misc
+//==============================================================================
+
+textures/common/origin
+{
+	qer_editorimage textures/common/origin.tga
+	qer_nocarve
+	
+	nonsolid
+	origin
+	noshadows
+}
+
+textures/common/speaker
+{
+	qer_editorimage textures/common/speaker.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+}
+
+textures/common/particle
+{
+	qer_editorimage textures/common/particle.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	noshadows
+}
+
+// this is used during map development for some things
+invisible
+{
+	noshadows
+}
+
+textures/common/black
+{
+	qer_editorimage textures/common/black.tga
+
+	map textures/common/black.tga
+}
+
+//==============================================================================
+// interactive guis
+//==============================================================================
+
+// when gui surfaces are placed on an entity to allow them to be
+// interactive, use this surface for the view screen and place
+// a "gui" key containing the gui file, like "guis/mainmenu.gui"
+// on the entity
+textures/common/pda_gui
+{
+	qer_editorimage	textures/editor/entityGui.tga
+	discrete
+	guiSurf guis/lvlmaps/genericmap.gui
+}
+
+textures/common/npc_pda
+{	
+	qer_editorimage	textures/editor/entityGui.tga
+	discrete
+	guiSurf guis/pda/pda_world.gui
+}
+
+// when gui surfaces are placed on an entity to allow them to be
+// interactive, use this surface for the view screen and place
+// a "gui" key containing the gui file, like "guis/mainmenu.gui"
+// on the entity
+textures/common/entityGui
+{
+	qer_editorimage	textures/editor/entityGui.tga
+	discrete
+	playerclip
+	guiSurf	entity
+}
+
+// when gui surfaces are placed on an entity to allow them to be
+// interactive, use this surface for the view screen and place
+// a "gui" key containing the gui file, like "guis/mainmenu.gui"
+// on the entity
+textures/common/entityGui2
+{
+	qer_editorimage	textures/editor/entityGui2.tga
+	discrete
+	playerclip
+	guiSurf	entity2
+}
+
+// when gui surfaces are placed on an entity to allow them to be
+// interactive, use this surface for the view screen and place
+// a "gui" key containing the gui file, like "guis/mainmenu.gui"
+// on the entity
+textures/common/entityGui3
+{
+	qer_editorimage	textures/editor/entityGui3.tga
+	discrete
+	guiSurf	entity3
+	playerclip
+}
+
+//==============================================================================
+// editor
+//==============================================================================
+
+// aassolid brushes create solid space in AAS files
+textures/editor/aassolid
+{
+	qer_editorimage	textures/editor/aassolid.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	nonsolid
+	noshadows
+	aassolid
+}
+
+// aasobstacle brushes are used to compile obstacles into AAS
+// that can be enabled/disabled
+textures/editor/aasobstacle
+{
+	qer_editorimage	textures/editor/aasobstacle.tga
+	qer_nocarve
+	qer_trans 0.5
+	
+	nonsolid
+	noshadows
+	aasobstacle
+}
+
+//==============================================================================
+// XMap2 debug materials
+//==============================================================================
+
+debugSurfaces
+{
+	{
+		stage diffuseMap
+		map _white
+		vertexColor
+	}
+}
+
+debugPortals
+{
+	twoSided
+	
+	{
+		stage colorMap
+		map _white
+		vertexColor
+		blend blend
+	}
+}
+
+debugAreaPortals
+{
+	twoSided
+	
+	{
+		stage colorMap
+		map _white
+		vertexColor
+		blend blend
+		//wireFrame
+		maskDepth
+	}
+}

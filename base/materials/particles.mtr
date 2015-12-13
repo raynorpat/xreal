@@ -1,0 +1,136 @@
+
+
+particles/flare2
+{
+	twoSided
+	
+	{
+		map particles/flare2.tga
+		blend add
+		vertexColor
+	}
+}
+
+particles/blood_trail
+{
+	nopicmip			// make sure a border remains
+	entityMergable		// allow all the sprites to be merged together
+	{
+		clamp
+		map particles/blood_trail.tga
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+		vertexColor
+	}
+}
+
+particles/blood
+{
+	twoSided
+	nopicmip			// make sure a border remains
+	entityMergable		// allow all the sprites to be merged together
+	
+	{
+		clamp
+		map particles/blood2.tga
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR		// Doom3 style
+		vertexColor
+	}
+}
+
+particles/blood2
+{
+	twoSided
+	nopicmip			// make sure a border remains
+	entityMergable		// allow all the sprites to be merged together
+	
+	{
+		clamp
+		map particles/blood2.tga
+		blend GL_ZERO, GL_ONE_MINUS_SRC_COLOR		// Doom3 style
+		vertexColor
+	}
+}
+
+particles/blood_spurt
+{
+	twoSided
+	nopicmip			// make sure a border remains
+	entityMergable		// allow all the sprites to be merged together
+	
+	{
+		clamp
+		map particles/blood_spurt.tga
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+		vertexColor
+	}
+}
+
+particles/blood_spurt2
+{
+	twoSided
+	nopicmip			// make sure a border remains
+	entityMergable		// allow all the sprites to be merged together
+	
+	{
+		clamp
+		map particles/blood_spurt.tga
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+		vertexColor
+	}
+}
+
+particles/blood_spurt3
+{
+	twoSided
+	nopicmip			// make sure a border remains
+	entityMergable		// allow all the sprites to be merged together
+	
+	{
+		clamp
+		map particles/blood_spurt.tga
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+		vertexColor
+	}
+}
+
+particles/glow
+{
+	twoSided
+	{
+		map particles/glow.tga
+		blend add
+		vertexColor
+	}
+}
+
+particles/glow1
+{
+	twoSided
+	{
+		map particles/glow1.tga
+		blend add
+		vertexColor
+	}
+}
+
+particles/steam
+{
+	twoSided
+	entityMergable		// allow all the sprites to be merged together
+	{
+		map particles/steam.tga
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+		vertexColor
+	}
+}
+
+particles/rain01
+{
+	twoSided
+	entityMergable		// allow all the sprites to be merged together
+	{
+		map particles/rain01.tga
+		blend GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA
+		vertexColor
+	}
+}
