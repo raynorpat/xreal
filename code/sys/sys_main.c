@@ -104,7 +104,7 @@ Sys_DefaultAppPath
 */
 char           *Sys_DefaultAppPath(void)
 {
-#ifndef MACOS_X
+#if !defined(MACOS_X) || defined(DEDICATED)
 	return Sys_BinaryPath();
 #else
     char resourcesPath[MAX_OSPATH];
@@ -418,12 +418,14 @@ void           *Sys_LoadDll(const char *name, char *fqpath,
 
 	assert(name);
 
-#ifndef MACOS_X
-	Q_snprintf(fname, sizeof(fname), "%s" ARCH_STRING DLL_EXT, name);
-#else
+#if defined(MACOS_X)
     Q_snprintf(fname, sizeof(fname), "%s_mac" DLL_EXT, name);
+#elif defined(WIN32)
+    Q_snprintf(fname, sizeof(fname), "%s_x86" DLL_EXT, name);
+#else
+    Q_snprintf(fname, sizeof(fname), "%s" ARCH_STRING DLL_EXT, name);
 #endif
-    
+
 	// TODO: use fs_searchpaths from files.c
 	pwdpath = Sys_Cwd();
 	basepath = Cvar_VariableString("fs_basepath");
