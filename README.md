@@ -1,53 +1,32 @@
-XreaL Readme - http://sourceforge.net/projects/xreal
-====================================================
+XreaL Readme - https://github.com/raynorpat/xreal
+=================================================
 
-This file contains the following sections:
-
-GENERAL NOTES
-LICENSE
-GETTING THE SOURCE CODE AND MEDIA
-COMPILING ON WIN32 WITH VISUAL C++ 2008 EXPRESS EDITION
-COMPILING ON WIN32 WITH MINGW
-COMPILING ON GNU/LINUX
-COMPILING ON MAC OS X
-USING HTTP/FTP DOWNLOAD SUPPORT (SERVER)
-USING HTTP/FTP DOWNLOAD SUPPORT (CLIENT)
-MULTIUSER SUPPORT ON WINDOWS SYSTEMS
-
-
-GENERAL NOTES
-=============
+## GENERAL NOTES
 
 A short summary of the file layout:
 
-XreaL/base/		XreaL media directory ( models, textures, sounds, maps, etc. )
-XreaL/blender/		Blender plugins for ase, md3, and md5 models
-XreaL/code/		XreaL source code ( renderer, game code, OS layer, etc. )
-XreaL/code/common	framework source code for command line tools like xmap
-XreaL/code/xmap		map compiler ( .map -> .bsp ) (based on q3map)
-XreaL/code/xmap2	map compiler ( .map -> .bsp ) (based on q3map2)
-XreaL/code/xmass	master server
-XreaL/code/gtkradiant	GtkRadiant editor source based off GPL release on 17th February 2006
-XreaL/darkradiant/	XreaL configured DarkRadiant editor work dir
-XreaL/gtkradiant/	XreaL configured GtkRadiant editor work dir
+- XreaL/base/			XreaL media directory ( models, textures, sounds, maps, etc. )
+- XreaL/code/			XreaL source code ( renderer, game code, OS layer, etc. )
+- XreaL/code/tools/xmap		map compiler ( .map -> .bsp ) (based on q3map)
+- XreaL/code/tools/xmap2		map compiler ( .map -> .bsp ) (based on q3map2)
+- XreaL/code/tools/xmass		master server
+- XreaL/code/tools/gtkradiant	GtkRadiant editor source based off GPL release on 17th February 2006
+- XreaL/tools/gtkradiant/	XreaL configured GtkRadiant editor work dir
+- XreaL/tools/blender/		Blender plugins for ase, md3, and md5 models
+
+## LICENSE
+
+See docs/COPYING.txt for all the legal stuff.
 
 
-LICENSE
-=======
+## GETTING THE SOURCE CODE AND MEDIA
 
-See COPYING.txt for all the legal stuff.
+This project's git repository can be cloned with the following instruction set: 
 
-
-GETTING THE SOURCE CODE AND MEDIA
-=================================
-
-This project's SourceForge.net Subversion repository can be checked out through SVN with the following instruction set: 
-
-svn co https://svn.sourceforge.net/svnroot/xreal/trunk/xreal XreaL
+git clone https://github.com/raynorpat/xreal.git
 
 
-COMPILING ON WIN32 WITH VISUAL C++ 2008 EXPRESS EDITION
-=======================================================
+## COMPILING ON WIN32 WITH VISUAL C++ 2008 EXPRESS EDITION
 
 1. Download and install the Visual C++ 2008 Express Edition.
 2. Download libSDL from http://libsdl.org/release/SDL-devel-1.2.13-VC8.zip
@@ -90,29 +69,7 @@ COMPILING ON WIN32 WITH VISUAL C++ 2008 EXPRESS EDITION
 	XreaL/code/xmap/xmap.sln
 
 
-COMPILING ON WIN32 WITH MINGW
-=============================
-
-NOTE: OUTDATED
-
-1. Download and install MinGW from http://www.mingw.org/.
-2. Download http://www.libsdl.org/extras/win32/common/directx-devel.tar.gz
-     and untar it into your MinGW directory (usually C:\MinGW).
-3. Download http://oss.sgi.com/projects/ogl-sample/ABI/glext.h
-	and copy it over the existing C:\MingW\include\GL\glext.h.
-4. Download and install Python from http://www.python.org/.
-5. Download and install SCons from http://www.scons.org/.
-6. Download and install libcURL from http://curl.haxx.se/.
-7. Download and install the OpenAL SDK from http://www.openal.org.
-8. Add the Python installation directory to the system variable %PATH%
-9. Download and install Gtk+ 2.10.7 development environment from http://gladewin32.sourceforge.net
-10. Set the system variable: PKG_CONFIG_PATH to %GTK_BASEPATH%\lib\pkgconfig
-11. Compile XreaL:
-	>scons arch=win32-mingw
-
-
-COMPILING ON GNU/LINUX
-======================
+## COMPILING ON GNU/LINUX
 
 You need the following dependencies in order to compile XreaL with all features:
 
@@ -133,10 +90,7 @@ Compile XreaL for x86_64 processers:
 Type scons -h for more compile options.
 
 
-COMPILING ON MAC OS X
-=====================
-
-NOTE: OUTDATED
+## COMPILING ON MAC OS X
 
 Make sure you have libcURL and the SDL framework installed.
 
@@ -148,8 +102,7 @@ The XCode project is located here:
 	>code/unix/MacSupport/XreaL.xcodeprj
 
 
-USING HTTP/FTP DOWNLOAD SUPPORT (SERVER)
-========================================
+## USING HTTP/FTP DOWNLOAD SUPPORT (SERVER)
 
 You can enable redirected downloads on your server by using the 'sets'
 command to put the sv_dlURL cvar into your SERVERINFO string and
@@ -175,8 +128,7 @@ that XreaL sets which is "XreaL://{SERVER_IP}:{SERVER_PORT}".  For,
 example, Apache's mod_rewrite can restrict access based on HTTP_REFERER. 
 
 
-USING HTTP/FTP DOWNLOAD SUPPORT (CLIENT)
-========================================
+## USING HTTP/FTP DOWNLOAD SUPPORT (CLIENT)
 
 Simply setting cl_allowDownload to 1 will enable HTTP/FTP downloads on 
 the clients side assuming XreaL was compiled with USE_CURL=1.
@@ -187,8 +139,7 @@ supporting the following flags:
     4 - do not use UDP downloads
 
 
-MULTIUSER SUPPORT ON WINDOWS SYSTEMS
-====================================
+## MULTIUSER SUPPORT ON WINDOWS SYSTEMS
 
 On Windows, all user specific files such as autogenerated configuration,
 demos, videos, screenshots, and autodownloaded pk3s are now saved in a
