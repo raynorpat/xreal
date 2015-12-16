@@ -613,7 +613,7 @@ Called on a normal map change, not on a map_restart
 void SV_InitGameProgs(void)
 {
 	// load the vm
-	gvm = VM_Create("qagame", SV_GameSystemCalls);
+	gvm = VM_Create("game", SV_GameSystemCalls);
 	if(!gvm)
 	{
 		Com_Error(ERR_FATAL, "VM_Create on game failed");
