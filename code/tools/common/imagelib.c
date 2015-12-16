@@ -35,9 +35,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * You may also wish to include "jerror.h".
  */
 
-#define JPEG_INTERNALS
-#include "../jpeg-6/jpeglib.h"
-#include "../png/png.h"
+//#define JPEG_INTERNALS
+#include "jpeglib.h"
+#include "png/png.h"
 
 
 int fgetLittleShort(FILE * f)
