@@ -1,26 +1,3 @@
-/*
-===========================================================================
-Copyright (C) 1999-2005 Id Software, Inc.
-Copyright (C) 2006 Robert Beckebans <trebor_7@users.sourceforge.net>
-
-This file is part of XreaL source code.
-
-XreaL source code is free software; you can redistribute it
-and/or modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation; either version 2 of the License,
-or (at your option) any later version.
-
-XreaL source code is distributed in the hope that it will be
-useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with XreaL source code; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-===========================================================================
-*/
-
 /* unzip.h -- IO for uncompress .zip files using zlib
    Version 1.01e, February 12th, 2005
 
@@ -73,12 +50,14 @@ extern "C" {
 #endif
 
 #ifndef _ZLIB_H
-#include "../zlib/zlib.h"
+#include "zlib.h"
 #endif
 
 #ifndef _ZLIBIOAPI_H
-#include "../zlib/ioapi.h"
+#include "ioapi.h"
 #endif
+    
+#define NOUNCRYPT
 
 #if defined(STRICTUNZIP) || defined(STRICTZIPUNZIP)
 /* like the STRICT of WIN32, we define a pointer that cannot be converted
@@ -88,6 +67,7 @@ typedef unzFile__ *unzFile;
 #else
 typedef voidp unzFile;
 #endif
+
 
 #define UNZ_OK                          (0)
 #define UNZ_END_OF_LIST_OF_FILE         (-100)
@@ -118,6 +98,7 @@ typedef struct unz_global_info_s
     uLong size_comment;         /* size of the global comment of the zipfile */
 } unz_global_info;
 
+
 /* unz_file_info contain information about a file in the zipfile */
 typedef struct unz_file_info_s
 {
@@ -145,57 +126,63 @@ typedef struct unz_file_info_internal_s
 {
     uLong offset_curfile;/* relative offset of local header 4 bytes */
 } unz_file_info_internal;
-
+    
+    
 /* file_in_zip_read_info_s contain internal information about a file in zipfile,
     when reading and decompress it */
 typedef struct
 {
-    char  *read_buffer;         /* internal buffer for compressed data */
-    z_stream stream;            /* zLib stream structure for inflate */
-
-    uLong pos_in_zipfile;       /* position in byte on the zipfile, for fseek*/
-    uLong stream_initialised;   /* flag set if stream structure is initialised*/
-
-    uLong offset_local_extrafield;/* offset of the local extra field */
-    uInt  size_local_extrafield;/* size of the local extra field */
-    uLong pos_local_extrafield;   /* position in the local extra field in read*/
-
-    uLong crc32;                /* crc32 of all data uncompressed */
-    uLong crc32_wait;           /* crc32 we must obtain after decompress all */
-    uLong rest_read_compressed; /* number of byte to be decompressed */
-    uLong rest_read_uncompressed;/*number of byte to be obtained after decomp*/
-    zlib_filefunc_def z_filefunc;
-    voidpf filestream;        /* io structore of the zipfile */
-    uLong compression_method;   /* compression method (0==store) */
-    uLong byte_before_the_zipfile;/* byte before the zipfile, (>0 for sfx)*/
-    int   raw;
+        char  *read_buffer;         /* internal buffer for compressed data */
+        z_stream stream;            /* zLib stream structure for inflate */
+        
+        uLong pos_in_zipfile;       /* position in byte on the zipfile, for fseek*/
+        uLong stream_initialised;   /* flag set if stream structure is initialised*/
+        
+        uLong offset_local_extrafield;/* offset of the local extra field */
+        uInt  size_local_extrafield;/* size of the local extra field */
+        uLong pos_local_extrafield;   /* position in the local extra field in read*/
+        
+        uLong crc32;                /* crc32 of all data uncompressed */
+        uLong crc32_wait;           /* crc32 we must obtain after decompress all */
+        uLong rest_read_compressed; /* number of byte to be decompressed */
+        uLong rest_read_uncompressed;/*number of byte to be obtained after decomp*/
+        zlib_filefunc_def z_filefunc;
+        voidpf filestream;        /* io structore of the zipfile */
+        uLong compression_method;   /* compression method (0==store) */
+        uLong byte_before_the_zipfile;/* byte before the zipfile, (>0 for sfx)*/
+        int   raw;
 } file_in_zip_read_info_s;
 
 /* unz_s contain internal information about the zipfile
 */
 typedef struct
 {
-	FILE           *file;		/* io structore of the zipfile */
     zlib_filefunc_def z_filefunc;
     voidpf filestream;        /* io structore of the zipfile */
     unz_global_info gi;       /* public global information */
     uLong byte_before_the_zipfile;/* byte before the zipfile, (>0 for sfx)*/
-    uLong num_file;             /* number of the current file in the zipfile*/
-    uLong pos_in_central_dir;   /* pos of the current file in the central dir*/
-    uLong current_file_ok;      /* flag about the usability of the current file*/
-    uLong central_pos;          /* position of the beginning of the central dir*/
-
-    uLong size_central_dir;     /* size of the central directory  */
-    uLong offset_central_dir;   /* offset of start of central directory with
-                                   respect to the starting disk number */
-
-    unz_file_info cur_file_info; /* public info about the current file in zip*/
-    unz_file_info_internal cur_file_info_internal; /* private info about it*/
-    file_in_zip_read_info_s* pfile_in_zip_read; /* structure about the current
-                                        file if we are decompressing it */
-    int encrypted;
+        uLong num_file;             /* number of the current file in the zipfile*/
+        uLong pos_in_central_dir;   /* pos of the current file in the central dir*/
+        uLong current_file_ok;      /* flag about the usability of the current file*/
+        uLong central_pos;          /* position of the beginning of the central dir*/
+        
+        uLong size_central_dir;     /* size of the central directory  */
+        uLong offset_central_dir;   /* offset of start of central directory with
+                                     respect to the starting disk number */
+        
+        unz_file_info cur_file_info; /* public info about the current file in zip*/
+        unz_file_info_internal cur_file_info_internal; /* private info about it*/
+        file_in_zip_read_info_s* pfile_in_zip_read; /* structure about the current
+                                                     file if we are decompressing it */
+        int encrypted;
+#    ifndef NOUNCRYPT
+        unsigned long keys[3];     /* keys defining the pseudo-random sequence */
+        const unsigned long* pcrc_32_tab;
+#    endif
 } unz_s;
+    
 
+    
 extern int ZEXPORT unzStringFileNameCompare OF ((const char* fileName1,
                                                  const char* fileName2,
                                                  int iCaseSensitivity));
@@ -422,7 +409,7 @@ extern uLong ZEXPORT unzGetOffset (unzFile file);
 /* Set the current file offset */
 extern int ZEXPORT unzSetOffset (unzFile file, uLong pos);
 
-
+/* Re opens a zip file */
 extern unzFile unzReOpen(const char *path, unzFile file);
 
 #ifdef __cplusplus
