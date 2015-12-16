@@ -1157,7 +1157,7 @@ int FS_FOpenFileRead(const char *filename, fileHandle_t * file, qboolean uniqueF
 						}
 					}
 
-					if(!(pak->referenced & FS_QAGAME_REF) && strstr(filename, "qagame.qvm"))
+					if(!(pak->referenced & FS_QAGAME_REF) && strstr(filename, "game.qvm"))
 					{
 						pak->referenced |= FS_QAGAME_REF;
 					}
@@ -3094,7 +3094,7 @@ static void FS_Startup(const char *gameName)
 =====================
 FS_GamePureChecksum
 
-Returns the checksum of the pk3 from which the server loaded the qagame.qvm
+Returns the checksum of the pk3 from which the server loaded the game.qvm
 =====================
 */
 const char     *FS_GamePureChecksum(void)
