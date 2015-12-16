@@ -21,12 +21,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ===========================================================================
 */
 
-//-----------------------------------------------------------------------------
-//
-//
-// DESCRIPTION:
-// deal with in/out tasks, for either stdin/stdout or network/XML stream
-// 
+// inout.c: deal with in/out tasks, for either stdin/stdout or network/XML stream
 
 #include "cmdlib.h"
 #include "mathlib.h"
@@ -41,16 +36,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include <windows.h>
 #endif
 
-
 // network broadcasting
 #include "../gtkradiant/include/stream_version.h"
-
-#include "libxml/parser.h"
-#include "libxml/tree.h"
-
-// utf8 conversion
-#include <glib/gconvert.h>
-#include <glib/gmem.h>
 
 #ifdef WIN32
 HWND            hwndOut = NULL;
@@ -62,6 +49,11 @@ socket_t       *brdcst_socket;
 netmessage_t    msg;
 
 qboolean        verbose = qfalse;
+
+#ifdef LIBXML
+
+#include "libxml/parser.h"
+#include "libxml/tree.h"
 
 // our main document
 // is streamed through the network to Radiant
@@ -119,42 +111,17 @@ void xml_SendNode(xmlNodePtr node)
 			pos += size;
 		}
 
-#if 0
-		// NOTE: the NMSG_WriteString is limited to MAX_NETMESSAGE
-		// we will need to split into chunks
-		// (we could also go lower level, in the end it's using send and receiv which are not size limited)
-		//++timo FIXME: MAX_NETMESSAGE is not exactly the max size we can stick in the message
-		//  there's some tweaking to do in l_net for that .. so let's give us a margin for now
-
-		//++timo we need to handle the case of a buffer too big to fit in a single message
-		// try without checks for now
-		if(xml_buf->use > MAX_NETMESSAGE - 10)
-		{
-			// if we send that we are probably gonna break the stream at the other end..
-			// and Error will call right there
-			//Error( "MAX_NETMESSAGE exceeded for XML feedback stream in FPrintf (%d)\n", xml_buf->use);
-			Sys_FPrintf(SYS_NOXML, "MAX_NETMESSAGE exceeded for XML feedback stream in FPrintf (%d)\n", xml_buf->use);
-			xml_buf->content[xml_buf->use] = '\0';	//++timo this corrupts the buffer but we don't care it's for printing
-			Sys_FPrintf(SYS_NOXML, xml_buf->content);
-
-		}
-
-		size = xml_buf->use;
-		memcpy(xmlbuf, xml_buf->content, size);
-		xmlbuf[size] = '\0';
-		NMSG_Clear(&msg);
-		NMSG_WriteString(&msg, xmlbuf);
-		Net_Send(brdcst_socket, &msg);
-#endif
-
 		xmlBufferFree(xml_buf);
 	}
 }
 
+#endif
+
 void xml_Select(char *msg, int entitynum, int brushnum, qboolean bError)
 {
-	xmlNodePtr      node, select;
 	char            buf[1024];
+#ifdef LIBXML
+	xmlNodePtr      node, select;
 	char            level[2];
 
 	// now build a proper "select" XML node
@@ -170,6 +137,7 @@ void xml_Select(char *msg, int entitynum, int brushnum, qboolean bError)
 	xmlNodeSetContent(select, buf);
 	xmlAddChild(node, select);
 	xml_SendNode(node);
+#endif
 
 	sprintf(buf, "Entity %i, Brush %i: %s", entitynum, brushnum, msg);
 	if(bError)
@@ -181,8 +149,9 @@ void xml_Select(char *msg, int entitynum, int brushnum, qboolean bError)
 
 void xml_Point(char *msg, vec3_t pt)
 {
-	xmlNodePtr      node, point;
 	char            buf[1024];
+#ifdef LIBXML
+	xmlNodePtr      node, point;
 	char            level[2];
 
 	node = xmlNewNode(NULL, "pointmsg");
@@ -196,7 +165,8 @@ void xml_Point(char *msg, vec3_t pt)
 	xmlNodeSetContent(point, buf);
 	xmlAddChild(node, point);
 	xml_SendNode(node);
-
+#endif
+    
 	sprintf(buf, "%s (%g %g %g)", msg, pt[0], pt[1], pt[2]);
 	Error(buf);
 }
@@ -204,6 +174,7 @@ void xml_Point(char *msg, vec3_t pt)
 #define WINDING_BUFSIZE 2048
 void xml_Winding(char *msg, vec3_t p[], int numpoints, qboolean die)
 {
+#ifdef LIBXML
 	xmlNodePtr      node, winding;
 	char            buf[WINDING_BUFSIZE];
 	char            smlbuf[128];
@@ -230,6 +201,7 @@ void xml_Winding(char *msg, vec3_t p[], int numpoints, qboolean die)
 	xmlNodeSetContent(winding, buf);
 	xmlAddChild(node, winding);
 	xml_SendNode(node);
+#endif
 
 	if(die)
 		Error(msg);
@@ -244,7 +216,6 @@ void Broadcast_Setup(const char *dest)
 {
 	address_t       address;
 	char            sMsg[1024];
-
 	Net_Setup();
 	Net_StringToAddress((char *)dest, &address);
 	brdcst_socket = Net_Connect(&address, 0);
@@ -271,6 +242,7 @@ void Broadcast_Shutdown()
 // all output ends up through here
 void FPrintf(int flag, char *buf)
 {
+#ifdef LIBXML
 	xmlNodePtr      node;
 	static qboolean bGotXML = qfalse;
 	char            level[2];
@@ -298,24 +270,17 @@ void FPrintf(int flag, char *buf)
 	}
 	node = xmlNewNode(NULL, "message");
 	{
-		gchar          *utf8 = g_locale_to_utf8(buf, -1, NULL, NULL, NULL);
-
-		xmlNodeSetContent(node, utf8);
-		g_free(utf8);
+        xmlNodeSetContent(node, buf);
 	}
 	level[0] = (int)'0' + flag;
 	level[1] = 0;
 	xmlSetProp(node, "level", (char *)&level);
 
 	xml_SendNode(node);
-}
-
-#ifdef DBG_XML
-void DumpXML()
-{
-	xmlSaveFile("XMLDump.xml", doc);
-}
+#else
+    printf(buf);
 #endif
+}
 
 void Sys_FPrintf(int flag, const char *format, ...)
 {
@@ -364,10 +329,6 @@ void Error(const char *error, ...)
 	sprintf(out_buffer, "************ ERROR ************\n%s\n", tmp);
 
 	FPrintf(SYS_ERR, out_buffer);
-
-#ifdef DBG_XML
-	DumpXML();
-#endif
 
 	//++timo HACK ALERT .. if we shut down too fast the xml stream won't reach the listener.
 	// a clean solution is to send a sync request node in the stream and wait for an answer before exiting

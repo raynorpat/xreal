@@ -46,6 +46,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #if defined (__linux__) || defined (__APPLE__)
 #include <dirent.h>
 #include <unistd.h>
+#define PATH_MAX 260
 #else
 #include <wtypes.h>
 #include <io.h>
@@ -60,11 +61,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "cmdlib.h"
 #include "mathlib.h"
-#include <glib.h>
+//#include <glib.h>
 #include "inout.h"
 #include "vfs.h"
 #include "unzip.h"
 
+/*
 typedef struct
 {
 	char           *name;
@@ -72,22 +74,23 @@ typedef struct
 	unzFile         zipfile;
 	guint32         size;
 } VFS_PAKFILE;
+*/
 
 // =============================================================================
 // Global variables
 
-static GSList  *g_unzFiles;
-static GSList  *g_pakFiles;
+//static GSList  *g_unzFiles;
+//static GSList  *g_pakFiles;
 static char     g_strDirs[VFS_MAXDIRS][PATH_MAX];
 static int      g_numDirs;
-static gboolean g_bUsePak = TRUE;
+//static gboolean g_bUsePak = TRUE;
 
 // =============================================================================
 // Static functions
 
 static void vfsAddSlash(char *str)
 {
-	int             n = strlen(str);
+	int n = strlen(str);
 
 	if(n > 0)
 	{
@@ -109,11 +112,31 @@ static void vfsFixDOSName(char *src)
 	}
 }
 
+static char *vfsStrdown (char *string)
+{
+    register unsigned char *s;
+
+    if(string == NULL)
+        return NULL;
+
+    s = (unsigned char *) string;
+
+    while(*s)
+    {
+        if (isupper(*s))
+            *s = tolower(*s);
+        s++;
+    }
+
+    return (char *) string;
+}
+
 //!\todo Define globally or use heap-allocated string.
 #define NAME_MAX 255
 
 static void vfsInitPakFile(const char *filename)
 {
+    /*
 	unz_global_info gi;
 	unzFile         uf;
 	guint32         i;
@@ -158,6 +181,7 @@ static void vfsInitPakFile(const char *filename)
 				break;
 		}
 	}
+     */
 }
 
 // =============================================================================
@@ -166,9 +190,9 @@ static void vfsInitPakFile(const char *filename)
 // reads all pak files from a dir
 void vfsInitDirectory(const char *path)
 {
-	char            filename[PATH_MAX];
-	char           *dirlist;
-	GDir           *dir;
+	//char            filename[PATH_MAX];
+	//char           *dirlist;
+	//GDir           *dir;
 
 	if(g_numDirs == (VFS_MAXDIRS - 1))
 		return;
@@ -180,6 +204,7 @@ void vfsInitDirectory(const char *path)
 	vfsAddSlash(g_strDirs[g_numDirs]);
 	g_numDirs++;
 
+    /*
 	if(g_bUsePak)
 	{
 		dir = g_dir_open(path, 0, NULL);
@@ -210,11 +235,13 @@ void vfsInitDirectory(const char *path)
 			g_dir_close(dir);
 		}
 	}
+    */
 }
 
 // frees all memory that we allocated
 void vfsShutdown()
 {
+    /*
 	while(g_unzFiles)
 	{
 		unzClose((unzFile) g_unzFiles->data);
@@ -229,6 +256,7 @@ void vfsShutdown()
 		free(file);
 		g_pakFiles = g_slist_remove(g_pakFiles, file);
 	}
+     */
 }
 
 // return the number of files that match
@@ -236,12 +264,13 @@ int vfsGetFileCount(const char *filename)
 {
 	int             i, count = 0;
 	char            fixed[NAME_MAX], tmp[NAME_MAX];
-	GSList         *lst;
+	//GSList         *lst;
 
 	strcpy(fixed, filename);
 	vfsFixDOSName(fixed);
-	g_strdown(fixed);
+	vfsStrdown(fixed);
 
+    /*
 	for(lst = g_pakFiles; lst != NULL; lst = g_slist_next(lst))
 	{
 		VFS_PAKFILE    *file = (VFS_PAKFILE *) lst->data;
@@ -249,6 +278,7 @@ int vfsGetFileCount(const char *filename)
 		if(strcmp(file->name, fixed) == 0)
 			count++;
 	}
+     */
 
 	for(i = 0; i < g_numDirs; i++)
 	{
@@ -266,7 +296,7 @@ int vfsLoadFile(const char *filename, void **bufferptr, int index)
 {
 	int             i, count = 0;
 	char            tmp[NAME_MAX], fixed[NAME_MAX];
-	GSList         *lst;
+	//GSList         *lst;
 
 	// filename is a full path
 	if(index == -1)
@@ -298,7 +328,7 @@ int vfsLoadFile(const char *filename, void **bufferptr, int index)
 	*bufferptr = NULL;
 	strcpy(fixed, filename);
 	vfsFixDOSName(fixed);
-	g_strdown(fixed);
+	vfsStrdown(fixed);
 
 	for(i = 0; i < g_numDirs; i++)
 	{
@@ -336,6 +366,7 @@ int vfsLoadFile(const char *filename, void **bufferptr, int index)
 		}
 	}
 
+    /*
 	for(lst = g_pakFiles; lst != NULL; lst = g_slist_next(lst))
 	{
 		VFS_PAKFILE    *file = (VFS_PAKFILE *) lst->data;
@@ -364,6 +395,7 @@ int vfsLoadFile(const char *filename, void **bufferptr, int index)
 
 		count++;
 	}
+    */
 
 	return -1;
 }

@@ -24,14 +24,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #ifndef __INOUT__
 #define __INOUT__
 
+#ifdef LIBXML
 // inout is the only stuff relying on xml, include the headers there
 #include "libxml/tree.h"
+#endif
+
 #include "cmdlib.h"
 #include "mathlib.h"
 
+#ifdef LIBXML
 // some useful xml routines
 xmlNodePtr      xml_NodeForVec(vec3_t v);
 void            xml_SendNode(xmlNodePtr node);
+#endif
 
 // print a message in xmap output and send the corresponding select information down the xml stream
 // bError: do we end with an error on this one or do we go ahead?

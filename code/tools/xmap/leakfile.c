@@ -33,6 +33,8 @@ Save out name.line for qe3 to read
 */
 
 
+#ifdef LIBXML
+
 /*
 =============
 LeakFile
@@ -108,3 +110,5 @@ xmlNodePtr LeakFile(tree_t * tree)
 
 	return xml_node;
 }
+
+#endif

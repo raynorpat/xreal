@@ -1,7 +1,7 @@
 /*
 	messages.c
 
-	Message management for xmass
+	Message management
 
 	Copyright (C) 2004  Mathieu Olivier
 

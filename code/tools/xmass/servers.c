@@ -1,7 +1,7 @@
 /*
 	servers.c
 
-	Server list and address mapping management for xmass
+	Server list and address mapping management
 
 	Copyright (C) 2004  Mathieu Olivier
 
