@@ -3298,12 +3298,8 @@ void CL_Init(void)
 #endif
 
 	cl_conXOffset = Cvar_Get("cl_conXOffset", "0", 0);
-#ifdef MACOS_X
-	// In game video is REALLY slow in Mac OS X right now due to driver slowness
-	cl_inGameVideo = Cvar_Get("r_inGameVideo", "0", CVAR_ARCHIVE);
-#else
-	cl_inGameVideo = Cvar_Get("r_inGameVideo", "1", CVAR_ARCHIVE);
-#endif
+
+    cl_inGameVideo = Cvar_Get("r_inGameVideo", "1", CVAR_ARCHIVE);
 
 	cl_serverStatusResendTime = Cvar_Get("cl_serverStatusResendTime", "750", 0);
 
@@ -3315,12 +3311,7 @@ void CL_Init(void)
 	m_yaw = Cvar_Get("m_yaw", "0.022", CVAR_ARCHIVE);
 	m_forward = Cvar_Get("m_forward", "0.25", CVAR_ARCHIVE);
 	m_side = Cvar_Get("m_side", "0.25", CVAR_ARCHIVE);
-#ifdef MACOS_X
-	// Input is jittery on OS X w/o this
-	m_filter = Cvar_Get("m_filter", "1", CVAR_ARCHIVE);
-#else
 	m_filter = Cvar_Get("m_filter", "0", CVAR_ARCHIVE);
-#endif
 
 	cl_motdString = Cvar_Get("cl_motdString", "", CVAR_ROM);
 
@@ -3380,7 +3371,6 @@ void CL_Init(void)
 	}
 #endif
 
-
 	// cgame might not be initialized before menu is used
 	Cvar_Get("cg_viewsize", "100", CVAR_ARCHIVE);
 	// Make sure cg_stereoSeparation is zero as that variable is deprecated and should not be used anymore.
@@ -3432,7 +3422,6 @@ void CL_Init(void)
 /*
 ===============
 CL_Shutdown
-
 ===============
 */
 void CL_Shutdown(void)
