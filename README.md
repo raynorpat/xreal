@@ -1,18 +1,22 @@
-XreaL Readme - https://github.com/raynorpat/xreal
-=================================================
+# XreaL Readme - https://github.com/raynorpat/xreal
+
+**The project is hosted at:** https://github.com/raynorpat
+**Report bugs here:** https://github.com/raynorpat/xreal/issues
 
 ## GENERAL NOTES
 
 A short summary of the file layout:
 
-- XreaL/base/			XreaL media directory ( models, textures, sounds, maps, etc. )
-- XreaL/code/			XreaL source code ( renderer, game code, OS layer, etc. )
-- XreaL/code/tools/xmap		map compiler ( .map -> .bsp ) (based on q3map)
+`
+- XreaL/base/                   XreaL media directory ( models, textures, sounds, maps, etc. )
+- XreaL/code/                   XreaL source code ( renderer, game code, OS layer, etc. )
+- XreaL/code/tools/xmap         map compiler ( .map -> .bsp ) (based on q3map)
 - XreaL/code/tools/xmap2		map compiler ( .map -> .bsp ) (based on q3map2)
-- XreaL/code/tools/xmass		master server
-- XreaL/code/tools/gtkradiant	GtkRadiant editor source based off GPL release on 17th February 2006
-- XreaL/tools/gtkradiant/	XreaL configured GtkRadiant editor work dir
-- XreaL/tools/blender/		Blender plugins for ase, md3, and md5 models
+- XreaL/code/tools/xmaster		master server
+- XreaL/code/tools/gtkradiant	GtkRadiant map editor
+- XreaL/tools/gtkradiant/       XreaL configured GtkRadiant editor work dir
+- XreaL/tools/blender/          Blender plugins for ase, md3, and md5 models
+`
 
 ## LICENSE
 
@@ -23,8 +27,9 @@ See docs/COPYING.txt for all the legal stuff.
 
 This project's git repository can be cloned with the following instruction set: 
 
+`
 git clone https://github.com/raynorpat/xreal.git
-
+`
 
 ## COMPILING ON WIN32 WITH VISUAL C++ 2008 EXPRESS EDITION
 
@@ -117,10 +122,12 @@ missing "test.pk3", it will attempt to download from the URL
 
 sv_allowDownload's value is now a bitmask made up of the following
 flags:
+`
     1 - ENABLE
     2 - do not use HTTP/FTP downloads
     4 - do not use UDP downloads
     8 - do not ask the client to disconnect when using HTTP/FTP
+`
 
 Server operators who are concerned about potential "leeching" from their
 HTTP servers from other XreaL servers can make use of the HTTP_REFERER
@@ -134,10 +141,11 @@ Simply setting cl_allowDownload to 1 will enable HTTP/FTP downloads on
 the clients side assuming XreaL was compiled with USE_CURL=1.
 Like sv_allowDownload, cl_allowDownload also uses a bitmask value
 supporting the following flags:
+`
     1 - ENABLE
     2 - do not use HTTP/FTP downloads
     4 - do not use UDP downloads
-
+`
 
 ## MULTIUSER SUPPORT ON WINDOWS SYSTEMS
 
