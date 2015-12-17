@@ -5,7 +5,7 @@
 
 **Report bugs here:** https://github.com/raynorpat/xreal/issues
 
-Uses code from the ioquake3 project ![ioq3](https://github.com/raynorpat/xreal/raw/master/docs/ioquake3_logo.jpg)
+Uses code from the ioquake3 project ![ioq3](https://github.com/raynorpat/xreal/raw/master/docs/ioquake3_logo.png)
 
 
 ## GENERAL NOTES
