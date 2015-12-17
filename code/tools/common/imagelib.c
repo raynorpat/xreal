@@ -37,7 +37,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 //#define JPEG_INTERNALS
 #include "jpeglib.h"
-#include "png/png.h"
+#include "png.h"
 
 
 int fgetLittleShort(FILE * f)

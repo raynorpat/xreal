@@ -50,8 +50,6 @@ netmessage_t    msg;
 
 qboolean        verbose = qfalse;
 
-#ifdef LIBXML
-
 #include "libxml/parser.h"
 #include "libxml/tree.h"
 
@@ -115,12 +113,9 @@ void xml_SendNode(xmlNodePtr node)
 	}
 }
 
-#endif
-
 void xml_Select(char *msg, int entitynum, int brushnum, qboolean bError)
 {
 	char            buf[1024];
-#ifdef LIBXML
 	xmlNodePtr      node, select;
 	char            level[2];
 
@@ -137,7 +132,6 @@ void xml_Select(char *msg, int entitynum, int brushnum, qboolean bError)
 	xmlNodeSetContent(select, buf);
 	xmlAddChild(node, select);
 	xml_SendNode(node);
-#endif
 
 	sprintf(buf, "Entity %i, Brush %i: %s", entitynum, brushnum, msg);
 	if(bError)
@@ -150,7 +144,6 @@ void xml_Select(char *msg, int entitynum, int brushnum, qboolean bError)
 void xml_Point(char *msg, vec3_t pt)
 {
 	char            buf[1024];
-#ifdef LIBXML
 	xmlNodePtr      node, point;
 	char            level[2];
 
@@ -165,7 +158,6 @@ void xml_Point(char *msg, vec3_t pt)
 	xmlNodeSetContent(point, buf);
 	xmlAddChild(node, point);
 	xml_SendNode(node);
-#endif
     
 	sprintf(buf, "%s (%g %g %g)", msg, pt[0], pt[1], pt[2]);
 	Error(buf);
@@ -174,7 +166,6 @@ void xml_Point(char *msg, vec3_t pt)
 #define WINDING_BUFSIZE 2048
 void xml_Winding(char *msg, vec3_t p[], int numpoints, qboolean die)
 {
-#ifdef LIBXML
 	xmlNodePtr      node, winding;
 	char            buf[WINDING_BUFSIZE];
 	char            smlbuf[128];
@@ -201,7 +192,6 @@ void xml_Winding(char *msg, vec3_t p[], int numpoints, qboolean die)
 	xmlNodeSetContent(winding, buf);
 	xmlAddChild(node, winding);
 	xml_SendNode(node);
-#endif
 
 	if(die)
 		Error(msg);
@@ -242,7 +232,6 @@ void Broadcast_Shutdown()
 // all output ends up through here
 void FPrintf(int flag, char *buf)
 {
-#ifdef LIBXML
 	xmlNodePtr      node;
 	static qboolean bGotXML = qfalse;
 	char            level[2];
@@ -277,9 +266,6 @@ void FPrintf(int flag, char *buf)
 	xmlSetProp(node, "level", (char *)&level);
 
 	xml_SendNode(node);
-#else
-    printf(buf);
-#endif
 }
 
 void Sys_FPrintf(int flag, const char *format, ...)

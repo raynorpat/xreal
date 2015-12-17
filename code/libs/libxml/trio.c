@@ -99,7 +99,7 @@
 #endif
 #include <stddef.h>
 
-#if defined( HAVE_ERRNO_H ) || defined( __VMS )
+#if defined( HAVE_ERRNO_H ) || defined( __VMS ) || defined( __APPLE__ )
 #include <errno.h>
 #endif
 

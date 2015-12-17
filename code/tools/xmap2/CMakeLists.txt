@@ -1,41 +1,13 @@
-project(xmap)
+project(xmap2)
 
-include_directories(${ZLIB_INCLUDE_DIR} ${JPEG_INCLUDE_DIR} ${PNG_INCLUDE_DIR} "../../libs/libxml/include")
+include_directories(${ZLIB_INCLUDE_DIR} ${JPEG_INCLUDE_DIR} ${PNG_INCLUDE_DIR} "../../libs/libxml/include" "../common" "../gtkradiant/libs")
 
-file(GLOB XMAP_HEADERS
+file(GLOB XMAP2_HEADERS
     "*.h"
 )
 
-file(GLOB XMAP_SOURCES
-	"brush.c"
-	"brush_primit.c"
-	"bsp.c"
-	"convert_ase.c"
-	"convert_map.c"
-	"convert_t3dtomap.c"
-	"facebsp.c"
-	"fog.c"
-	"glfile.c"
-	"leakfile.c"
-	"light.c"
-	"light_trace.c"
-	"lightmaps.c"
-	"lightv.c"
-	"main.c"
-	"map.c"
-	"mesh.c"
-	"misc_model.c"
-	"patch.c"
-	"portals.c"
-	"prtfile.c"
-	"shaders.c"
-	"surface.c"
-	"terrain.c"
-	"tjunction.c"
-	"tree.c"
-	"vis.c"
-	"visflow.c"
-	"writebsp.c"
+file(GLOB XMAP2_SOURCES
+	"*.c"
 	"../common/cmdlib.c"
 	"../common/mathlib.c"
 	"../common/polylib.c"
@@ -44,13 +16,16 @@ file(GLOB XMAP_SOURCES
 	"../common/inout.c"
 	"../common/scriplib.c"
 	"../common/threads.c"
-	"../common/bspfile.c"
 	"../common/mutex.c"
 	"../common/unzip.c"
 	"../common/ioapi.c"
 	"../common/vfs.c"
 	"../common/netlib.c"
-	"../lwobject/*.c"
+)
+
+file(GLOB PM_SOURCES
+	"../gtkradiant/libs/picomodel/*.c"
+	"../gtkradiant/libs/picomodel/lwo/*.c"
 )
 
 file(GLOB ZLIB_SOURCES
@@ -143,32 +118,15 @@ file(GLOB LIBXML2_SOURCES
 )
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    file(GLOB XMAP_PLATFORM_SOURCES 
-        "nodraw.c"
-    )
-
-    set(XMAP_PLATFORM_LIBRARIES "ws2_32.lib")
-    set(XMAP_BINARY_TYPE WIN32)
-endif()
-
-if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-    file(GLOB XMAP_PLATFORM_SOURCES 
-   		"gldraw.c"
-    )
-
-    set(XMAP_PLATFORM_LIBRARIES "pthread" "dl" "m" ${SDL_LIBRARY} "-framework OpenGL")
-    set(XMAP_BINARY_TYPE "")
+    set(XMAP2_PLATFORM_LIBRARIES "ws2_32.lib")
+    set(XMAP2_BINARY_TYPE WIN32)
 else()
-    file(GLOB XMAP_PLATFORM_SOURCES 
-   		"gldraw.c"
-    )
-
-    set(XMAP_PLATFORM_LIBRARIES "pthread" "dl" "m" ${SDL_LIBRARY} "GL" "GLU")
-    set(XMAP_BINARY_TYPE "")
+    set(XMAP2_PLATFORM_LIBRARIES "pthread" "dl" "m")
+    set(XMAP2_BINARY_TYPE "")
 endif()
 
-qf_add_executable(xmap ${XMAP_BINARY_TYPE} ${XMAP_HEADERS} ${XMAP_SOURCES} ${XMAP_PLATFORM_SOURCES} ${ZLIB_SOURCES} ${PNG_SOURCES} ${JPEG_SOURCES} ${LIBXML2_SOURCES})
-target_link_libraries(xmap ${XMAP_PLATFORM_LIBRARIES})
-qf_set_output_dir(xmap "")
+qf_add_executable(xmap2 ${XMAP2_BINARY_TYPE} ${XMAP2_HEADERS} ${XMAP2_SOURCES} ${PM_SOURCES} ${ZLIB_SOURCES} ${PNG_SOURCES} ${JPEG_SOURCES} ${LIBXML2_SOURCES})
+target_link_libraries(xmap2 ${XMAP2_PLATFORM_LIBRARIES})
+qf_set_output_dir(xmap2 "")
 
-set_target_properties(xmap PROPERTIES COMPILE_DEFINITIONS "XMAP;")
+set_target_properties(xmap2 PROPERTIES COMPILE_DEFINITIONS "XMAP;")
