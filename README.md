@@ -1,22 +1,26 @@
 # XreaL Readme - https://github.com/raynorpat/xreal
 
+
 **The project is hosted at:** https://github.com/raynorpat
+
 **Report bugs here:** https://github.com/raynorpat/xreal/issues
+
 
 ## GENERAL NOTES
 
 A short summary of the file layout:
 
 `
-- XreaL/base/                   XreaL media directory ( models, textures, sounds, maps, etc. )
-- XreaL/code/                   XreaL source code ( renderer, game code, OS layer, etc. )
-- XreaL/code/tools/xmap         map compiler ( .map -> .bsp ) (based on q3map)
-- XreaL/code/tools/xmap2		map compiler ( .map -> .bsp ) (based on q3map2)
-- XreaL/code/tools/xmaster		master server
-- XreaL/code/tools/gtkradiant	GtkRadiant map editor
-- XreaL/tools/gtkradiant/       XreaL configured GtkRadiant editor work dir
-- XreaL/tools/blender/          Blender plugins for ase, md3, and md5 models
+ XreaL/base/                    XreaL media directory ( models, textures, sounds, maps, etc. )
+ XreaL/code/                    XreaL source code ( renderer, game code, OS layer, etc. )
+ XreaL/code/tools/xmap          map compiler ( .map -> .bsp ) (based on q3map)
+ XreaL/code/tools/xmap2         map compiler ( .map -> .bsp ) (based on q3map2)
+ XreaL/code/tools/xmaster		master server
+ XreaL/code/tools/gtkradiant	GtkRadiant map editor
+ XreaL/tools/gtkradiant/        XreaL configured GtkRadiant editor work dir
+ XreaL/tools/blender/           Blender plugins for ase, md3, and md5 models
 `
+
 
 ## LICENSE
 
@@ -31,7 +35,10 @@ This project's git repository can be cloned with the following instruction set:
 git clone https://github.com/raynorpat/xreal.git
 `
 
-## COMPILING ON WIN32 WITH VISUAL C++ 2008 EXPRESS EDITION
+
+## COMPILING ON WINDOWS
+
+NOTE: THIS IS REALLY OUTDATED......
 
 1. Download and install the Visual C++ 2008 Express Edition.
 2. Download libSDL from http://libsdl.org/release/SDL-devel-1.2.13-VC8.zip
@@ -77,34 +84,30 @@ git clone https://github.com/raynorpat/xreal.git
 ## COMPILING ON GNU/LINUX
 
 You need the following dependencies in order to compile XreaL with all features:
-
  * SDL >= 1.2
  * FreeType >= 2.3.5
- * OpenAL >= 0.0.8 (if compiled with scons openal=1)
- * libcURL >= 7.15.5 (if compiled with scons curl=1)
- * GTK+ >= 2.4.0 (if compiled with scons mapping=1, requires glib, atk, pango, iconv, etc)
- * gtkglext >= 1.0.0 (if compiled with scons mapping=1)
- * libxml2 >= 2.0.0 (if compiled with scons mapping=1)
- * zlib >= 1.2.0 (if compiled with scons mapping=1)
+ * OpenAL >= 0.0.8 
+ * libcURL >= 7.15.5 
+ * GTK+ >= 2.4.0 
+ * gtkglext >= 1.0.0
+ * libxml2 >= 2.0.0
+ * zlib >= 1.2.0
+ * cmake >= 2.8
 
-Compile XreaL for x86 processers:
-	>scons arch=linux-i386
-Compile XreaL for x86_64 processers:
-	>scons arch=linux-x86_64
-
-Type scons -h for more compile options.
+`
+mkdir build && cd build && cmake .. && make
+`
 
 
 ## COMPILING ON MAC OS X
 
-Make sure you have libcURL and the SDL framework installed.
-
-Download http://oss.sgi.com/projects/ogl-sample/ABI/glext.h
-	and copy it to XreaL/code/renderer
-
-Use the included XCode project to compile XreaL and friends for both PPC & Intel Macs.
-The XCode project is located here:
-	>code/unix/MacSupport/XreaL.xcodeprj
+- Install MacPorts
+- Install XQuartz
+- Install dependencies with MacPorts:
+    `
+    sudo port install dylibbundler pkgconfig gtkglext cmake libsdl
+    `
+- Use cmake to produce XCode project files
 
 
 ## USING HTTP/FTP DOWNLOAD SUPPORT (SERVER)
@@ -122,12 +125,12 @@ missing "test.pk3", it will attempt to download from the URL
 
 sv_allowDownload's value is now a bitmask made up of the following
 flags:
-`
+    `
     1 - ENABLE
     2 - do not use HTTP/FTP downloads
     4 - do not use UDP downloads
     8 - do not ask the client to disconnect when using HTTP/FTP
-`
+    `
 
 Server operators who are concerned about potential "leeching" from their
 HTTP servers from other XreaL servers can make use of the HTTP_REFERER
@@ -141,11 +144,11 @@ Simply setting cl_allowDownload to 1 will enable HTTP/FTP downloads on
 the clients side assuming XreaL was compiled with USE_CURL=1.
 Like sv_allowDownload, cl_allowDownload also uses a bitmask value
 supporting the following flags:
-`
+    `
     1 - ENABLE
     2 - do not use HTTP/FTP downloads
     4 - do not use UDP downloads
-`
+    `
 
 ## MULTIUSER SUPPORT ON WINDOWS SYSTEMS
 
