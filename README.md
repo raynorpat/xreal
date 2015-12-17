@@ -1,25 +1,27 @@
-# XreaL Readme - https://github.com/raynorpat/xreal
-
+# XreaL
+![XreaL](https://github.com/raynorpat/xreal/raw/master/docs/xreal_scrnshot.jpg)
 
 **The project is hosted at:** https://github.com/raynorpat
 
 **Report bugs here:** https://github.com/raynorpat/xreal/issues
+
+Uses code from the ioquake3 project ![ioq3](https://github.com/raynorpat/xreal/raw/master/docs/ioquake3_logo.jpg)
 
 
 ## GENERAL NOTES
 
 A short summary of the file layout:
 
-`
- XreaL/base/                    XreaL media directory ( models, textures, sounds, maps, etc. )
- XreaL/code/                    XreaL source code ( renderer, game code, OS layer, etc. )
- XreaL/code/tools/xmap          map compiler ( .map -> .bsp ) (based on q3map)
- XreaL/code/tools/xmap2         map compiler ( .map -> .bsp ) (based on q3map2)
- XreaL/code/tools/xmaster		master server
- XreaL/code/tools/gtkradiant	GtkRadiant map editor
- XreaL/tools/gtkradiant/        XreaL configured GtkRadiant editor work dir
- XreaL/tools/blender/           Blender plugins for ase, md3, and md5 models
-`
+Directory                     | Description
+:---------------------------- | :------------------------------------------------
+XreaL/base/                   | XreaL media directory ( models, textures, sounds, maps, etc. )
+XreaL/code/                   | XreaL source code ( renderer, game code, OS layer, etc. )
+XreaL/code/tools/xmap         | map compiler ( .map -> .bsp ) (based on q3map)
+XreaL/code/tools/xmap2        | map compiler ( .map -> .bsp ) (based on q3map2)
+XreaL/code/tools/xmaster	  | master server
+XreaL/code/tools/gtkradiant   | GtkRadiant map editor
+XreaL/tools/gtkradiant/       | XreaL configured GtkRadiant editor work dir
+XreaL/tools/blender/          | Blender plugins for ase, md3, and md5 models
 
 
 ## LICENSE
@@ -125,12 +127,10 @@ missing "test.pk3", it will attempt to download from the URL
 
 sv_allowDownload's value is now a bitmask made up of the following
 flags:
-    `
-    1 - ENABLE
-    2 - do not use HTTP/FTP downloads
-    4 - do not use UDP downloads
-    8 - do not ask the client to disconnect when using HTTP/FTP
-    `
+   - 1 : ENABLE
+   - 2 : do not use HTTP/FTP downloads
+   - 4 : do not use UDP downloads
+   - 8 : do not ask the client to disconnect when using HTTP/FTP
 
 Server operators who are concerned about potential "leeching" from their
 HTTP servers from other XreaL servers can make use of the HTTP_REFERER
@@ -144,11 +144,10 @@ Simply setting cl_allowDownload to 1 will enable HTTP/FTP downloads on
 the clients side assuming XreaL was compiled with USE_CURL=1.
 Like sv_allowDownload, cl_allowDownload also uses a bitmask value
 supporting the following flags:
-    `
-    1 - ENABLE
-    2 - do not use HTTP/FTP downloads
-    4 - do not use UDP downloads
-    `
+   - 1 : ENABLE
+   - 2 : do not use HTTP/FTP downloads
+   - 4 : do not use UDP downloads
+
 
 ## MULTIUSER SUPPORT ON WINDOWS SYSTEMS
 
