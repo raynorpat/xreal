@@ -100,7 +100,8 @@ int main(int argc, char **argv)
 		  "   t3d2map        = convert an Unreal Engine 3.0 .t3d to the XreaL map format\n"
 		  "   map2bsp        = compile MAP to BSP\n"
 		  "   vis            = compute visibility\n"
-		  "   light          = compute lighting\n" "   vlight         = compute volume lighting\n");
+		  "   light          = compute lighting\n"
+          "   vlight         = compute volume lighting\n");
 
 	return 0;
 }

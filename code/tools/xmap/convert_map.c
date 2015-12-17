@@ -41,8 +41,6 @@ static void WriteMapFile(char *filename)
 	side_t         *side;
 	plane_t        *plane;
 	parseMesh_t    *pm;
-
-//  winding_t      *w;
 	shaderInfo_t   *si;
 
 	Sys_Printf("writing %s\n", filename);
@@ -194,7 +192,8 @@ int ConvertMapToMap(int argc, char **argv)
 			  "\n" "Switches:\n" "   v              = verbose output\n"
 			  //"   quake1       = convert from QuakeWorld to XreaL\n"
 			  //"   quake2       = convert from Quake2 to XreaL\n"
-			  "   quake3         = convert from Quake3 to XreaL\n" "   quake4         = convert from Quake4 to XreaL\n");
+			  "   quake3         = convert from Quake3 to XreaL\n"
+              "   quake4         = convert from Quake4 to XreaL\n");
 	}
 
 	start = I_FloatTime();
