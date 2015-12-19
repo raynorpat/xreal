@@ -32,8 +32,10 @@ namespace
     }
   };
 
+    /*
   void testAutoArray()
   {
     Array<Bleh> array(32);
   }
+     */
 }

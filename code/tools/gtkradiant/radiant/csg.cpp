@@ -204,13 +204,12 @@ inline Dereference<Functor> makeDereference(const Functor& functor)
 }
 
 typedef Face* FacePointer;
-const FacePointer c_nullFacePointer = 0;
 
 template<typename Predicate>
 Face* Brush_findIf(const Brush& brush, const Predicate& predicate)
 {
   Brush::const_iterator i = std::find_if(brush.begin(), brush.end(), makeDereference(predicate));
-  return i == brush.end() ? c_nullFacePointer : *i; // uses c_nullFacePointer instead of 0 because otherwise gcc 4.1 attempts conversion to int
+  return i == brush.end() ? NULL : *i;
 }
 
 template<typename Caller>

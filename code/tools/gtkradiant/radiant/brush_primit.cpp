@@ -1349,7 +1349,7 @@ inline Matrix4 matrix4_reflection_for_plane45(const Plane3& plane, const Vector3
 
   Matrix4 swap = matrix4_swap_axes(first, second);
 
-  Matrix4 tmp = matrix4_reflection_for_plane(plane);
+  matrix4_reflection_for_plane(plane);
 
   swap.tx() = -static_cast<float>(-2 * plane.a * plane.d);
   swap.ty() = -static_cast<float>(-2 * plane.b * plane.d);

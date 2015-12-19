@@ -392,11 +392,11 @@ struct xywindow_globals_private_t
 xywindow_globals_t g_xywindow_globals;
 xywindow_globals_private_t g_xywindow_globals_private;
 
-const unsigned int RAD_NONE =    0x00;
+//const unsigned int RAD_NONE =    0x00;
 const unsigned int RAD_SHIFT =   0x01;
 const unsigned int RAD_ALT =     0x02;
 const unsigned int RAD_CONTROL = 0x04;
-const unsigned int RAD_PRESS   = 0x08;
+//const unsigned int RAD_PRESS   = 0x08;
 const unsigned int RAD_LBUTTON = 0x10;
 const unsigned int RAD_MBUTTON = 0x20;
 const unsigned int RAD_RBUTTON = 0x40;

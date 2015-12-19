@@ -37,8 +37,8 @@ namespace ExampleHashTable
     hashtable["foo"] = 99;
     hashtable.insert("bar", 23);
 
-    int bleh = (*hashtable.find("bleh")).value; // 5
-    int blah = hashtable["blah"]; // 17
+    //int bleh = (*hashtable.find("bleh")).value; // 5
+    //int blah = hashtable["blah"]; // 17
     hashtable.erase("foo");
     MyHashTable::iterator barIter = hashtable.find("bar");
     hashtable.erase(barIter);

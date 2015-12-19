@@ -22,7 +22,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #if !defined(INCLUDED_GTKUTIL_CURSOR_H)
 #define INCLUDED_GTKUTIL_CURSOR_H
 
-#include <glib/gmain.h>
+#include <glib.h>
 #include <gdk/gdkevents.h>
 #include <gtk/gtkwidget.h>
 #include <gtk/gtkwindow.h>
@@ -125,7 +125,7 @@ public:
 class FreezePointer
 {
   unsigned int handle_motion;
-  int recorded_x, recorded_y;
+  int recorded_x, recorded_y, last_x, last_y;;
   typedef void (*MotionDeltaFunction)(int x, int y, unsigned int state, void* data);
   MotionDeltaFunction m_function;
   void* m_data;
@@ -137,12 +137,21 @@ public:
   {
     int current_x, current_y;
     Sys_GetCursorPos(GTK_WINDOW(widget), &current_x, &current_y);
-    int dx = current_x - self->recorded_x;
-    int dy = current_y - self->recorded_y;
+    int dx = current_x - self->last_x;
+    int dy = current_y - self->last_y;
+    int ddx = current_x - self->recorded_x;
+    int ddy = current_y - self->recorded_y;
+      
+    self->last_x = current_x;
+    self->last_y = current_y;
     if(dx != 0 || dy != 0)
     {
       //globalOutputStream() << "motion x: " << dx << ", y: " << dy << "\n";
-      Sys_SetCursorPos(GTK_WINDOW(widget), self->recorded_x, self->recorded_y);
+        if (ddx < -32 || ddx > 32 || ddy < -32 || ddy > 32) {
+            Sys_SetCursorPos( GTK_WINDOW( widget ), self->recorded_x, self->recorded_y );
+            self->last_x = self->recorded_x;
+            self->last_y = self->recorded_y;
+        }
       self->m_function(dx, dy, event->state, self->m_data);
     }
     return FALSE;
@@ -170,6 +179,9 @@ public:
     Sys_GetCursorPos(window, &recorded_x, &recorded_y);
 
     Sys_SetCursorPos(window, recorded_x, recorded_y);
+      
+    last_x = recorded_x;
+    last_y = recorded_y;
 
     m_function = function;
     m_data = data;

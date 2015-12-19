@@ -126,23 +126,23 @@ void entitylist_treeviewcolumn_celldatafunc(GtkTreeViewColumn* column, GtkCellRe
   {
     gtk_cell_renderer_set_fixed_size(renderer, -1, -1);
     char* name = const_cast<char*>(node_get_name(*node));
-    g_object_set(G_OBJECT(renderer), "text", name, "visible", TRUE, 0);
+    g_object_set(G_OBJECT(renderer), "text", name, "visible", TRUE, 0, NULL);
 
     //globalOutputStream() << "rendering cell " << makeQuoted(name) << "\n";
     GtkStyle* style = gtk_widget_get_style(GTK_WIDGET(getEntityList().m_tree_view));
     if(instance->childSelected())
     {
-      g_object_set(G_OBJECT(renderer), "cell-background-gdk", &style->base[GTK_STATE_ACTIVE], 0);
+      g_object_set(G_OBJECT(renderer), "cell-background-gdk", &style->base[GTK_STATE_ACTIVE], 0, NULL);
     }
     else
     {
-      g_object_set(G_OBJECT(renderer), "cell-background-gdk", &style->base[GTK_STATE_NORMAL], 0);
+      g_object_set(G_OBJECT(renderer), "cell-background-gdk", &style->base[GTK_STATE_NORMAL], 0, NULL);
     }
   }
   else
   {
     gtk_cell_renderer_set_fixed_size(renderer, -1, 0);
-    g_object_set(G_OBJECT(renderer), "text", "", "visible", FALSE, 0);
+    g_object_set(G_OBJECT(renderer), "text", "", "visible", FALSE, 0, NULL);
   }
 }
 

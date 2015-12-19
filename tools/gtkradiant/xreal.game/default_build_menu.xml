@@ -6,7 +6,7 @@ build commands
 -->
 
 <project version="2.0">
-<var name="xmap">"[EnginePath]xmap.[ExecutableType]"</var>
+<var name="xmap">"[EnginePath]xmap[ExecutableType]"</var>
 <var name="connect"><cond value="[MonitorAddress]">-connect [MonitorAddress]</cond></var>
 <build name="xmap: (single) -map2bsp">
 <command>[xmap] -map2bsp -v [connect] "[MapFile]"</command>

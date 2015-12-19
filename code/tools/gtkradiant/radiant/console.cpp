@@ -151,7 +151,7 @@ public:
   }
   std::size_t write(const char* buffer, std::size_t length)
   {
-    gtk_text_buffer_insert_with_tags(textBuffer, iter, buffer, gint(length), tag, 0);
+    gtk_text_buffer_insert_with_tags(textBuffer, iter, buffer, gint(length), tag, 0, NULL);
     return length;
   }
 };

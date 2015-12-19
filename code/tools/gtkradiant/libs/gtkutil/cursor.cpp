@@ -57,33 +57,6 @@ void default_cursor(GtkWidget* widget)
   gdk_window_set_cursor(widget->window, 0);
 }
 
-
-#if defined(WIN32)
-
-#include <gdk/gdkwin32.h>
-
-void Sys_GetCursorPos(GtkWindow* window, int *x, int *y)
-{
-  POINT pos;
-  GetCursorPos(&pos);
-  ScreenToClient((HWND)GDK_WINDOW_HWND(GTK_WIDGET(window)->window), &pos);
-  *x = pos.x;
-  *y = pos.y;
-}
-
-void Sys_SetCursorPos(GtkWindow* window, int x, int y)
-{
-  POINT pos;
-  pos.x = x;
-  pos.y = y;
-  ClientToScreen((HWND)GDK_WINDOW_HWND(GTK_WIDGET(window)->window), &pos);
-  SetCursorPos(pos.x, pos.y);
-}
-
-#else
-
-#include <gdk/gdkx.h>
-
 void Sys_GetCursorPos(GtkWindow* window, int *x, int *y)
 {
   gdk_display_get_pointer(gdk_display_get_default(), 0, x, y, 0);
@@ -91,7 +64,8 @@ void Sys_GetCursorPos(GtkWindow* window, int *x, int *y)
 
 void Sys_SetCursorPos(GtkWindow* window, int x, int y)
 {
-  XWarpPointer(GDK_DISPLAY(), None, GDK_ROOT_WINDOW(), 0, 0, 0, 0, x, y);
+    GdkScreen *screen;
+    gdk_display_get_pointer( gdk_display_get_default(), &screen, 0, 0, 0 );
+    gdk_display_warp_pointer( gdk_display_get_default(), screen, x, y );
 }
 
-#endif

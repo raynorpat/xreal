@@ -87,7 +87,7 @@ class Formatted
 {
 public:
   const char* m_format;
-  va_list m_arguments;
+  mutable va_list m_arguments;
   Formatted(const char* format, ...)
     : m_format(format)
   {

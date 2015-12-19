@@ -180,12 +180,12 @@ public:
 template<typename Type>
 inline bool operator<(const SmartReference<Type>& self, const SmartReference<Type>& other)
 {
-  return self.get() < other.get();
+  return self.get_pointer() < other.get_pointer();
 }
 template<typename Type>
 inline bool operator==(const SmartReference<Type>& self, const SmartReference<Type>& other)
 {
-  return self.get() == other.get();
+  return self.get_pointer() == other.get_pointer();
 }
 template<typename Type>
 inline bool operator!=(const SmartReference<Type>& self, const SmartReference<Type>& other)

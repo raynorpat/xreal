@@ -48,12 +48,9 @@ void write_stack_trace(TextOutputStream& outputStream)
      // not a memleak, see www.gnu.org/software/libc/manual (Debugging Support, Backtraces)
      free(symbol_names);
   }
-}	
-#endif
+}
 
-#if defined (WIN32)
-
-#if defined (_MSC_VER)
+#elif defined ( WIN32 ) && defined ( _MSC_VER )
 
 #include "windows.h"
 #include "winnt.h"
@@ -310,13 +307,18 @@ void write_stack_trace(TextOutputStream& outputStream)
   __try{ RaiseException(0,0,0,0); } __except(write_stack_trace((GetExceptionInformation())->ContextRecord, outputStream), EXCEPTION_CONTINUE_EXECUTION) {}
 }
 
+#elif defined ( WIN32 )
+
+void write_stack_trace( TextOutputStream& outputStream ){
+    outputStream << "\nStacktrace is disabled on this compiler\n";
+}
+
 #else
 
 void write_stack_trace(TextOutputStream& outputStream)
 {
 	// Tr3B: TODO
+    outputStream << "\nStacktrace is disabled on this platform\n";
 }
-
-#endif // defined(_MSC_VER)
 
 #endif

@@ -103,7 +103,7 @@ namespace
     g_FindTextureDialog.exportData();
     FindTextureDialog_apply();
   }
-
+/*
   static void OnFind(GtkWidget* widget, gpointer data) 
   {
     g_FindTextureDialog.exportData();
@@ -116,12 +116,11 @@ namespace
     FindTextureDialog_apply();
     g_FindTextureDialog.HideDlg();
   }
-
+*/
   static void OnClose(GtkWidget* widget, gpointer data) 
   {
     g_FindTextureDialog.HideDlg();
   }
-
 
   static gint find_focus_in (GtkWidget* widget, GdkEventFocus *event, gpointer data)
   {

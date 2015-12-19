@@ -79,8 +79,7 @@ void message_print(message_info_t* self, const char* characters, std::size_t len
 }
 
 
-#include <glib/gtimer.h>
-#include <glib/garray.h>
+#include <glib.h>
 #include "xmlstuff.h"
 
 class CWatchBSP
@@ -109,7 +108,6 @@ private:
   char    *m_sBSPName;
   // buffer we use in push mode to receive data directly from the network
   xmlParserInputBufferPtr m_xmlInputBuffer;
-  xmlParserInputPtr m_xmlInput;
   xmlParserCtxtPtr m_xmlParserCtxt;
   // call this to switch the set listening mode
   bool SetupListening();

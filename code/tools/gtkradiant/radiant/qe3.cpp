@@ -172,12 +172,10 @@ bool ConfirmModified(const char* title)
 
 
 const char* const EXECUTABLE_TYPE = 
-#if defined(__linux__) || defined (__FreeBSD__)
-"x86"
-#elif defined(__APPLE__)
-"ppc"
+#if defined(__linux__) || defined (__FreeBSD__) || defined(__APPLE__)
+""
 #elif defined(WIN32)
-"exe"
+".exe"
 #else
 #error "unknown platform"
 #endif

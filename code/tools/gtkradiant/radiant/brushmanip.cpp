@@ -553,7 +553,6 @@ public:
 class FaceFindShader
 {
   const char* m_find;
-  const char* m_replace;
 public:
   FaceFindShader(const char* find) : m_find(find)
   {

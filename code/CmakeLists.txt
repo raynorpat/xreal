@@ -45,11 +45,7 @@ find_package(ZLIB REQUIRED)
 find_package(Freetype REQUIRED)
 find_package(JPEG REQUIRED)
 find_package(PNG REQUIRED)
-
-# We need SDL only on non-Windows platforms
-if (NOT ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-    find_package(SDL REQUIRED)
-endif()
+find_package(SDL REQUIRED)
 
 macro(find_windows_release_libs libs)
     foreach (lib_name ${${libs}})

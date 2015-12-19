@@ -53,12 +53,12 @@ public:
 template<typename Type>
 bool operator<(const Reference<Type>& self, const Reference<Type>& other)
 {
-  return self.get() < other.get();
+  return self.get_pointer() < other.get_pointer();
 }
 template<typename Type>
 bool operator==(const Reference<Type>& self, const Reference<Type>& other)
 {
-  return self.get() == other.get();
+  return self.get_pointer() == other.get_pointer();
 }
 
 /// \brief construct a reference to a mutable object.

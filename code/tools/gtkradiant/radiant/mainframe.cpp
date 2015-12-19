@@ -523,9 +523,10 @@ public:
 const char* const c_library_extension =
 #if defined(WIN32)
 "dll"
-#elif defined (__APPLE__)
-"dylib"
-#elif defined(__linux__) || defined (__FreeBSD__)
+//#elif defined (__APPLE__)
+//"dylib"
+//#elif defined(__linux__) || defined (__FreeBSD__)
+#else
 "so"
 #endif
 ;
@@ -2522,7 +2523,6 @@ GtkToolbar* create_main_toolbar(MainFrame::EViewStyle style)
   gtk_toolbar_append_space (GTK_TOOLBAR (toolbar));
   GtkButton* g_refresh_models_button = toolbar_append_button(toolbar, "Refresh Models", "refresh_models.bmp", "RefreshReferences");
 
-
   // disable the console and texture button in the regular layouts
   if(style == MainFrame::eRegular || style == MainFrame::eRegularLeft)
   {
@@ -3501,10 +3501,10 @@ void MainFrame_Construct()
     const char* ENGINEPATH_ATTRIBUTE =
 #if defined(WIN32)
       "enginepath_win32"
-#elif defined(__linux__) || defined (__FreeBSD__)
-      "enginepath_linux"
 #elif defined(__APPLE__)
       "enginepath_macos"
+#elif defined(__linux__) || defined (__FreeBSD__)
+      "enginepath_linux"
 #else
 #error "unknown platform"
 #endif

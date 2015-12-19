@@ -21,7 +21,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include "patch.h"
 
-#include <glib/gslist.h>
+#include <glib.h>
 #include "preferences.h"
 #include "brush_primit.h"
 #include "signal/signal.h"
@@ -2459,8 +2459,6 @@ void Patch::accumulateVertexTangentSpace(std::size_t index, Vector3 tangentX[6],
   }
 }
 
-const std::size_t PATCH_MAX_VERTEX_ARRAY = 1048576;
-
 void Patch::BuildVertexArray()
 {
   const std::size_t strideU = 1;
@@ -2469,7 +2467,6 @@ void Patch::BuildVertexArray()
   const std::size_t numElems = m_tess.m_nArrayWidth*m_tess.m_nArrayHeight; // total number of elements in vertex array
 
   const bool bWidthStrips = (m_tess.m_nArrayWidth >= m_tess.m_nArrayHeight); // decide if horizontal strips are longer than vertical
-
 
   // allocate vertex, normal, texcoord and primitive-index arrays
   m_tess.m_vertices.resize(numElems);
