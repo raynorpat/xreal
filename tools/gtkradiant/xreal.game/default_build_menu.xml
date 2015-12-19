@@ -60,7 +60,7 @@ build commands
 </build>
 
 
-<var name="xmap2">"[EnginePath]xmap2.[ExecutableType]" <cond value="[MonitorAddress]"> -connect [MonitorAddress]</cond> -game xreal -fs_basepath "[EnginePath]"<cond value="[GameName]"> -fs_game [GameName]</cond></var>
+<var name="xmap2">"[EnginePath]xmap2[ExecutableType]" <cond value="[MonitorAddress]"> -connect [MonitorAddress]</cond> -game xreal -fs_basepath "[EnginePath]"<cond value="[GameName]"> -fs_game [GameName]</cond></var>
 <build name="xmap2: (single) BSP">
 <command>[xmap2] -v "[MapFile]"</command>
 </build>
